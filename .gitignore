@@ -1,0 +1,23 @@
+# Entornos virtuales de Python
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+build/
+.npm/
+
+# Entorno y variables secretas
+.env
+.env.local
+
+# IDE y SO
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
