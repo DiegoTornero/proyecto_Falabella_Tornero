@@ -7,6 +7,7 @@ from app.schemas.schemas import RegistroEmpresaSchema, SolicitudCreditoEmpresari
 from app.dependencies import get_current_user
 import uuid
 import requests
+import os
 
 router = APIRouter()
 
@@ -152,7 +153,8 @@ def solicitar_credito_empresarial(
             "plazo_meses": data.plazo_meses,
             "cobra_seguro_desgravamen": data.cobra_seguro_desgravamen,
         }
-        res = requests.post("http://127.0.0.1:8001/scoring/evaluar-empresarial", json=core_payload, timeout=5)
+        CORE_API_URL = os.getenv("CORE_API_URL", "http://127.0.0.1:8001")
+        res = requests.post(f"{CORE_API_URL}/scoring/evaluar-empresarial", json=core_payload, timeout=5)
         if res.status_code == 200:
             core_data = res.json()
             credito.estado = core_data.get("estado", "enviado")

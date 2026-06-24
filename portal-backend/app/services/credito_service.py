@@ -3,6 +3,7 @@ from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta, date
 import requests
+import os
 
 credito_repo = CreditoRepository()
 
@@ -44,7 +45,8 @@ class CreditoService:
                 "monto_solicitado": data["monto_solicitado"],
                 "plazo_meses": data["plazo_meses"]
             }
-            res = requests.post("http://127.0.0.1:8001/scoring/evaluar", json=core_payload, timeout=5)
+            CORE_API_URL = os.getenv("CORE_API_URL", "http://127.0.0.1:8001")
+            res = requests.post(f"{CORE_API_URL}/scoring/evaluar", json=core_payload, timeout=5)
             if res.status_code == 200:
                 core_data = res.json()
                 credito.estado = core_data.get("estado", "enviado")

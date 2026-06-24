@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -16,13 +17,8 @@ app = FastAPI(
 )
 
 # ─── Defensa 5: CORS estricto ───
-ORIGINES_PERMITIDOS = [
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "http://127.0.0.1:5173",
-    "http://127.0.0.1:5174",
-    "http://localhost:8000",
-]
+FRONTEND_URLS = os.getenv("FRONTEND_URLS", "http://localhost:5173,http://localhost:5174,http://127.0.0.1:5173,http://127.0.0.1:5174,http://localhost:8000")
+ORIGINES_PERMITIDOS = [url.strip() for url in FRONTEND_URLS.split(",")]
 
 app.add_middleware(
     CORSMiddleware,
