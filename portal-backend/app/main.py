@@ -35,7 +35,7 @@ app.add_middleware(
     allow_origins=ORIGINES_PERMITIDOS,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["Authorization", "Content-Type", "Accept"],
+    allow_headers=["*"],
 )
 
 # ─── Defensa 5: Headers de seguridad HTTP en todas las respuestas ───
