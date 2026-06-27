@@ -1,5 +1,7 @@
 import os
-import bcrypt as bcrypt_lib
+from passlib.context import CryptContext
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 from datetime import datetime, timedelta, timezone, date
 from jose import jwt
 from sqlalchemy.orm import Session
@@ -12,11 +14,10 @@ ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 60))
 
 class AuthRepository:
     def hash_password(self, password: str) -> str:
-        salt = bcrypt_lib.gensalt()
-        return bcrypt_lib.hashpw(password.encode("utf-8"), salt).decode("utf-8")
+        return pwd_context.hash(password)
 
     def verify_password(self, plain: str, hashed: str) -> bool:
-        return bcrypt_lib.checkpw(plain.encode("utf-8"), hashed.encode("utf-8"))
+        return pwd_context.verify(plain, hashed)
 
     def create_token(self, data: dict) -> str:
         to_encode = data.copy()
