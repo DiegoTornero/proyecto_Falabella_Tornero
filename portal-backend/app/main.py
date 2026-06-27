@@ -22,6 +22,14 @@ app = FastAPI(
 FRONTEND_URLS = os.getenv("FRONTEND_URLS", "http://localhost:5173,http://localhost:5174,http://127.0.0.1:5173,http://127.0.0.1:5174")
 ORIGINES_PERMITIDOS = [url.strip() for url in FRONTEND_URLS.split(",")]
 
+# URLs de producción hardcodeadas como fallback de seguridad
+ORIGINES_PRODUCCION = [
+    "https://proyecto-falabella-tornero-ja2i.vercel.app",
+]
+for url in ORIGINES_PRODUCCION:
+    if url not in ORIGINES_PERMITIDOS:
+        ORIGINES_PERMITIDOS.append(url)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ORIGINES_PERMITIDOS,
