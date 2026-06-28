@@ -178,7 +178,7 @@ export default function Dashboard() {
   }
 
   const saldoTotal = cuentas.reduce((acc, c) => acc + parseFloat(c.saldo || 0), 0)
-  const creditosActivos = creditos.filter(c => c.estado !== "rechazado" && c.estado !== "pagado")
+  const creditosActivos = creditos.filter(c => ["aprobado", "desembolsado", "activo"].includes(c.estado?.toLowerCase()))
   const deudaTotal = creditosActivos.reduce((acc, c) =>
     acc + calcularTotalDeuda(c.monto_aprobado || c.monto_solicitado, c.plazo_meses, c.tasa_interes), 0)
 
