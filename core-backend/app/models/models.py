@@ -265,8 +265,53 @@ class Notificacion(Base):
     titulo = Column(String(150), nullable=False)
     mensaje = Column(Text, nullable=False)
     leida = Column(Boolean, default=False)
-    tipo = Column(String(50), default="INFO")  # INFO | ALERTA | EXITOSO | PROMOCION
-    fecha = Column(DateTime(timezone=True), server_default=func.now())
     usuario_id = Column(String, ForeignKey("usuarios.id", ondelete="CASCADE"), nullable=False)
 
     usuario = relationship("Usuario", back_populates="notificaciones")
+
+
+class PowerBIResumenCartera(Base):
+    """
+    Tabla oficial en PostgreSQL para alimentar el Dashboard de Power BI - Hoja 1 (Resumen Ejecutivo).
+    Almacena los registros transaccionales e históricos por fecha, agencia y producto.
+    """
+    __tablename__ = "powerbi_resumen_cartera"
+
+    id = Column(Integer, primary_key=True, index=True)
+    fecha = Column(String(20), index=True)
+    anio = Column(Integer, index=True)
+    mes = Column(String(5))
+    oficina = Column(String(100), index=True)
+    zona = Column(String(50), index=True)
+    tipo_producto = Column(String(100), index=True)
+    cartera_total = Column(Float, default=0.0)
+    cartera_vigente = Column(Float, default=0.0)
+    cartera_vencida = Column(Float, default=0.0)
+    ratio_mora = Column(Float, default=0.0)
+    tasa_promedio = Column(Float, default=0.0)
+    numero_clientes = Column(Integer, default=0)
+    ticket_promedio = Column(Float, default=0.0)
+
+
+class PowerBIDetalleMora(Base):
+    """
+    Tabla oficial en PostgreSQL para alimentar el Dashboard de Power BI - Hoja 2 (Análisis de Mora).
+    Almacena el detalle de vencimiento y semaforización de riesgo por banda y oficina.
+    """
+    __tablename__ = "powerbi_detalle_mora"
+
+    id = Column(Integer, primary_key=True, index=True)
+    fecha = Column(String(20), index=True)
+    anio = Column(Integer, index=True)
+    mes = Column(String(5))
+    oficina = Column(String(100), index=True)
+    zona = Column(String(50), index=True)
+    tipo_producto = Column(String(100))
+    banda_morosidad = Column(String(100), index=True)
+    cartera_total = Column(Float, default=0.0)
+    vencida = Column(Float, default=0.0)
+    ratio_mora = Column(Float, default=0.0)
+    estado = Column(String(20), index=True)  # Alto | Medio | OK
+    alerta_prioritaria = Column(String(150))
+    accion_recuperacion = Column(String(100))
+    clientes_morosos = Column(Integer, default=0)
