@@ -153,25 +153,38 @@ TOTALES FINALES               —             S/ 10,000.00       S/ 934.76     S
 
 ## 3. DASHBOARD EJECUTIVO DE BUSINESS INTELLIGENCE (BI) Y ANALÍTICA DE CARTERA
 
-Para cumplir con el requerimiento de visualización y análisis de datos tipo **Power BI**, nuestro proyecto integra un **Motor Ejecutivo de Analítica en Tiempo Real (`/analytics`)** dentro de la interfaz web del Core Bancario. Este módulo permite a la alta dirección tomar decisiones estratégicas fundamentadas en datos vivos de la base de datos PostgreSQL.
+Para cumplir con el requerimiento de visualización y análisis de datos en **Power BI**, nuestro proyecto integra los datos estructurados en un reporte ejecutivo dividido en **Dos Hojas (Páginas) Especializadas**, las cuales se alimentan directamente de las tablas del Core Bancario (`powerbi_creditos.csv`, `powerbi_morosidad.csv`, `powerbi_empresas.csv`).
 
-### 📈 Indicadores y Gráficos que presenta el Dashboard del Core
+### 📊 Estructura Oficial del Reporte Power BI en 2 Hojas
 
-#### 1. Distribución Crediticia según Semáforo de Riesgo (RDS)
-El sistema clasifica automáticamente toda la cartera activa en tres paneles dinámicos:
-* 🟢 **Cartera Verde (Riesgo Bajo — RDS ≤ 30%):** Representa el volumen de créditos saludables aprobados de forma algorítmica.
-* 🟡 **Cartera Amarilla (Riesgo Medio — RDS 31% a 45%):** Préstamos derivados a bandeja de supervisores y analistas de riesgo para revisión manual de boletas.
-* 🔴 **Cartera Roja (Riesgo Alto — RDS > 45%):** Solicitudes observadas o denegadas para proteger a la entidad de índices de morosidad irrecuperables.
+#### 📑 Hoja 1: Colocaciones, Scoring y Motor de Riesgo (Bandeja Comercial)
+Esta primera hoja está diseñada para el Gerente Comercial y el Jefe de Créditos. Muestra cómo fluyen las solicitudes que ingresan desde el Homebanking hacia el Core Financiero:
+1. **Tarjetas de KPIs Principales (Parte Superior):**
+   * **Monto Total Colocado:** Sumatoria total de préstamos aprobados y desembolsados en cuentas de ahorro.
+   * **Score Promedio de Cartera:** Calificación FICO/Scoring promedio (ej. 745 puntos).
+   * **Tasa Promedio (TEA):** Promedio ponderado de interés aplicado al cliente según tarifario.
+2. **Gráfico de Anillo — Semaforización RDS (Capacidad de Pago):**
+   * Muestra la proporción de solicitudes clasificadas en 🟢 **Verde** (Aprobación Automática ≤ 30% RDS), 🟡 **Amarillo** (Revisión por Comité 31%–45% RDS) y 🔴 **Rojo** (Denegadas por sobreendeudamiento > 45%).
+3. **Gráfico de Columnas Agrupadas — Colocaciones por Tipo de Producto:**
+   * Comparativa de *Monto Solicitado* vs. *Monto Aprobado* desglosado por Crédito Efectivo Personal, Crédito PYME y Consumo Preferencial.
+4. **Tabla Resumen de Últimas Operaciones:**
+   * Lista detallada con ID de Crédito, Cuota Mensual calculada (Sistema Francés), Plazo y Estado actual.
 
-#### 2. Matriz de Morosidad por Bandas de Envejecimiento (Aging de Cartera)
-El dashboard grafica en barras horizontales la concentración de la deuda de acuerdo a los días de retraso en el pago de cuotas:
-* **Banda Preventiva (1 a 30 días de mora):** Activa recordatorios automáticos por SMS y Push en el Homebanking.
-* **Banda Temprana (31 a 60 días):** Asigna el caso a teleoperadores de cobranza.
-* **Banda Tardía (61 a 120 días):** Aplica la Tasa Moratoria Anual (TMA del 5.0%).
-* **Banda Judicial (121 a 180 días) & Castigo (>180 días):** Bloqueo total de productos bancarios y reporte de calificación "Pérdida" ante la Central de Riesgos de la SBS.
-
-#### 3. Visión 360° y Concentración Comercial (Empresas PYME)
-Muestra el total consolidado de facturación anual de clientes empresariales y evalúa la exposición crediticia de la institución frente a sectores claves de la economía (Comercio Minorista, Textil de Gamarra, Transporte y Agroindustria).
+#### 📑 Hoja 2: Calidad de Cartera, Morosidad (Aging) y PYME (Bandeja de Recuperaciones)
+Esta segunda hoja está dirigida al Comité de Riesgos y Cobranzas para monitorear la salud financiera del banco:
+1. **Tarjetas de KPIs de Morosidad:**
+   * **Saldo Deudor en Riesgo:** Capital total acumulado en retraso.
+   * **Índice de Morosidad (IM):** Porcentaje de cartera vencida sobre colocaciones totales.
+2. **Gráfico de Barras Horizontales — Aging de Deuda por Bandas:**
+   * Clasifica las deudas según sus días de vencimiento:
+     * **Preventiva (1–30 días):** Gestión con alertas automáticas SMS/Push al Homebanking.
+     * **Temprana (31–60 días):** Gestión por Call Center.
+     * **Tardía (61–120 días):** Aplicación de Tasa Moratoria Anual (TMA 5.0%).
+     * **Judicial (121–180 días) & Castigo (>180 días):** Bloqueo de productos y pase a legales/Infocorp.
+3. **Gráfico Circular — Concentración Comercial 360° (Empresas PYME):**
+   * Distribución del crédito corporativo según sector económico (Comercio Minorista, Textil de Gamarra, Transporte, Tecnología).
+4. **Gráfico de Líneas — Evolución de Proyectos de Cobranza:**
+   * Muestra el impacto y recuperación tras las gestiones realizadas por el personal bancario.
 
 ---
 
