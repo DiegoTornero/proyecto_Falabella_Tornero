@@ -1,12 +1,12 @@
 import sys
 import os
+from datetime import datetime
 
 # Agregar core-backend al path para importar modelos y base de datos
 sys.path.append(os.path.join(os.path.dirname(__file__), "core-backend"))
 
 from app.database import engine, Base, SessionLocal
-from app.models.models import PowerBIResumenCartera, PowerBIDetalleMora
-import random
+from app.models.models import PowerBIResumenCartera, PowerBIDetalleMora, Credito, Empresa
 
 print("Creando tablas en la base de datos PostgreSQL (si no existen)...")
 Base.metadata.create_all(bind=engine)
@@ -18,89 +18,115 @@ try:
     db.query(PowerBIDetalleMora).delete()
     db.commit()
 
-    print("Generando miles de registros para insertar en las tablas SQL oficiales...")
-    oficinas_data = [
-        ("OF. PRINCIPAL", "Zona Lima", 22100000, 6.2, 28.5),
-        ("AG. LIMA 1", "Zona Lima", 18200000, 3.8, 32.4),
-        ("AG. LIMA 2", "Zona Lima", 16100000, 4.5, 31.0),
-        ("AG. SUR 1", "Zona Sur", 13300000, 7.1, 21.2),
-        ("AG. SUR 2", "Zona Sur", 11400000, 8.5, 22.0),
-        ("AG. SUR 3", "Zona Sur", 9200000, 10.2, 23.5),
-        ("AG. NORTE 6", "Zona Norte", 6400000, 8.7, 28.1),
-        ("AG. ORIENTE 2", "Zona Oriente", 7800000, 11.8, 24.6)
-    ]
-    productos = [
-        ("Crédito Efectivo Personal", 0.40, 26.5),
-        ("Crédito PYME Comercial", 0.30, 22.0),
-        ("Tarjeta de Crédito CMR", 0.20, 35.0),
-        ("Crédito Vehicular", 0.10, 16.5)
-    ]
-    bandas_mora = [
-        ("Preventiva (1-30 días)", 0.45, "Alerta SMS/Push"),
-        ("Temprana (31-60 días)", 0.25, "Llamada Call Center"),
-        ("Tardía (61-120 días)", 0.15, "Cobranza Extrajudicial"),
-        ("Judicial (121-180 días)", 0.10, "Proceso Legal"),
-        ("Castigo (>180 días)", 0.05, "Pérdida Infocorp")
-    ]
+    print("Consultando créditos reales del Core Bancario para cuadre perfecto...")
+    oficinas_map = {
+        "OF. PRINCIPAL": "Zona Lima",
+        "AG. LIMA 1": "Zona Lima",
+        "AG. LIMA 2": "Zona Lima",
+        "AG. SUR 1": "Zona Sur",
+        "AG. SUR 2": "Zona Sur",
+        "AG. SUR 3": "Zona Sur",
+        "AG. NORTE 6": "Zona Norte",
+        "AG. ORIENTE 2": "Zona Oriente"
+    }
+
+    creditos = db.query(Credito).all()
+    print(f"Total créditos en el Core: {len(creditos)}")
+
+    def norm_prod(p):
+        if not p: return "Crédito PYME Comercial"
+        n = p.lower()
+        if "personal" in n or "efectivo" in n: return "Crédito Efectivo Personal"
+        if "cmr" in n or "tarjeta" in n: return "Tarjeta de Crédito CMR"
+        if "vehicular" in n or "auto" in n: return "Crédito Vehicular"
+        return "Crédito PYME Comercial"
+
+    def norm_banda(dias, est):
+        if not dias or dias == 0:
+            if est != "moroso": return "Al día (Sin Mora)"
+            dias = 35
+        if dias > 180: return "Castigo (>180 días)"
+        if dias > 120: return "Judicial (121-180 días)"
+        if dias > 60: return "Tardía (61-120 días)"
+        if dias > 30: return "Temprana (31-60 días)"
+        return "Preventiva (1-30 días)"
+
+    agrupados_h1 = {}
+    agrupados_h2 = {}
+
+    for c in creditos:
+        emp = c.empresa
+        ofi = emp.direccion if emp and emp.direccion in oficinas_map else "OF. PRINCIPAL"
+        zona = oficinas_map[ofi]
+        f_dt = c.created_at if c.created_at else datetime(2025, 1, 1)
+        f_str = f"{f_dt.year}-{f_dt.month:02d}-01"
+        prod = norm_prod(c.tipo_producto)
+        banda = norm_banda(c.dias_mora, c.estado)
+        monto = round(c.monto_aprobado or c.monto_solicitado or 0.0, 2)
+
+        k1 = (f_str, f_dt.year, f"{f_dt.month:02d}", ofi, zona, prod)
+        if k1 not in agrupados_h1:
+            agrupados_h1[k1] = {"total": 0.0, "vencida": 0.0, "tasas": [], "clientes": 0}
+        agrupados_h1[k1]["total"] += monto
+        agrupados_h1[k1]["tasas"].append(c.tasa_interes or 25.0)
+        agrupados_h1[k1]["clientes"] += 1
+        if banda != "Al día (Sin Mora)":
+            agrupados_h1[k1]["vencida"] += monto
+
+        k2 = (f_str, f_dt.year, f"{f_dt.month:02d}", ofi, zona, prod, banda)
+        if k2 not in agrupados_h2:
+            agrupados_h2[k2] = {"total": 0.0, "vencida": 0.0, "morosos": 0}
+        agrupados_h2[k2]["total"] += monto
+        if banda != "Al día (Sin Mora)":
+            agrupados_h2[k2]["vencida"] += monto
+            agrupados_h2[k2]["morosos"] += 1
 
     lote_resumen = []
-    start_year = 2023
-    for year in range(start_year, 2027):
-        for month in range(1, 13):
-            if year == 2026 and month > 6: break
-            fecha_str = f"{year}-{month:02d}-01"
-            factor = 1 + ((year - start_year) * 0.12) + (month * 0.01)
-            
-            for ofi, zona, base_cart, base_mora, base_tasa in oficinas_data:
-                cart_ofi = base_cart * factor * random.uniform(0.95, 1.05)
-                for prod_nom, prod_peso, prod_tasa in productos:
-                    c_prod = round(cart_ofi * prod_peso * random.uniform(0.9, 1.1), 2)
-                    r_mora = round(base_mora * random.uniform(0.85, 1.15), 2)
-                    c_venc = round(c_prod * (r_mora / 100), 2)
-                    c_vig = round(c_prod - c_venc, 2)
-                    tasa = round(prod_tasa + random.uniform(-2.0, 2.0), 2)
-                    cli = int(c_prod / random.uniform(8000, 15000))
-                    
-                    lote_resumen.append(PowerBIResumenCartera(
-                        fecha=fecha_str, anio=year, mes=f"{month:02d}",
-                        oficina=ofi, zona=zona, tipo_producto=prod_nom,
-                        cartera_total=c_prod, cartera_vigente=c_vig, cartera_vencida=c_venc,
-                        ratio_mora=r_mora, tasa_promedio=tasa, numero_clientes=cli,
-                        ticket_promedio=round(c_prod/cli, 2) if cli > 0 else 0
-                    ))
+    for k1 in sorted(agrupados_h1.keys()):
+        val = agrupados_h1[k1]
+        f_str, anio, mes, ofi, zona, prod = k1
+        c_tot = round(val["total"], 2)
+        c_venc = round(val["vencida"], 2)
+        c_vig = round(c_tot - c_venc, 2)
+        ratio_m = round((c_venc / c_tot) * 100, 2) if c_tot > 0 else 0.0
+        tasa_p = round(sum(val["tasas"]) / len(val["tasas"]), 2)
+        cli = val["clientes"]
+        tick = round(c_tot / cli, 2) if cli > 0 else 0.0
+
+        lote_resumen.append(PowerBIResumenCartera(
+            fecha=f_str, anio=anio, mes=mes, oficina=ofi, zona=zona,
+            tipo_producto=prod, cartera_total=c_tot, cartera_vigente=c_vig,
+            cartera_vencida=c_venc, ratio_mora=ratio_m, tasa_promedio=tasa_p,
+            numero_clientes=cli, ticket_promedio=tick
+        ))
 
     lote_mora = []
-    for year in range(2024, 2027):
-        for month in range(1, 13):
-            if year == 2026 and month > 6: break
-            fecha_str = f"{year}-{month:02d}-01"
-            for ofi, zona, base_cart, base_mora, _ in oficinas_data:
-                cart_ofi = base_cart * (1 + (year-2024)*0.1) * random.uniform(0.97, 1.03)
-                for prod_nom, prod_peso, _ in productos:
-                    c_prod = cart_ofi * prod_peso
-                    r_mora = round(base_mora * random.uniform(0.9, 1.1), 2)
-                    mora_tot = c_prod * (r_mora / 100)
-                    for b_nom, b_peso, accion in bandas_mora:
-                        venc = round(mora_tot * b_peso * random.uniform(0.9, 1.1), 2)
-                        est = "Alto" if r_mora > 10.0 else ("Medio" if r_mora >= 5.0 else "OK")
-                        alerta = "Alerta mora alta (>10%)" if r_mora > 10.0 else ("Supervisión regular (5%-10%)" if r_mora >= 5.0 else "Mora controlada (<5%)")
-                        lote_mora.append(PowerBIDetalleMora(
-                            fecha=fecha_str, anio=year, mes=f"{month:02d}",
-                            oficina=ofi, zona=zona, tipo_producto=prod_nom,
-                            banda_morosidad=b_nom, cartera_total=round(c_prod, 2),
-                            vencida=venc, ratio_mora=r_mora, estado=est,
-                            alerta_prioritaria=alerta, accion_recuperacion=accion,
-                            clientes_morosos=max(1, int(venc / random.uniform(3000, 7000)))
-                        ))
+    for k2 in sorted(agrupados_h2.keys()):
+        val = agrupados_h2[k2]
+        f_str, anio, mes, ofi, zona, prod, banda = k2
+        c_tot = round(val["total"], 2)
+        c_venc = round(val["vencida"], 2)
+        ratio_m = round((c_venc / c_tot) * 100, 2) if c_tot > 0 else 0.0
+        est = "Alto" if ratio_m > 10.0 else ("Medio" if ratio_m >= 5.0 else "OK")
+        alerta = "Alerta mora alta (>10%)" if ratio_m > 10.0 else ("Supervisión regular (5%-10%)" if ratio_m >= 5.0 else "Mora controlada (<5%)")
+        accion = "Proceso Legal/Cobranza" if ratio_m > 10.0 else ("Llamada Call Center" if ratio_m >= 5.0 else "Monitoreo Regular")
+
+        lote_mora.append(PowerBIDetalleMora(
+            fecha=f_str, anio=anio, mes=mes, oficina=ofi, zona=zona,
+            tipo_producto=prod, banda_morosidad=banda, cartera_total=c_tot,
+            vencida=c_venc, ratio_mora=ratio_m, estado=est,
+            alerta_prioritaria=alerta, accion_recuperacion=accion,
+            clientes_morosos=val["morosos"]
+        ))
 
     print(f"Insertando {len(lote_resumen)} filas en powerbi_resumen_cartera...")
     db.bulk_save_objects(lote_resumen)
     print(f"Insertando {len(lote_mora)} filas en powerbi_detalle_mora...")
     db.bulk_save_objects(lote_mora)
     db.commit()
-    print("¡Población SQL completada y verificada exitosamente en la base de datos!")
+    print("¡Sincronización SQL completada con éxito!")
 except Exception as e:
     db.rollback()
-    print("Error al poblar BD:", e)
+    print("Error en población:", e)
 finally:
     db.close()

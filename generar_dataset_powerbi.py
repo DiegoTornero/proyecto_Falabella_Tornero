@@ -48,6 +48,10 @@ try:
     db.commit()
 
     creditos_reales = db.query(Credito).all()
+    for c in creditos_reales:
+        if not c.monto_aprobado or c.monto_aprobado == 0:
+            c.monto_aprobado = c.monto_solicitado or 0.0
+    db.commit()
     print(f"   -> Total de créditos en base de datos: {len(creditos_reales)}")
 
     # Si hay menos de 600 créditos, completamos volumen auténtico para que las gráficas no tengan huecos
