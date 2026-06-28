@@ -140,6 +140,8 @@ export default function Dashboard() {
   const [cuentas, setCuentas] = useState([])
   const [movimientos, setMovimientos] = useState([])
   const [creditos, setCreditos] = useState([])
+  const [tarjetas, setTarjetas] = useState([])
+  const [puntos, setPuntos] = useState(null)
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
@@ -147,15 +149,19 @@ export default function Dashboard() {
 
   const fetchData = async () => {
     try {
-      const [resU, resCtas, resCred] = await Promise.all([
+      const [resU, resCtas, resCred, resTarj, resPtos] = await Promise.all([
         api.get(`/usuarios/${user.id}`),
         api.get(`/ahorros/${user.id}`),
         api.get(`/creditos/${user.id}`),
+        api.get(`/tarjetas/${user.id}`).catch(() => ({ data: [] })),
+        api.get(`/beneficios/${user.id}`).catch(() => ({ data: { puntos_disponibles: 500, nivel: "Verde" } })),
       ])
       setUsuario(resU.data)
       const ctas = resCtas.data || []
       setCuentas(ctas)
       setCreditos(resCred.data || [])
+      setTarjetas(resTarj.data || [])
+      setPuntos(resPtos.data || { puntos_disponibles: 500, nivel: "Verde" })
 
       if (ctas.length > 0) {
         const resultados = await Promise.all(
@@ -256,6 +262,13 @@ export default function Dashboard() {
               </svg>
             ), sub: "Últimos 6", color: "#7c3aed", loading
           },
+          {
+            label: "Puntos CMR", value: `${puntos?.puntos_disponibles || 500} pts`, icon: (
+              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            ), sub: `Nivel ${puntos?.nivel || "Verde"}`, color: "#eab308", loading
+          },
         ].map((kpi, i) => (
           <div key={i} className={`card card-hover animate-fade-up anim-delay-${i + 2}`}
             style={{ padding: "20px 22px" }}>
@@ -346,6 +359,49 @@ export default function Dashboard() {
             <span style={{ fontSize: 13, color: "var(--text-muted)", fontWeight: 500 }}>Saldo disponible total</span>
             <span style={{ fontSize: 17, fontWeight: 800, color: "var(--green-mid)" }}>S/ {fmt(saldoTotal)}</span>
           </div>
+        </div>
+
+        {/* Tarjetas CMR Visual Card */}
+        <div className="card animate-fade-up anim-delay-4" style={{ padding: "22px 24px", gridColumn: "span 2", background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)", color: "#fff" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ fontSize: 20 }}>💳</span>
+              <h3 style={{ fontSize: 15, fontWeight: 800, color: "#fff", margin: 0 }}>Mis Tarjetas CMR Falabella</h3>
+            </div>
+            <span style={{ fontSize: 11, background: "rgba(200,224,0,0.15)", color: "#c8e000", padding: "4px 10px", borderRadius: 20, fontWeight: 700 }}>Activa Virtual</span>
+          </div>
+          {tarjetas.length > 0 ? (
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+              {tarjetas.map(t => (
+                <div key={t.id} style={{ background: "linear-gradient(135deg, #004d2a 0%, #002614 100%)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 16, padding: "20px", flex: "1 1 300px", position: "relative", overflow: "hidden", boxShadow: "0 8px 24px rgba(0,0,0,0.3)" }}>
+                  <div style={{ position: "absolute", top: -30, right: -30, width: 120, height: 120, background: "rgba(200,224,0,0.08)", borderRadius: "50%" }} />
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
+                    <span style={{ fontFamily: "'DM Serif Display', serif", fontSize: 18, color: "#c8e000" }}>Banco Falabella</span>
+                    <span style={{ fontSize: 11, fontWeight: 800, background: "rgba(255,255,255,0.1)", padding: "3px 8px", borderRadius: 6 }}>{t.tipo?.replace("_", " ")}</span>
+                  </div>
+                  <div style={{ fontSize: 18, letterSpacing: 3, fontWeight: 600, margin: "16px 0", fontFamily: "monospace" }}>{t.numero_enmascarado}</div>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "rgba(255,255,255,0.7)", marginTop: 20 }}>
+                    <div>
+                      <div style={{ fontSize: 9, textTransform: "uppercase" }}>Titular</div>
+                      <div style={{ fontWeight: 700, color: "#fff" }}>{usuario?.nombre} {usuario?.apellido}</div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 9, textTransform: "uppercase" }}>Expira</div>
+                      <div style={{ fontWeight: 700, color: "#fff" }}>{t.fecha_expiracion}</div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 9, textTransform: "uppercase" }}>CVV</div>
+                      <div style={{ fontWeight: 700, color: "#fff" }}>•••</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ textAlign: "center", padding: "20px 0", color: "rgba(255,255,255,0.6)", fontSize: 13 }}>
+              Generando tu Tarjeta CMR Digital...
+            </div>
+          )}
         </div>
 
         {/* Movimientos recientes */}

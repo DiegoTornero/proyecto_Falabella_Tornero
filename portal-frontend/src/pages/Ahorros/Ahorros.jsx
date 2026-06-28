@@ -18,6 +18,10 @@ export default function Ahorros() {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(false)
   const [mensaje, setMensaje] = useState("")
+  const [inversiones, setInversiones] = useState([])
+  const [activeTab, setActiveTab] = useState("ahorros") // "ahorros" | "plazo"
+  const [montoInvertir, setMontoInvertir] = useState("500")
+  const [plazoMeses, setPlazoMeses] = useState(12)
   
   // States for virtual credit card simulation
   const [numTarjeta, setNumTarjeta] = useState("")
@@ -38,6 +42,8 @@ export default function Ahorros() {
       const resCuentas = await api.get(`/ahorros/${user.id}`)
       const ctas = resCuentas.data || []
       setCuentas(ctas)
+
+      api.get(`/inversiones/${user.id}`).then(r => setInversiones(r.data || [])).catch(() => {})
 
       const resProductos = await api.get('/ahorros/productos')
       setProductos(resProductos.data || [])
@@ -196,196 +202,287 @@ export default function Ahorros() {
     setLoading(false)
   }
 
+  const handleAbrirInversion = async (e) => {
+    e.preventDefault()
+    if (!cuentaSeleccionada) {
+      setMensaje("❌ Selecciona una cuenta de ahorros activa para el débito")
+      return
+    }
+    setLoading(true)
+    setMensaje("")
+    try {
+      await api.post("/inversiones/apertura", {
+        usuario_id: user.id,
+        cuenta_ahorro_id: cuentaSeleccionada.id,
+        monto: parseFloat(montoInvertir),
+        plazo_meses: parseInt(plazoMeses)
+      })
+      setMensaje("✅ ¡Depósito a Plazo Fijo aperturado exitosamente!")
+      fetchData()
+    } catch (err) {
+      setMensaje("❌ Error al abrir depósito: " + (err.response?.data?.detail || err.message))
+    }
+    setLoading(false)
+  }
+
   const handleLogout = () => { logout(); navigate("/") }
 
   return (
     <Layout title="Mis Ahorros" subtitle="Gestiona tus cuentas y transferencias internas">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-xl font-bold text-[#0a1f14]">Mis Cuentas</h2>
-        <button onClick={() => setShowNuevaCuenta(true)}
-          className="bg-[#c8e000] hover:bg-[#b5cc00] text-[#0a1f14] text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-[0_4px_14px_rgba(200,224,0,0.4)] flex items-center gap-2">
-          <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          Nueva Cuenta
-        </button>
-
-      </div>
-
-      {mensaje && (
-        <div className={`rounded-xl px-5 py-4 mb-6 text-sm font-medium border ${mensaje.includes("❌")
-          ? "bg-red-50/50 border-red-200 text-red-700"
-          : "bg-green-50/50 border-green-200 text-[#00a651]"} flex items-center gap-3 backdrop-blur-sm`}>
-          {mensaje}
-        </div>
-      )}
-
-      {cuentas.length === 0 ? (
-        <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 p-16 text-center">
-          <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span className="text-4xl">🏦</span>
-          </div>
-          <h3 className="text-xl font-bold text-[#0a1f14] mb-2">No tienes cuentas aún</h3>
-          <p className="text-gray-500 text-sm mb-8 max-w-sm mx-auto">Abre tu primera cuenta de ahorros o cuenta corriente 100% digital y sin comisiones.</p>
-          <button onClick={() => setShowNuevaCuenta(true)}
-            className="bg-[#0a1f14] text-[#c8e000] font-bold px-8 py-3.5 rounded-xl hover:bg-black transition-colors shadow-lg">
-            Abrir Cuenta Ahora
+      <div className="flex justify-between items-center mb-6">
+        <div className="flex gap-4 border-b border-gray-200">
+          <button onClick={() => setActiveTab("ahorros")}
+            className={`pb-3 font-bold text-base transition-colors border-b-2 ${activeTab === "ahorros" ? "border-[#00a651] text-[#0a1f14]" : "border-transparent text-gray-400 hover:text-gray-600"}`}>
+            Mis Cuentas de Ahorro
+          </button>
+          <button onClick={() => setActiveTab("plazo")}
+            className={`pb-3 font-bold text-base transition-colors border-b-2 flex items-center gap-1.5 ${activeTab === "plazo" ? "border-[#00a651] text-[#0a1f14]" : "border-transparent text-gray-400 hover:text-gray-600"}`}>
+            📈 Depósito a Plazo Fijo
           </button>
         </div>
-      ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Columna Izquierda: Tarjetas de Cuenta */}
-          <div className="lg:col-span-4 flex flex-col gap-5">
-            {cuentas.map((c, idx) => {
-              const isSelected = cuentaSeleccionada?.id === c.id;
-              // Alternate styles for cards just for visual flair
-              const isDark = idx % 2 === 0; 
-              
-              return (
-                <div key={c.id}
-                  onClick={() => { setCuentaSeleccionada(c); fetchMovimientos(c.id) }}
-                  className={`relative overflow-hidden rounded-3xl p-6 cursor-pointer transition-all duration-300 ${isSelected
-                    ? "scale-105 shadow-xl ring-2 ring-[#c8e000] ring-offset-4 ring-offset-[#f5f7fa] z-10"
-                    : "hover:-translate-y-1 hover:shadow-lg opacity-90 hover:opacity-100"
-                  } ${isDark 
-                    ? "bg-gradient-to-br from-[#0a1f14] to-[#16422b] text-white" 
-                    : "bg-gradient-to-br from-[#1a422b] to-[#255c3c] text-white"
-                  }`}>
-                  
-                  {/* Card decorations */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl -mr-10 -mt-10"></div>
-                  
-                  <div className="flex justify-between items-start mb-8 relative z-10">
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-widest opacity-70 mb-1 flex items-center gap-2">
-                        Cuenta {c.tipo}
-                        {c.estado !== 'ACTIVA' && (
-                          <span className="bg-[#da291c] text-white text-[9px] font-black px-1.5 py-0.5 rounded animate-pulse">
-                            BLOQUEADA
-                          </span>
-                        )}
-                      </p>
-                      <p className="font-mono text-sm tracking-widest opacity-90">
-                        {c.numero_cuenta.replace(/(.{4})/g, '$1 ')}
-                      </p>
-                    </div>
-                    {/* Fake NFC icon */}
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50" viewBox="0 0 24 24">
-                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                    </svg>
-                  </div>
-                  
-                  <div className="relative z-10">
-                    <p className="text-xs font-medium opacity-70 mb-1">Saldo Disponible</p>
-                    <div className="flex items-end gap-2">
-                      <p className="text-2xl font-bold tracking-tight">
-                        <span className="text-lg opacity-80 mr-1">S/</span>{parseFloat(c.saldo).toFixed(2)}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-            
-            <button
-              onClick={() => {
-                if (cuentaSeleccionada?.estado !== 'ACTIVA') {
-                  alert("Esta cuenta está bloqueada y no se pueden realizar depósitos.");
-                  return;
-                }
-                if (!cuentaSeleccionada && cuentas.length > 0) setCuentaSeleccionada(cuentas[0])
-                setShowDeposito(true)
-              }}
-              disabled={cuentaSeleccionada?.estado !== 'ACTIVA'}
-              className={`mt-2 font-bold py-3.5 rounded-2xl transition-all text-sm flex items-center justify-center gap-2 border ${
-                cuentaSeleccionada?.estado !== 'ACTIVA'
-                  ? "bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed"
-                  : "bg-white border-gray-200 text-[#0a1f14] hover:border-[#c8e000] hover:shadow-md"
-              }`}
-            >
-              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-              Realizar Depósito
+        {activeTab === "ahorros" && (
+          <button onClick={() => setShowNuevaCuenta(true)}
+            className="bg-[#c8e000] hover:bg-[#b5cc00] text-[#0a1f14] text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-[0_4px_14px_rgba(200,224,0,0.4)] flex items-center gap-2">
+            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Nueva Cuenta
+          </button>
+        )}
+      </div>
+
+      {activeTab === "ahorros" ? (
+        cuentas.length === 0 ? (
+          <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 p-16 text-center">
+            <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span className="text-4xl">🏦</span>
+            </div>
+            <h3 className="text-xl font-bold text-[#0a1f14] mb-2">No tienes cuentas aún</h3>
+            <p className="text-gray-500 text-sm mb-8 max-w-sm mx-auto">Abre tu primera cuenta de ahorros o cuenta corriente 100% digital y sin comisiones.</p>
+            <button onClick={() => setShowNuevaCuenta(true)}
+              className="bg-[#0a1f14] text-[#c8e000] font-bold px-8 py-3.5 rounded-xl hover:bg-black transition-colors shadow-lg">
+              Abrir Cuenta Ahora
             </button>
           </div>
-
-          {/* Columna Derecha: Movimientos */}
-          <div className="lg:col-span-8 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 p-8 flex flex-col h-[600px]">
-            <div className="flex justify-between items-center mb-8 pb-4 border-b border-gray-100">
-              <div>
-                <h3 className="font-bold text-xl text-[#0a1f14]">Últimos Movimientos</h3>
-                {cuentaSeleccionada && (
-                  <p className="text-sm text-gray-500 font-medium mt-1">Cuenta {cuentaSeleccionada.numero_cuenta}</p>
-                )}
-              </div>
-              <div className="flex items-center gap-3">
-                {cuentaSeleccionada && (
-                  <button
-                    onClick={handleImprimirEstado}
-                    className="text-xs font-bold text-white bg-[#00a651] hover:bg-[#008f45] px-3.5 py-1.5 rounded-xl transition-all shadow-sm flex items-center gap-1.5"
-                  >
-                    📥 Descargar Estado de Cuenta
-                  </button>
-                )}
-                <span className="text-xs font-bold text-[#0a1f14] bg-[#c8e000]/20 px-3 py-1.5 rounded-full">
-                  {movimientos.length} transacciones
-                </span>
-              </div>
-            </div>
-            {cuentaSeleccionada && cuentaSeleccionada.estado !== 'ACTIVA' && (
-              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-[#da291c] flex items-center gap-3 animate-fade-up">
-                <span className="text-2xl">⚠️</span>
-                <div>
-                  <p className="font-black text-sm">Cuenta Bloqueada por Seguridad</p>
-                  <p className="text-xs font-medium text-red-600">Esta cuenta no puede realizar transferencias ni recibir depósitos/retiros.</p>
-                </div>
-              </div>
-            )}
-
-            <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
-              {!cuentaSeleccionada ? (
-                <div className="h-full flex flex-col items-center justify-center text-gray-400">
-                  <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                    <span className="text-2xl">👈</span>
-                  </div>
-                  <p className="text-sm font-medium">Selecciona una cuenta a la izquierda</p>
-                </div>
-              ) : movimientos.length === 0 ? (
-                <div className="h-full flex flex-col items-center justify-center text-gray-400">
-                  <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                    <span className="text-2xl">📋</span>
-                  </div>
-                  <p className="text-sm font-medium">No hay movimientos recientes en esta cuenta</p>
-                </div>
-              ) : (
-                <div className="space-y-2">
-                  {movimientos.map((m) => (
-                    <div key={m.id} className="group flex justify-between items-center p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
-                      <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center shadow-sm transition-transform group-hover:scale-105
-                          ${m.tipo === "deposito" ? "bg-green-50 text-[#00a651]" :
-                            m.tipo === "retiro" ? "bg-red-50 text-red-500" : "bg-blue-50 text-blue-500"}`}>
-                          {m.tipo === "deposito" ? (
-                            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-                          ) : m.tipo === "retiro" ? (
-                            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-                          ) : (
-                            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Columna Izquierda: Tarjetas de Cuenta */}
+            <div className="lg:col-span-4 flex flex-col gap-5">
+              {cuentas.map((c, idx) => {
+                const isSelected = cuentaSeleccionada?.id === c.id;
+                const isDark = idx % 2 === 0; 
+                return (
+                  <div key={c.id}
+                    onClick={() => { setCuentaSeleccionada(c); fetchMovimientos(c.id) }}
+                    className={`relative overflow-hidden rounded-3xl p-6 cursor-pointer transition-all duration-300 ${isSelected
+                      ? "scale-105 shadow-xl ring-2 ring-[#c8e000] ring-offset-4 ring-offset-[#f5f7fa] z-10"
+                      : "hover:-translate-y-1 hover:shadow-lg opacity-90 hover:opacity-100"
+                    } ${isDark 
+                      ? "bg-gradient-to-br from-[#0a1f14] to-[#16422b] text-white" 
+                      : "bg-gradient-to-br from-[#1a422b] to-[#255c3c] text-white"
+                    }`}>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                    <div className="flex justify-between items-start mb-8 relative z-10">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-widest opacity-70 mb-1 flex items-center gap-2">
+                          Cuenta {c.tipo}
+                          {c.estado !== 'ACTIVA' && (
+                            <span className="bg-red-500/80 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">Bloqueada</span>
                           )}
-                        </div>
-                        <div>
-                          <p className="font-bold text-[#0a1f14] capitalize">{m.tipo}</p>
-                          <p className="text-xs text-gray-500 font-medium mb-0.5">{m.descripcion || "Sin descripción"}</p>
-                          <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{new Date(m.created_at).toLocaleDateString("es-PE")}</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className={`font-bold text-lg ${m.tipo === "deposito" ? "text-[#00a651]" : "text-[#0a1f14]"}`}>
-                          {m.tipo === "deposito" ? "+" : "-"} S/ {parseFloat(m.monto).toFixed(2)}
                         </p>
+                        <p className="font-mono text-base tracking-wider font-bold">{c.numero_cuenta}</p>
                       </div>
+                      <span className={`w-3 h-3 rounded-full ${c.estado === 'ACTIVA' ? 'bg-[#c8e000]' : 'bg-red-400'}`}></span>
                     </div>
-                  ))}
+                    <div className="relative z-10">
+                      <p className="text-xs opacity-70 font-medium mb-1">Saldo Disponible</p>
+                      <p className="text-3xl font-black tracking-tight">S/ {parseFloat(c.saldo || 0).toLocaleString("es-PE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                    </div>
+                  </div>
+                )
+              })}
+
+              <button
+                onClick={() => {
+                  if (cuentas.length === 0) {
+                    setMensaje("❌ Necesitas al menos una cuenta de ahorros para depositar")
+                    return
+                  }
+                  setShowDeposito(true)
+                }}
+                disabled={!cuentaSeleccionada || cuentaSeleccionada?.estado !== 'ACTIVA'}
+                className={`w-full py-4 px-6 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all shadow-sm border ${
+                  !cuentaSeleccionada || cuentaSeleccionada?.estado !== 'ACTIVA'
+                    ? "bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed"
+                    : "bg-white border-gray-200 text-[#0a1f14] hover:border-[#c8e000] hover:shadow-md"
+                }`}
+              >
+                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                Realizar Depósito
+              </button>
+            </div>
+
+            {/* Columna Derecha: Movimientos */}
+            <div className="lg:col-span-8 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 p-8 flex flex-col h-[600px]">
+              <div className="flex justify-between items-center mb-8 pb-4 border-b border-gray-100">
+                <div>
+                  <h3 className="font-bold text-xl text-[#0a1f14]">Últimos Movimientos</h3>
+                  {cuentaSeleccionada && (
+                    <p className="text-sm text-gray-500 font-medium mt-1">Cuenta {cuentaSeleccionada.numero_cuenta}</p>
+                  )}
+                </div>
+                <div className="flex items-center gap-3">
+                  {cuentaSeleccionada && (
+                    <button onClick={handleImprimirEstado}
+                      className="text-xs font-bold text-white bg-[#00a651] hover:bg-[#008f45] px-3.5 py-1.5 rounded-xl transition-all shadow-sm flex items-center gap-1.5">
+                      📥 Descargar Estado de Cuenta
+                    </button>
+                  )}
+                  <span className="text-xs font-bold text-[#0a1f14] bg-[#c8e000]/20 px-3 py-1.5 rounded-full">
+                    {movimientos.length} transacciones
+                  </span>
+                </div>
+              </div>
+              {cuentaSeleccionada && cuentaSeleccionada.estado !== 'ACTIVA' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-[#da291c] flex items-center gap-3 animate-fade-up">
+                  <span className="text-2xl">⚠️</span>
+                  <div>
+                    <p className="font-black text-sm">Cuenta Bloqueada por Seguridad</p>
+                    <p className="text-xs font-medium text-red-600">Esta cuenta no puede realizar transferencias ni recibir depósitos/retiros.</p>
+                  </div>
                 </div>
               )}
+
+              <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                {!cuentaSeleccionada ? (
+                  <div className="h-full flex flex-col items-center justify-center text-gray-400">
+                    <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4"><span className="text-2xl">👈</span></div>
+                    <p className="text-sm font-medium">Selecciona una cuenta a la izquierda</p>
+                  </div>
+                ) : movimientos.length === 0 ? (
+                  <div className="h-full flex flex-col items-center justify-center text-gray-400">
+                    <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4"><span className="text-2xl">📋</span></div>
+                    <p className="text-sm font-medium">No hay movimientos recientes en esta cuenta</p>
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    {movimientos.map((m) => (
+                      <div key={m.id} className="group flex justify-between items-center p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                        <div className="flex items-center gap-4">
+                          <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-lg ${m.tipo === "deposito" ? "bg-[#00a651]/10 text-[#00a651]" : "bg-red-50 text-[#da291c]"}`}>
+                            {m.tipo === "deposito" ? "↓" : "↑"}
+                          </div>
+                          <div>
+                            <p className="font-bold text-sm text-[#0a1f14] capitalize mb-0.5">{m.tipo}</p>
+                            <p className="text-xs text-gray-500 font-medium">{m.descripcion || "Operación regular"}</p>
+                            <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{new Date(m.created_at).toLocaleDateString("es-PE")}</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className={`font-bold text-lg ${m.tipo === "deposito" ? "text-[#00a651]" : "text-[#0a1f14]"}`}>
+                            {m.tipo === "deposito" ? "+" : "-"} S/ {parseFloat(m.monto).toFixed(2)}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
+          </div>
+        )
+      ) : (
+        /* VISTA DEPÓSITOS A PLAZO FIJO */
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 animate-fade-up">
+          <div className="lg:col-span-5 bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-3xl">📈</span>
+              <div>
+                <h3 className="font-bold text-xl text-[#0a1f14]">Simulador y Apertura</h3>
+                <p className="text-xs text-gray-500 font-medium">Haz crecer tu dinero con tasas garantizadas</p>
+              </div>
+            </div>
+
+            <form onSubmit={handleAbrirInversion} className="space-y-5">
+              <div>
+                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Monto a Invertir (S/)</label>
+                <input type="number" min="100" step="50" required value={montoInvertir} onChange={e => setMontoInvertir(e.target.value)}
+                  className="w-full mt-2 border border-gray-200 rounded-xl px-4 py-3 font-bold text-lg text-[#0a1f14] focus:ring-2 focus:ring-[#c8e000] focus:outline-none bg-gray-50" />
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Plazo de Inversión</label>
+                <div className="grid grid-cols-3 gap-3 mt-2">
+                  {[6, 12, 24].map(m => (
+                    <button type="button" key={m} onClick={() => setPlazoMeses(m)}
+                      className={`py-3 rounded-xl font-bold text-sm transition-all border ${plazoMeses === m ? "bg-[#0a1f14] text-[#c8e000] border-[#0a1f14] shadow-md" : "bg-white text-gray-600 border-gray-200 hover:border-gray-300"}`}>
+                      {m} meses
+                      <span className="block text-[10px] font-normal opacity-80">{m === 6 ? "TREA 5.5%" : m === 12 ? "TREA 6.8%" : "TREA 7.5%"}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-[#f8f5ed] p-5 rounded-2xl border border-[#d9d0bc]/60 space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">TREA aplicada:</span>
+                  <span className="font-bold text-[#00693c]">{plazoMeses === 6 ? "5.5%" : plazoMeses === 12 ? "6.8%" : "7.5%"}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Ganancia estimada:</span>
+                  <span className="font-bold text-[#00693c]">
+                    + S/ {(parseFloat(montoInvertir || 0) * (plazoMeses === 6 ? 0.055 : plazoMeses === 12 ? 0.068 : 0.075) * (plazoMeses / 12)).toFixed(2)}
+                  </span>
+                </div>
+                <div className="border-t border-gray-200/60 pt-2 flex justify-between text-base font-black text-[#0a1f14]">
+                  <span>Total al recibir:</span>
+                  <span>S/ {(parseFloat(montoInvertir || 0) + parseFloat(montoInvertir || 0) * (plazoMeses === 6 ? 0.055 : plazoMeses === 12 ? 0.068 : 0.075) * (plazoMeses / 12)).toFixed(2)}</span>
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Cuenta de Cargo</label>
+                {cuentas.length > 0 ? (
+                  <div className="mt-2 p-3.5 bg-gray-50 border border-gray-200 rounded-xl text-sm font-bold text-[#0a1f14] flex justify-between items-center">
+                    <span>{cuentaSeleccionada?.numero_cuenta}</span>
+                    <span className="text-xs font-normal text-gray-500">Saldo: S/ {parseFloat(cuentaSeleccionada?.saldo || 0).toFixed(2)}</span>
+                  </div>
+                ) : (
+                  <p className="text-xs text-red-500 mt-1">No tienes cuentas disponibles para debitar.</p>
+                )}
+              </div>
+
+              <button type="submit" disabled={loading || cuentas.length === 0}
+                className="w-full bg-[#00a651] hover:bg-[#008f45] text-white font-bold py-4 rounded-xl transition-all shadow-lg text-base disabled:opacity-50">
+                {loading ? "Procesando inversión..." : "🚀 Abrir Depósito a Plazo Fijo"}
+              </button>
+            </form>
+          </div>
+
+          <div className="lg:col-span-7 bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
+            <h3 className="font-bold text-xl text-[#0a1f14] mb-6">Mis Inversiones Activas</h3>
+            {inversiones.length === 0 ? (
+              <div className="text-center py-16 text-gray-400">
+                <div className="text-4xl mb-3">🌱</div>
+                <p className="font-medium text-sm">Aún no tienes depósitos a plazo fijo abiertos.</p>
+                <p className="text-xs text-gray-400 mt-1">Simula tu inversión a la izquierda y comienza a ganar intereses.</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {inversiones.map((inv) => (
+                  <div key={inv.id} className="p-5 rounded-2xl border border-gray-100 bg-gradient-to-r from-gray-50/50 to-white flex justify-between items-center shadow-sm hover:shadow transition-shadow">
+                    <div>
+                      <span className="bg-[#00a651]/10 text-[#00a651] text-[11px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">Plazo Fijo · {inv.plazo_meses} meses</span>
+                      <p className="text-xl font-black text-[#0a1f14] mt-2">S/ {parseFloat(inv.monto_invertido).toFixed(2)}</p>
+                      <p className="text-xs text-gray-500 mt-1">TREA {inv.trea}% · Vence el {inv.fecha_vencimiento}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-gray-400 font-bold uppercase">Ganancia Estimada</p>
+                      <p className="text-lg font-black text-[#00a651]">+ S/ {parseFloat(inv.ganancia_estimada).toFixed(2)}</p>
+                      <span className="text-[10px] font-bold text-gray-400 bg-gray-100 px-2 py-0.5 rounded mt-1 inline-block">{inv.estado}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}

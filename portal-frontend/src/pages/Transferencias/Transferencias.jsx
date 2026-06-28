@@ -11,6 +11,7 @@ export default function Transferencias() {
   const [cuentaSeleccionada, setCuentaSeleccionada] = useState(null)
   const [loading, setLoading] = useState(false)
   const [mensaje, setMensaje] = useState("")
+  const [contactos, setContactos] = useState([])
   const [form, setForm] = useState({
     cuenta_origen: "",
     cuenta_destino: "",
@@ -43,6 +44,8 @@ export default function Transferencias() {
       const resCuentas = await api.get(`/ahorros/${user.id}`)
       const ctas = resCuentas.data || []
       setCuentas(ctas)
+
+      api.get(`/contactos/${user.id}`).then(r => setContactos(r.data || [])).catch(() => {})
 
       if (ctas.length > 0) {
         const cuentaActual = cuentaSeleccionada
@@ -160,7 +163,20 @@ export default function Transferencias() {
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Hacia la cuenta (Destino)</label>
+                    <div className="flex justify-between items-center">
+                      <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Hacia la cuenta (Destino)</label>
+                      {contactos.length > 0 && <span className="text-[11px] text-[#00693c] font-bold">👤 Contactos rápidos guardados</span>}
+                    </div>
+                    {contactos.length > 0 && (
+                      <div className="flex gap-2 my-2 flex-wrap">
+                        {contactos.map(ct => (
+                          <button type="button" key={ct.id} onClick={() => setForm({ ...form, cuenta_destino: ct.numero_cuenta })}
+                            className="bg-[#f8f5ed] border border-[#d9d0bc] hover:border-[#00693c] text-[#0a1f14] px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm">
+                            <span>⭐</span> {ct.alias || ct.nombre_titular} ({ct.banco})
+                          </button>
+                        ))}
+                      </div>
+                    )}
                     <div className="relative mt-2">
                       <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
                         <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>

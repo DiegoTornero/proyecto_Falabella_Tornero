@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
-from app.routers import auth, creditos, transferencias, usuarios, ahorros, empresas
+from app.routers import auth, creditos, transferencias, usuarios, ahorros, empresas, tarjetas, inversiones, beneficios, contactos, notificaciones
 from app.database import engine, Base
 from app.security import add_security_headers
 
@@ -64,6 +64,11 @@ app.include_router(creditos.router, prefix="/api/creditos", tags=["Créditos"])
 app.include_router(transferencias.router, prefix="/api/transferencias", tags=["Transferencias"])
 app.include_router(ahorros.router, prefix="/api/ahorros", tags=["Cuentas de Ahorro y CTS"])
 app.include_router(empresas.router, prefix="/api/empresas", tags=["Empresas – Crédito Micro"])
+app.include_router(tarjetas.router, prefix="/api/tarjetas", tags=["Tarjetas CMR"])
+app.include_router(inversiones.router, prefix="/api/inversiones", tags=["Depósitos a Plazo Fijo"])
+app.include_router(beneficios.router, prefix="/api/beneficios", tags=["Puntos CMR y Beneficios"])
+app.include_router(contactos.router, prefix="/api/contactos", tags=["Contactos Frecuentes"])
+app.include_router(notificaciones.router, prefix="/api/notificaciones", tags=["Notificaciones"])
 
 
 @app.get("/")

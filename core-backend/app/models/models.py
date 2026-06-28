@@ -100,6 +100,11 @@ class Usuario(Base):
 
     cuentas_ahorro = relationship("CuentaAhorro", back_populates="usuario")
     creditos = relationship("Credito", back_populates="usuario")
+    tarjetas = relationship("Tarjeta", back_populates="usuario")
+    depositos_plazo = relationship("DepositoPlazo", back_populates="usuario")
+    puntos_cmr = relationship("PuntoCMR", back_populates="usuario", uselist=False)
+    contactos = relationship("ContactoTransferencia", back_populates="usuario")
+    notificaciones = relationship("Notificacion", back_populates="usuario")
 
 
 class Credito(Base):
@@ -190,3 +195,78 @@ class GestionMora(Base):
 
     credito = relationship("Credito")
     trabajador = relationship("Trabajador")
+
+
+class Tarjeta(Base):
+    __tablename__ = "tarjetas"
+
+    id = Column(String, primary_key=True, default=gen_uuid)
+    numero_enmascarado = Column(String(20), nullable=False)
+    cvv = Column(String(4), default="123")
+    fecha_expiracion = Column(String(7), default="12/30")
+    limite_credito = Column(Float, default=2000.0)
+    saldo_disponible = Column(Float, default=2000.0)
+    tipo = Column(String(30), default="DEBITO_CMR")  # DEBITO_CMR | CREDITO_CMR
+    estado = Column(String(20), default="ACTIVA")  # ACTIVA | BLOQUEADA
+    usuario_id = Column(String, ForeignKey("usuarios.id", ondelete="CASCADE"), nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    usuario = relationship("Usuario", back_populates="tarjetas")
+
+
+class DepositoPlazo(Base):
+    __tablename__ = "depositos_plazo"
+
+    id = Column(String, primary_key=True, default=gen_uuid)
+    monto_invertido = Column(Float, nullable=False)
+    plazo_meses = Column(Integer, nullable=False)
+    trea = Column(Float, nullable=False)
+    ganancia_estimada = Column(Float, nullable=False)
+    fecha_apertura = Column(DateTime(timezone=True), server_default=func.now())
+    fecha_vencimiento = Column(Date, nullable=False)
+    estado = Column(String(20), default="ACTIVO")  # ACTIVO | FINALIZADO
+    usuario_id = Column(String, ForeignKey("usuarios.id", ondelete="CASCADE"), nullable=False)
+
+    usuario = relationship("Usuario", back_populates="depositos_plazo")
+
+
+class PuntoCMR(Base):
+    __tablename__ = "puntos_cmr"
+
+    id = Column(String, primary_key=True, default=gen_uuid)
+    puntos_disponibles = Column(Integer, default=500)
+    puntos_acumulados_totales = Column(Integer, default=500)
+    puntos_canjeados = Column(Integer, default=0)
+    nivel = Column(String(30), default="Verde")  # Verde | Silver | Black
+    usuario_id = Column(String, ForeignKey("usuarios.id", ondelete="CASCADE"), unique=True, nullable=False)
+
+    usuario = relationship("Usuario", back_populates="puntos_cmr")
+
+
+class ContactoTransferencia(Base):
+    __tablename__ = "contactos_transferencia"
+
+    id = Column(String, primary_key=True, default=gen_uuid)
+    alias = Column(String(100), nullable=False)
+    banco_destino = Column(String(100), default="Banco Falabella")
+    numero_cuenta = Column(String(30), nullable=False)
+    dni_titular = Column(String(20), nullable=True)
+    nombre_titular = Column(String(150), nullable=True)
+    usuario_id = Column(String, ForeignKey("usuarios.id", ondelete="CASCADE"), nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    usuario = relationship("Usuario", back_populates="contactos")
+
+
+class Notificacion(Base):
+    __tablename__ = "notificaciones"
+
+    id = Column(String, primary_key=True, default=gen_uuid)
+    titulo = Column(String(150), nullable=False)
+    mensaje = Column(Text, nullable=False)
+    leida = Column(Boolean, default=False)
+    tipo = Column(String(50), default="INFO")  # INFO | ALERTA | EXITOSO | PROMOCION
+    fecha = Column(DateTime(timezone=True), server_default=func.now())
+    usuario_id = Column(String, ForeignKey("usuarios.id", ondelete="CASCADE"), nullable=False)
+
+    usuario = relationship("Usuario", back_populates="notificaciones")

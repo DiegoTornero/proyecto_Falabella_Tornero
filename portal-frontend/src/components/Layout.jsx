@@ -143,7 +143,7 @@ export default function Layout({ children, title, subtitle }) {
   const [showNotif, setShowNotif] = useState(false);
   const [showUser, setShowUser] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [unread] = useState(NOTIFS.filter(n => !n.read).length);
+  const [notifsList, setNotifsList] = useState(NOTIFS);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -151,8 +151,30 @@ export default function Layout({ children, title, subtitle }) {
   const userRef  = useRef(null);
 
   useEffect(() => {
-    if (user?.id) api.get(`/usuarios/${user.id}`).then(r => setUsuario(r.data)).catch(() => {});
+    if (user?.id) {
+      api.get(`/usuarios/${user.id}`).then(r => setUsuario(r.data)).catch(() => {});
+      api.get(`/notificaciones/${user.id}`).then(r => {
+        if (r.data && r.data.length > 0) {
+          setNotifsList(r.data.map(n => ({
+            id: n.id,
+            title: n.titulo,
+            body: n.mensaje,
+            time: new Date(n.fecha).toLocaleDateString("es-PE"),
+            read: n.leida
+          })));
+        }
+      }).catch(() => {});
+    }
   }, [user]);
+
+  const unread = notifsList.filter(n => !n.read).length;
+
+  const marcarTodasLeidas = async () => {
+    setNotifsList(prev => prev.map(n => ({ ...n, read: true })));
+    notifsList.forEach(n => {
+      if (!n.read) api.put(`/notificaciones/${n.id}/leer`).catch(() => {});
+    });
+  };
 
   /* Close dropdowns on outside click */
   useEffect(() => {
@@ -283,9 +305,9 @@ export default function Layout({ children, title, subtitle }) {
               }}>
                 <div style={{ padding: "14px 18px", background: C.cream, borderBottom: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span style={{ fontWeight: 700, fontSize: 13, color: C.ink, fontFamily: "'DM Serif Display', serif" }}>Notificaciones</span>
-                  <span style={{ fontSize: 11.5, color: C.green, fontWeight: 600, cursor: "pointer" }}>Marcar leídas</span>
+                  <span onClick={marcarTodasLeidas} style={{ fontSize: 11.5, color: C.green, fontWeight: 600, cursor: "pointer" }}>Marcar leídas</span>
                 </div>
-                {NOTIFS.map(n => (
+                {notifsList.map(n => (
                   <div key={n.id} style={{
                     padding: "13px 18px", display: "flex", gap: 12, alignItems: "flex-start",
                     borderBottom: `1px solid ${C.creamDark}`,
@@ -308,7 +330,7 @@ export default function Layout({ children, title, subtitle }) {
                   </div>
                 ))}
                 <div style={{ padding: "12px 18px", textAlign: "center", background: C.cream }}>
-                  <span style={{ fontSize: 12, color: C.green, fontWeight: 600, cursor: "pointer" }}>Ver todas →</span>
+                  <span style={{ fontSize: 12, color: C.green, fontWeight: 600, cursor: "pointer" }}>Ver todas ({notifsList.length})</span>
                 </div>
               </div>
             )}

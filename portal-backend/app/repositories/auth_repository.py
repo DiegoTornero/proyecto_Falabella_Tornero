@@ -36,7 +36,8 @@ class AuthRepository:
 
     def create_usuario(self, db: Session, data: dict) -> Usuario:
         import uuid
-        from app.models.models import CuentaAhorro, ProductoPasivo
+        import random
+        from app.models.models import CuentaAhorro, ProductoPasivo, Tarjeta, PuntoCMR, Notificacion
 
         # ── 1. CREAR USUARIO ──────────────────────────────────────────
         usuario = Usuario(
@@ -57,8 +58,6 @@ class AuthRepository:
         db.flush()  # Obtiene el ID sin cerrar la transacción
 
         # ── 2. CREAR CUENTA DE AHORROS AUTOMÁTICAMENTE ───────────────
-        # Usar siempre el producto pasivo ID=1 (Cuenta de Ahorro Simple)
-        # Si no existe, crearlo al vuelo
         producto = db.query(ProductoPasivo).filter(ProductoPasivo.id == 1).first()
         if not producto:
             producto = db.query(ProductoPasivo).first()
@@ -72,7 +71,39 @@ class AuthRepository:
         )
         db.add(nueva_cuenta)
 
-        # ── 3. COMMIT ÚNICO de todo junto ─────────────────────────────
+        # ── 3. CREAR TARJETA CMR Y PUNTOS AUTOMÁTICAMENTE ─────────────
+        num_tarjeta = f"4508 •••• •••• {random.randint(1000, 9999)}"
+        nueva_tarjeta = Tarjeta(
+            numero_enmascarado=num_tarjeta,
+            cvv=str(random.randint(100, 999)),
+            fecha_expiracion="12/30",
+            limite_credito=2000.0,
+            saldo_disponible=2000.0,
+            tipo="DEBITO_CMR",
+            estado="ACTIVA",
+            usuario_id=usuario.id
+        )
+        db.add(nueva_tarjeta)
+
+        puntos = PuntoCMR(
+            puntos_disponibles=500,
+            puntos_acumulados_totales=500,
+            puntos_canjeados=0,
+            nivel="Verde",
+            usuario_id=usuario.id
+        )
+        db.add(puntos)
+
+        notif = Notificacion(
+            titulo="👋 ¡Bienvenido a Banco Falabella!",
+            mensaje="Tu cuenta de ahorros y tu Tarjeta Virtual Débito CMR están listas. Te hemos regalado 500 Puntos CMR de bienvenida.",
+            tipo="INFO",
+            leida=False,
+            usuario_id=usuario.id
+        )
+        db.add(notif)
+
+        # ── 4. COMMIT ÚNICO de todo junto ─────────────────────────────
         db.commit()
         db.refresh(usuario)
         return usuario
