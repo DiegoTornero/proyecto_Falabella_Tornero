@@ -1521,88 +1521,71 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex bg-[#f8fafc] font-sans">
-      {/* Sidebar */}
-      <aside className="w-72 bg-[#00361f] text-white flex flex-col shadow-2xl relative overflow-hidden z-20 shrink-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#004729]/30 to-transparent pointer-events-none"></div>
-
-        {/* Sidebar Header Brand */}
-        <div className="p-8 border-b border-white/5 relative z-10">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#d4af37] to-[#9cb000] rounded-xl flex items-center justify-center shadow-[0_4px_12px_rgba(200,224,0,0.25)] border border-white/10">
+    <div className="min-h-screen flex flex-col bg-[#f8fafc] font-sans">
+      {/* Top Navigation Bar */}
+      <header className="bg-[#00361f] text-white sticky top-0 z-30 shadow-2xl border-b border-white/10">
+        <div className="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between gap-4">
+          
+          {/* Logo & Brand */}
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#d4af37] to-[#9cb000] rounded-xl flex items-center justify-center shadow-lg border border-white/10">
               <Briefcase size={20} className="text-[#00361f]" />
             </div>
-            <h1 className="text-xl font-display font-black tracking-tight">Core<span className="text-[#d4af37]">Financiero</span></h1>
-          </div>
-
-          {/* User Badge Info */}
-          <div className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-4 flex items-center gap-3 shadow-inner">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#004729] to-[#00361f] border border-white/10 flex items-center justify-center text-[#d4af37] font-black shadow-md">
-              {session.nombre?.charAt(0) || 'U'}
-            </div>
-            <div className="overflow-hidden">
-              <p className="text-sm font-bold text-white truncate leading-tight">{session.nombre}</p>
-              <p className="text-[10px] text-slate-400 font-bold tracking-wider mt-0.5">{session.codigo_empleado}</p>
-              <span className={`inline-block text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded border mt-1.5 ${rolColors[session.rol] || 'border-slate-700 text-slate-400'}`}>
-                {session.rol}
-              </span>
+            <div>
+              <h1 className="text-lg font-display font-black tracking-tight leading-none">Core<span className="text-[#d4af37]">Financiero</span></h1>
+              <span className="text-[9px] text-[#d4af37]/80 font-bold uppercase tracking-widest block mt-0.5">Banco Falabella</span>
             </div>
           </div>
+
+          {/* Nav Items (Pills) */}
+          <nav className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-2">
+            {navItems.map(item => {
+              const isActive = modulo === item.id;
+              return (
+                <button key={item.id} onClick={() => setModulo(item.id)}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap transition-all ${
+                    isActive
+                      ? 'bg-[#d4af37] text-[#00361f] shadow-lg shadow-[#d4af37]/20 scale-105'
+                      : 'text-slate-300 hover:text-white hover:bg-white/10'
+                  }`}>
+                  {item.icon}
+                  <span>{item.label}</span>
+                </button>
+              )
+            })}
+          </nav>
+
+          {/* User & Logout */}
+          <div className="flex items-center gap-4 shrink-0">
+            <div className="flex items-center gap-2.5 bg-white/5 border border-white/10 rounded-full pl-3 pr-4 py-1.5 backdrop-blur-md">
+              <div className="w-7 h-7 rounded-full bg-[#d4af37] text-[#00361f] font-black text-xs flex items-center justify-center shadow-sm">
+                {session.nombre?.charAt(0) || 'U'}
+              </div>
+              <div className="text-left hidden md:block">
+                <p className="text-xs font-bold leading-tight truncate max-w-[120px]">{session.nombre}</p>
+                <span className="text-[9px] font-black uppercase tracking-wider text-[#d4af37]">{session.rol}</span>
+              </div>
+            </div>
+
+            <button onClick={handleLogout} title="Cerrar Sesión"
+              className="p-2.5 bg-rose-500/10 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/20 rounded-xl transition-all shadow-sm">
+              <LogOut size={16} />
+            </button>
+          </div>
+
         </div>
+      </header>
 
-        {/* Nav Links */}
-        <nav className="flex-1 p-5 space-y-1.5 relative z-10 overflow-y-auto dark-scrollbar">
-          {navItems.map(item => {
-            const isActive = modulo === item.id;
-            return (
-              <button key={item.id} onClick={() => setModulo(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl font-bold text-sm transition-all text-left relative overflow-hidden group ${
-                  isActive
-                    ? 'bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/20 shadow-inner'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent'
-                }`}>
-                {isActive && <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#d4af37] shadow-[0_0_10px_#d4af37]"></div>}
-                <div className={`${isActive ? 'text-[#d4af37]' : 'text-slate-500 group-hover:text-slate-300'} transition-colors`}>{item.icon}</div> 
-                {item.label}
-              </button>
-            )
-          })}
-        </nav>
-
-        {/* Sidebar Footer Logout */}
-        <div className="p-5 border-t border-white/5 relative z-10">
-          <button onClick={handleLogout}
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 text-slate-400 hover:text-[#d4af37] hover:bg-[#d4af37]/10 border border-transparent hover:border-[#d4af37]/20 rounded-xl text-sm font-bold transition-all group">
-            <LogOut size={16} className="group-hover:-translate-x-0.5 transition-transform" /> Cerrar Sesión
-          </button>
-        </div>
-      </aside>
-
-      {/* Main Container */}
-      <main className="flex-1 flex flex-col overflow-hidden relative">
+      {/* Main Content Area */}
+      <main className="flex-1 overflow-y-auto p-6 md:p-10 relative">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#d4af37]/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
-        
-        {/* Sticky Header */}
-        <header className="h-20 px-10 flex items-center justify-between bg-white/70 backdrop-blur-xl border-b border-slate-100 shadow-sm sticky top-0 z-10">
-          <h2 className="text-2xl font-display font-black text-[#00361f] tracking-tight">
-            {navItems.find(n => n.id === modulo)?.label}
-          </h2>
-          <div className="flex items-center gap-2 bg-white border border-slate-100 px-4 py-2 rounded-full shadow-sm">
-            <BarChart3 size={15} className="text-[#00693c]" />
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Core Bancario v2.5</span>
-          </div>
-        </header>
-
-        {/* Content Area */}
-        <div className="flex-1 overflow-y-auto p-10 relative z-10">
-          <div className="max-w-7xl mx-auto animate-fade-up">
-            {modulo === 'bandeja'   && <BandejaCreditos token={session.access_token} trabajador={session} />}
-            {modulo === 'clientes'  && <ModuloClientes token={session.access_token} />}
-            {modulo === 'empresas'  && <ModuloEmpresas token={session.access_token} />}
-            {modulo === 'mora'      && <ModuloMora token={session.access_token} trabajador={session} />}
-            {modulo === 'analitica' && <ModuloAnalitica token={session.access_token} />}
-            {modulo === 'productos' && <ModuloProductos token={session.access_token} />}
-          </div>
+        <div className="max-w-[1500px] mx-auto animate-fade-up relative z-10">
+          {modulo === 'bandeja'   && <BandejaCreditos token={session.access_token} trabajador={session} />}
+          {modulo === 'clientes'  && <ModuloClientes token={session.access_token} />}
+          {modulo === 'empresas'  && <ModuloEmpresas token={session.access_token} />}
+          {modulo === 'mora'      && <ModuloMora token={session.access_token} trabajador={session} />}
+          {modulo === 'analitica' && <ModuloAnalitica token={session.access_token} />}
+          {modulo === 'productos' && <ModuloProductos token={session.access_token} />}
         </div>
       </main>
     </div>

@@ -218,6 +218,29 @@ def get_bandeja(db: Session = Depends(get_db)):
         .order_by(Credito.created_at.desc())
         .all()
     )
+    hubo_cambios = False
+    for c in creditos:
+        if c.score_crediticio is None or c.rds_semaforo is None or c.ruta_aprobacion is None:
+            edad = 30
+            ingreso = 3500.0
+            if c.usuario:
+                ingreso = float(c.usuario.ingreso_mensual or 3500.0)
+                if c.usuario.fecha_nacimiento:
+                    hoy = date.today()
+                    edad = hoy.year - c.usuario.fecha_nacimiento.year
+            score = calcular_score(edad, c.monto_solicitado or 1000, c.plazo_meses or 12, False)
+            rds_info = calcular_rds(c.monto_solicitado or 1000, c.plazo_meses or 12, 18.0, ingreso)
+            ruta = calcular_ruta_aprobacion(c.monto_solicitado or 1000)
+            
+            if c.score_crediticio is None: c.score_crediticio = score
+            if c.rds_valor is None: c.rds_valor = rds_info["rds"]
+            if c.rds_semaforo is None: c.rds_semaforo = rds_info["semaforo"]
+            if c.ruta_aprobacion is None: c.ruta_aprobacion = ruta
+            hubo_cambios = True
+
+    if hubo_cambios:
+        db.commit()
+
     resultado = []
     for c in creditos:
         resultado.append({

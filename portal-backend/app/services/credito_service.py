@@ -46,7 +46,7 @@ class CreditoService:
                 "plazo_meses": data["plazo_meses"]
             }
             CORE_API_URL = os.getenv("CORE_API_URL", "https://core-backend-g43c.onrender.com")
-            res = requests.post(f"{CORE_API_URL}/scoring/evaluar", json=core_payload, timeout=5)
+            res = requests.post(f"{CORE_API_URL}/scoring/evaluar", json=core_payload, timeout=35)
             if res.status_code == 200:
                 core_data = res.json()
                 credito.estado = core_data.get("estado", "enviado")
