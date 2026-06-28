@@ -48,6 +48,7 @@ for url in ORIGINES_PRODUCCION:
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ORIGINES_PERMITIDOS,
+    allow_origin_regex=r"https://proyecto-falabella-tornero-ja2i.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
