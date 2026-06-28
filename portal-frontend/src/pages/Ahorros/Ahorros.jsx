@@ -18,6 +18,14 @@ export default function Ahorros() {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(false)
   const [mensaje, setMensaje] = useState("")
+  
+  // States for virtual credit card simulation
+  const [numTarjeta, setNumTarjeta] = useState("")
+  const [nombreTarjeta, setNombreTarjeta] = useState("")
+  const [venceTarjeta, setVenceTarjeta] = useState("")
+  const [cvvTarjeta, setCvvTarjeta] = useState("")
+  const [cardFlip, setCardFlip] = useState(false)
+  
   const navigate = useNavigate()
 
   useEffect(() => { fetchData() }, [])
@@ -420,47 +428,188 @@ export default function Ahorros() {
         </div>
       )}
 
-      {/* MODAL DEPÓSITO */}
+      {/* MODAL DEPÓSITO (PASARELA DE PAGO) */}
       {showDeposito && (
-        <div className="fixed inset-0 bg-[#0a1f14]/40 backdrop-blur-sm flex items-center justify-center z-50 px-4">
-          <div className="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl scale-100 animate-fade-up">
-            <h3 className="text-2xl font-bold text-[#0a1f14] mb-2">Realizar Depósito</h3>
-            <p className="text-gray-500 text-sm mb-6">Ingresa dinero a tu cuenta para probar la plataforma.</p>
-            <form onSubmit={handleDeposito} className="flex flex-col gap-5">
+        <div className="fixed inset-0 bg-[#0a1f14]/50 backdrop-blur-sm flex items-center justify-center z-50 px-4 overflow-y-auto py-8">
+          <div className="bg-white rounded-3xl p-8 w-full max-w-lg shadow-2xl scale-100 animate-fade-up relative my-auto">
+            
+            <button 
+              onClick={() => setShowDeposito(false)}
+              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-2xl font-semibold bg-gray-50 hover:bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center transition-all"
+            >
+              &times;
+            </button>
+
+            <h3 className="text-2xl font-bold text-[#0a1f14] mb-1">Cargar Saldo desde Tarjeta</h3>
+            <p className="text-gray-500 text-sm mb-6">Realiza una recarga segura en tiempo real mediante pasarela de pago.</p>
+            
+            {/* VIRTUAL CREDIT CARD WRAPPER */}
+            <div className="w-full flex justify-center mb-8 perspective-1000">
+              <div className={`relative w-full max-w-[340px] h-[190px] rounded-2xl text-white shadow-xl transition-transform duration-500 transform-style-3d ${cardFlip ? 'rotate-y-180' : ''}`}>
+                
+                {/* FRONT OF THE CARD */}
+                <div className="absolute inset-0 w-full h-full rounded-2xl p-5 bg-gradient-to-br from-[#1a1a1a] via-[#333] to-[#222] backface-hidden flex flex-col justify-between border border-white/10 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-xl -mr-10 -mt-10"></div>
+                  
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase">BANCO EMISOR</p>
+                      <div className="w-8 h-6 bg-yellow-500/20 rounded-md border border-yellow-500/30 mt-1 flex items-center justify-center text-[10px] text-yellow-500 font-bold">CHIP</div>
+                    </div>
+                    <div className="h-6 flex items-center">
+                      {numTarjeta.startsWith("4") ? (
+                        <span className="text-xl font-black italic text-blue-400">VISA</span>
+                      ) : numTarjeta.startsWith("5") ? (
+                        <span className="text-xl font-black italic text-orange-400">mastercard</span>
+                      ) : (
+                        <span className="text-[10px] font-bold text-gray-400 tracking-wider">DEBIT CARD</span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="my-2">
+                    <p className="text-lg font-mono tracking-widest text-center text-white/90">
+                      {numTarjeta ? numTarjeta.match(/.{1,4}/g)?.join(" ") : "•••• •••• •••• ••••"}
+                    </p>
+                  </div>
+
+                  <div className="flex justify-between items-end">
+                    <div className="truncate pr-4">
+                      <p className="text-[8px] text-gray-400 uppercase tracking-wider">Titular de Tarjeta</p>
+                      <p className="text-xs font-mono font-bold uppercase truncate max-w-[180px]">{nombreTarjeta || "NOMBRE APELLIDO"}</p>
+                    </div>
+                    <div className="flex-shrink-0 text-right">
+                      <p className="text-[8px] text-gray-400 uppercase tracking-wider">Vence</p>
+                      <p className="text-xs font-mono font-bold">{venceTarjeta || "MM/AA"}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* BACK OF THE CARD */}
+                <div className="absolute inset-0 w-full h-full rounded-2xl bg-gradient-to-br from-[#111] via-[#222] to-[#1a1a1a] backface-hidden rotate-y-180 flex flex-col justify-between py-4 border border-white/10">
+                  <div className="w-full h-10 bg-black mt-2"></div>
+                  
+                  <div className="px-5">
+                    <div className="flex items-center justify-between">
+                      <div className="w-9/12 h-8 bg-gray-200/90 rounded flex items-center justify-end px-3 font-mono text-sm italic text-gray-800 line-through">
+                        ••••••••
+                      </div>
+                      <div className="w-3/12 bg-yellow-500 h-8 rounded text-black font-mono font-bold flex items-center justify-center text-sm shadow-inner">
+                        {cvvTarjeta || "•••"}
+                      </div>
+                    </div>
+                    <p className="text-[8px] text-gray-400 mt-2 text-right">Firma autorizada / CVV de seguridad</p>
+                  </div>
+
+                  <div className="px-5 flex justify-between items-center text-[8px] text-gray-500">
+                    <span>Simulación Banco Falabella</span>
+                    <span>SECURE TRANSACTION</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <form onSubmit={handleDeposito} className="flex flex-col gap-4">
+              
               <div>
-                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Cuenta Destino</label>
+                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Cuenta de Ahorros Destino</label>
                 <select
                   value={cuentaSeleccionada?.id || ""}
-                  onChange={(e) => setCuentaSeleccionada(cuentas.find(c => c.id === e.target.value))}
-                  className="w-full mt-2 border border-gray-200 rounded-xl px-4 py-3.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#c8e000] focus:border-transparent bg-gray-50 transition-all cursor-pointer">
+                  onChange={(e) => setCuentaSeleccionada(cuentas.find(c => c.id === parseInt(e.target.value)))}
+                  className="w-full mt-1.5 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#c8e000] focus:border-transparent bg-gray-50 transition-all cursor-pointer">
                   {cuentas.map(c => (
                     <option key={c.id} value={c.id}>{c.numero_cuenta} (S/ {parseFloat(c.saldo).toFixed(2)})</option>
                   ))}
                 </select>
               </div>
-              <div>
-                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Monto a Depositar (S/)</label>
-                <div className="relative mt-2">
-                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">S/</span>
-                  <input type="number" min="1" step="0.01" value={monto} onChange={(e) => setMonto(e.target.value)}
-                    placeholder="0.00" required
-                    className="w-full pl-10 pr-4 py-3.5 border border-gray-200 rounded-xl text-lg font-bold focus:outline-none focus:ring-2 focus:ring-[#c8e000] focus:border-transparent bg-gray-50 transition-all" />
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Monto a Cargar (S/)</label>
+                  <div className="relative mt-1.5">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">S/</span>
+                    <input 
+                      type="number" 
+                      min="1" 
+                      max="5000"
+                      step="0.01" 
+                      value={monto} 
+                      onChange={(e) => setMonto(e.target.value)}
+                      placeholder="0.00" 
+                      required
+                      className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-xl text-base font-bold focus:outline-none focus:ring-2 focus:ring-[#c8e000] focus:border-transparent bg-gray-50 transition-all" 
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Número de Tarjeta</label>
+                  <input 
+                    type="text" 
+                    placeholder="4000 1234 5678 9010" 
+                    value={numTarjeta}
+                    onChange={(e) => setNumTarjeta(e.target.value.replace(/\D/g, "").slice(0, 16))}
+                    required
+                    onFocus={() => setCardFlip(false)}
+                    className="w-full mt-1.5 border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#c8e000] focus:border-transparent bg-gray-50 transition-all" 
+                  />
                 </div>
               </div>
+
               <div>
-                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Concepto (Opcional)</label>
-                <input type="text" value={descripcion} onChange={(e) => setDescripcion(e.target.value)}
-                  placeholder="Ej. Ahorro mensual"
-                  className="w-full mt-2 border border-gray-200 rounded-xl px-4 py-3.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#c8e000] focus:border-transparent bg-gray-50 transition-all" />
+                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Nombre del Titular</label>
+                <input 
+                  type="text" 
+                  placeholder="Ej. JUAN PEREZ ROJAS" 
+                  value={nombreTarjeta}
+                  onChange={(e) => setNombreTarjeta(e.target.value.toUpperCase())}
+                  required
+                  onFocus={() => setCardFlip(false)}
+                  className="w-full mt-1.5 border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#c8e000] focus:border-transparent bg-gray-50 transition-all" 
+                />
               </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">Vencimiento (MM/AA)</label>
+                  <input 
+                    type="text" 
+                    placeholder="MM/AA" 
+                    value={venceTarjeta}
+                    onChange={(e) => {
+                      let val = e.target.value.replace(/\D/g, "");
+                      if (val.length > 2) val = val.slice(0, 2) + "/" + val.slice(2, 4);
+                      setVenceTarjeta(val.slice(0, 5));
+                    }}
+                    required
+                    onFocus={() => setCardFlip(false)}
+                    className="w-full mt-1.5 border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-center focus:outline-none focus:ring-2 focus:ring-[#c8e000] focus:border-transparent bg-gray-50 transition-all" 
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">CVV (Seguridad)</label>
+                  <input 
+                    type="password" 
+                    placeholder="•••" 
+                    value={cvvTarjeta}
+                    onChange={(e) => setCvvTarjeta(e.target.value.replace(/\D/g, "").slice(0, 3))}
+                    required
+                    onFocus={() => setCardFlip(true)}
+                    onBlur={() => setCardFlip(false)}
+                    maxLength={3}
+                    className="w-full mt-1.5 border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-medium text-center focus:outline-none focus:ring-2 focus:ring-[#c8e000] focus:border-transparent bg-gray-50 transition-all" 
+                  />
+                </div>
+              </div>
+
               <div className="flex gap-3 mt-4">
                 <button type="button" onClick={() => setShowDeposito(false)}
-                  className="flex-1 border-2 border-gray-100 text-gray-500 font-bold py-3.5 rounded-xl hover:bg-gray-50 hover:text-gray-700 transition-colors">
+                  className="flex-1 border-2 border-gray-100 text-gray-500 font-bold py-3 rounded-xl hover:bg-gray-50 hover:text-gray-700 transition-colors">
                   Cancelar
                 </button>
                 <button type="submit" disabled={loading}
-                  className="flex-1 bg-[#c8e000] text-[#0a1f14] font-bold py-3.5 rounded-xl hover:bg-[#b5cc00] transition-colors disabled:opacity-60 shadow-lg">
-                  {loading ? "Procesando..." : "Confirmar Depósito"}
+                  className="flex-1 bg-[#0a1f14] text-[#c8e000] font-bold py-3 rounded-xl hover:bg-black transition-colors disabled:opacity-60 shadow-lg">
+                  {loading ? "Procesando..." : "Confirmar Recarga"}
                 </button>
               </div>
             </form>
