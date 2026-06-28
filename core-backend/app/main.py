@@ -36,11 +36,12 @@ app.include_router(auth_core.router,  prefix="/auth",    tags=["Autenticación C
 app.include_router(scoring.router,    prefix="/scoring", tags=["Scoring y Bandeja"])
 app.include_router(mora.router, prefix="/api/mora", tags=["Gestión de Mora"])
 app.include_router(ahorros.router, prefix="/api/ahorros", tags=["Cuentas de Ahorro y CTS"])
-from app.routers import analytics, clientes, productos, empresas
+from app.routers import analytics, clientes, productos, empresas, operaciones
 app.include_router(analytics.router, prefix="/analytics", tags=["Analitica Global"])
 app.include_router(clientes.router, prefix="/api/clientes", tags=["Módulo 360 del Cliente"])
 app.include_router(productos.router, prefix="/api/productos", tags=["Gestión de Productos"])
 app.include_router(empresas.router, prefix="/api/empresas", tags=["Gestión de Empresas"])
+app.include_router(operaciones.router, prefix="/api/operaciones", tags=["Plazos Fijos, CMR y Contactos"])
 
 
 @app.get("/")

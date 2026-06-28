@@ -3,7 +3,7 @@ import axios from 'axios'
 import {
   CheckCircle, XCircle, Clock, Briefcase, FileText,
   BarChart3, LogOut, AlertTriangle, Phone, Mail,
-  MessageSquare, TrendingDown, Shield, ChevronDown, Activity, ArrowUpRight, ArrowDownRight, Users, DollarSign, Search, Settings, CreditCard, Percent
+  MessageSquare, TrendingDown, Shield, ChevronDown, Activity, ArrowUpRight, ArrowDownRight, Users, DollarSign, Search, Settings, CreditCard, Percent, Award, Layers
 } from 'lucide-react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, Legend } from 'recharts'
 
@@ -1483,6 +1483,199 @@ function ModuloEmpresas({ token }) {
   )
 }
 
+// ─── MÓDULO OPERACIONES & CAPTACIONES ────────────────────────
+function ModuloOperaciones({ token }) {
+  const [tab, setTab] = useState('plazos')
+  const [plazos, setPlazos] = useState([])
+  const [cmr, setCmr] = useState([])
+  const [contactos, setContactos] = useState([])
+  const [notifs, setNotifs] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const api = getAxios(token)
+    Promise.all([
+      api.get('/api/operaciones/plazos-fijos').catch(() => ({ data: [] })),
+      api.get('/api/operaciones/puntos-cmr').catch(() => ({ data: [] })),
+      api.get('/api/operaciones/contactos').catch(() => ({ data: [] })),
+      api.get('/api/operaciones/notificaciones').catch(() => ({ data: [] }))
+    ]).then(([resPlazos, resCmr, resCont, resNot]) => {
+      setPlazos(resPlazos.data)
+      setCmr(resCmr.data)
+      setContactos(resCont.data)
+      setNotifs(resNot.data)
+      setLoading(false)
+    })
+  }, [token])
+
+  if (loading) return <div className="py-20 flex justify-center"><div className="w-8 h-8 border-4 border-[#d4af37] border-t-transparent rounded-full animate-spin"></div></div>
+
+  return (
+    <div className="space-y-8 animate-fade-up">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-6 rounded-[24px] border border-slate-100 shadow-sm">
+        <div>
+          <h2 className="text-2xl font-display font-black text-[#00361f] flex items-center gap-2">
+            <Award className="text-[#d4af37]" /> Captaciones, Puntos CMR & Operaciones
+          </h2>
+          <p className="text-slate-400 text-xs font-medium mt-0.5">Supervisión en tiempo real de nuevas tablas y servicios bancarios de los usuarios</p>
+        </div>
+        <div className="flex flex-wrap gap-2 bg-slate-50 p-1.5 rounded-2xl border border-slate-200/60 shadow-inner">
+          {[
+            { id: 'plazos', label: '📈 Plazos Fijos', count: plazos.length },
+            { id: 'cmr', label: '🏆 Fidelización CMR', count: cmr.length },
+            { id: 'contactos', label: '🔄 Contactos Transf.', count: contactos.length },
+            { id: 'notifs', label: '🔔 Alertas del Sistema', count: notifs.length },
+          ].map(t => (
+            <button key={t.id} onClick={() => setTab(t.id)}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${tab === t.id ? 'bg-[#00361f] text-white shadow-md scale-105' : 'text-slate-500 hover:bg-white hover:text-slate-800'}`}>
+              <span>{t.label}</span>
+              <span className={`px-1.5 py-0.5 rounded-full text-[10px] ${tab === t.id ? 'bg-[#d4af37] text-[#00361f]' : 'bg-slate-200 text-slate-700'}`}>{t.count}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {tab === 'plazos' && (
+        <div className="bg-white rounded-[24px] border border-slate-100 shadow-sm overflow-hidden animate-fade-in">
+          <div className="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+            <h3 className="font-display font-black text-slate-800 text-base">Depósitos a Plazo Fijo & Captaciones de Clientes</h3>
+            <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 shadow-sm">Total Captado: S/ {plazos.reduce((s,p) => s + (p.monto_invertido||0), 0).toLocaleString('es-PE')}</span>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-slate-50 border-b border-slate-100 text-slate-400 text-[11px] uppercase tracking-wider font-bold">
+                  <th className="py-4 px-6">Cliente / DNI</th>
+                  <th className="py-4 px-6">Monto Invertido</th>
+                  <th className="py-4 px-6">Plazo</th>
+                  <th className="py-4 px-6">TREA Pactada</th>
+                  <th className="py-4 px-6">Ganancia Proyectada</th>
+                  <th className="py-4 px-6">Apertura</th>
+                  <th className="py-4 px-6">Estado</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-50 text-xs font-medium text-slate-600">
+                {plazos.length === 0 ? (
+                  <tr><td colSpan={7} className="py-12 text-center text-slate-400 font-bold">No hay depósitos a plazo fijo registrados aún.</td></tr>
+                ) : plazos.map(p => (
+                  <tr key={p.id} className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-4 px-6 font-bold text-[#00361f]">{p.cliente_nombre} <br/><span className="text-[10px] text-slate-400 font-normal">DNI: {p.cliente_dni}</span></td>
+                    <td className="py-4 px-6 font-display font-black text-sm text-slate-900">S/ {p.monto_invertido?.toLocaleString('es-PE')}</td>
+                    <td className="py-4 px-6">{p.plazo_meses} meses</td>
+                    <td className="py-4 px-6 font-bold text-emerald-600">{p.trea}%</td>
+                    <td className="py-4 px-6 font-bold text-[#00361f]">+ S/ {p.ganancia_estimada?.toLocaleString('es-PE')}</td>
+                    <td className="py-4 px-6 text-slate-400">{new Date(p.fecha_apertura).toLocaleDateString('es-PE')}</td>
+                    <td className="py-4 px-6"><span className="bg-emerald-50 text-emerald-700 font-bold px-2.5 py-1 rounded-lg text-[10px] border border-emerald-100">{p.estado}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {tab === 'cmr' && (
+        <div className="bg-white rounded-[24px] border border-slate-100 shadow-sm overflow-hidden animate-fade-in">
+          <div className="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+            <h3 className="font-display font-black text-slate-800 text-base">Ranking y Fidelización Puntos CMR</h3>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-slate-50 border-b border-slate-100 text-slate-400 text-[11px] uppercase tracking-wider font-bold">
+                  <th className="py-4 px-6">Titular CMR</th>
+                  <th className="py-4 px-6">Puntos Disponibles</th>
+                  <th className="py-4 px-6">Acumulados Históricos</th>
+                  <th className="py-4 px-6">Canjeados</th>
+                  <th className="py-4 px-6">Categoría / Nivel</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-50 text-xs font-medium text-slate-600">
+                {cmr.length === 0 ? (
+                  <tr><td colSpan={5} className="py-12 text-center text-slate-400 font-bold">Sin registros CMR en el sistema.</td></tr>
+                ) : cmr.map(c => (
+                  <tr key={c.id} className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-4 px-6 font-bold text-[#00361f]">{c.cliente_nombre} <br/><span className="text-[10px] text-slate-400 font-normal">DNI: {c.cliente_dni}</span></td>
+                    <td className="py-4 px-6 font-display font-black text-sm text-[#00361f] bg-[#d4af37]/20 px-3 py-1 rounded-xl w-fit border border-[#d4af37]/30">{c.puntos_disponibles} pts</td>
+                    <td className="py-4 px-6">{c.puntos_acumulados_totales} pts</td>
+                    <td className="py-4 px-6 text-slate-400">{c.puntos_canjeados} pts</td>
+                    <td className="py-4 px-6">
+                      <span className={`font-bold px-3 py-1 rounded-full text-[10px] border shadow-sm ${c.nivel === 'Black' ? 'bg-black text-[#d4af37] border-slate-800' : c.nivel === 'Silver' ? 'bg-slate-200 text-slate-800 border-slate-300' : 'bg-emerald-50 text-emerald-700 border-emerald-100'}`}>
+                        ⭐ {c.nivel}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {tab === 'contactos' && (
+        <div className="bg-white rounded-[24px] border border-slate-100 shadow-sm overflow-hidden animate-fade-in">
+          <div className="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+            <h3 className="font-display font-black text-slate-800 text-base">Directorio de Contactos de Transferencias Interbancarias</h3>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-slate-50 border-b border-slate-100 text-slate-400 text-[11px] uppercase tracking-wider font-bold">
+                  <th className="py-4 px-6">Usuario Registrador</th>
+                  <th className="py-4 px-6">Alias Destino</th>
+                  <th className="py-4 px-6">Banco Destino</th>
+                  <th className="py-4 px-6">Número de Cuenta</th>
+                  <th className="py-4 px-6">Titular Beneficiario</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-50 text-xs font-medium text-slate-600">
+                {contactos.length === 0 ? (
+                  <tr><td colSpan={5} className="py-12 text-center text-slate-400 font-bold">No hay contactos interbancarios guardados.</td></tr>
+                ) : contactos.map(c => (
+                  <tr key={c.id} className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-4 px-6 font-bold text-[#00361f]">{c.dueno_cuenta}</td>
+                    <td className="py-4 px-6 font-bold text-slate-800">{c.alias}</td>
+                    <td className="py-4 px-6"><span className="bg-blue-50 text-blue-700 font-bold px-2.5 py-1 rounded-lg text-[10px] border border-blue-100">{c.banco_destino}</span></td>
+                    <td className="py-4 px-6 font-mono text-slate-500">{c.numero_cuenta}</td>
+                    <td className="py-4 px-6">{c.nombre_titular} <span className="text-slate-400 text-[10px]">({c.dni_titular})</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {tab === 'notifs' && (
+        <div className="bg-white rounded-[24px] border border-slate-100 shadow-sm overflow-hidden animate-fade-in">
+          <div className="p-6 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+            <h3 className="font-display font-black text-slate-800 text-base">Bitácora de Alertas y Notificaciones Push</h3>
+          </div>
+          <div className="divide-y divide-slate-50 max-h-[500px] overflow-y-auto">
+            {notifs.length === 0 ? (
+              <p className="py-12 text-center text-slate-400 font-bold text-xs">Sin notificaciones enviadas.</p>
+            ) : notifs.map(n => (
+              <div key={n.id} className="p-4 px-6 flex items-start justify-between hover:bg-slate-50/60 transition-colors">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs text-[#00361f]">{n.titulo}</span>
+                    <span className="text-[10px] bg-slate-100 text-slate-500 font-bold px-2 py-0.5 rounded uppercase">{n.tipo}</span>
+                  </div>
+                  <p className="text-xs text-slate-500">{n.mensaje}</p>
+                </div>
+                <div className="text-right shrink-0 ml-4">
+                  <p className="text-xs font-bold text-slate-700">{n.destinatario}</p>
+                  <span className="text-[10px] text-slate-400">{new Date(n.fecha).toLocaleString('es-PE')}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // ─── APP PRINCIPAL ───────────────────────────────────────────
 function App() {
   const [session, setSession] = useState(() => {
@@ -1504,12 +1697,13 @@ function App() {
   if (!session) return <LoginScreen onLogin={handleLogin} />
 
   const navItems = [
-    { id: 'bandeja',   label: 'Bandeja Créditos',      icon: <FileText size={16} /> },
-    { id: 'clientes',  label: 'Gestión 360°',           icon: <Users size={16} /> },
-    { id: 'empresas',  label: 'Empresas Micro',         icon: <Briefcase size={16} /> },
-    { id: 'mora',      label: 'Recuperaciones / Mora',  icon: <TrendingDown size={16} /> },
-    { id: 'analitica', label: 'Analítica y Auditoría',  icon: <Activity size={16} /> },
-    { id: 'productos', label: 'Tarifario y Productos',  icon: <Settings size={16} /> },
+    { id: 'bandeja',     label: 'Bandeja Créditos',      icon: <FileText size={16} /> },
+    { id: 'clientes',    label: 'Gestión 360°',           icon: <Users size={16} /> },
+    { id: 'empresas',    label: 'Empresas Micro',         icon: <Briefcase size={16} /> },
+    { id: 'operaciones', label: 'Captaciones & Operaciones', icon: <Award size={16} /> },
+    { id: 'mora',        label: 'Recuperaciones / Mora',  icon: <TrendingDown size={16} /> },
+    { id: 'analitica',   label: 'Analítica y Auditoría',  icon: <Activity size={16} /> },
+    { id: 'productos',   label: 'Tarifario y Productos',  icon: <Settings size={16} /> },
   ]
 
   const rolColors = {
@@ -1580,12 +1774,13 @@ function App() {
       <main className="flex-1 overflow-y-auto p-6 md:p-10 relative">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#d4af37]/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
         <div className="max-w-[1500px] mx-auto animate-fade-up relative z-10">
-          {modulo === 'bandeja'   && <BandejaCreditos token={session.access_token} trabajador={session} />}
-          {modulo === 'clientes'  && <ModuloClientes token={session.access_token} />}
-          {modulo === 'empresas'  && <ModuloEmpresas token={session.access_token} />}
-          {modulo === 'mora'      && <ModuloMora token={session.access_token} trabajador={session} />}
-          {modulo === 'analitica' && <ModuloAnalitica token={session.access_token} />}
-          {modulo === 'productos' && <ModuloProductos token={session.access_token} />}
+          {modulo === 'bandeja'     && <BandejaCreditos token={session.access_token} trabajador={session} />}
+          {modulo === 'clientes'    && <ModuloClientes token={session.access_token} />}
+          {modulo === 'empresas'    && <ModuloEmpresas token={session.access_token} />}
+          {modulo === 'operaciones' && <ModuloOperaciones token={session.access_token} />}
+          {modulo === 'mora'        && <ModuloMora token={session.access_token} trabajador={session} />}
+          {modulo === 'analitica'   && <ModuloAnalitica token={session.access_token} />}
+          {modulo === 'productos'   && <ModuloProductos token={session.access_token} />}
         </div>
       </main>
     </div>
