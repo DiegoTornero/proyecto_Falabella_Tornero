@@ -1,0 +1,9 @@
+Oficina,Zona,Cartera_Total,Vencida,Ratio_Mora,Estado,Alerta_Prioritaria
+OF. PRINCIPAL,Zona Lima,21809280.63,1352175.4,6.2,Medio,Supervisión regular (5%-10%)
+AG. LIMA 1,Zona Lima,17856177.73,678534.75,3.8,OK,Mora controlada (<5%)
+AG. LIMA 2,Zona Lima,16090873.3,724089.3,4.5,OK,Mora controlada (<5%)
+AG. SUR 1,Zona Sur,13205112.61,937563.0,7.1,Medio,Supervisión regular (5%-10%)
+AG. SUR 2,Zona Sur,11479743.14,975778.17,8.5,Medio,Supervisión regular (5%-10%)
+AG. SUR 3,Zona Sur,9243140.36,942800.32,10.2,Alto,Alerta mora alta (>10%)
+AG. NORTE 6,Zona Norte,6383277.84,555345.17,8.7,Medio,Supervisión regular (5%-10%)
+AG. ORIENTE 2,Zona Oriente,7683564.07,906660.56,11.8,Alto,Alerta mora alta (>10%)

@@ -153,38 +153,40 @@ TOTALES FINALES               —             S/ 10,000.00       S/ 934.76     S
 
 ## 3. DASHBOARD EJECUTIVO DE BUSINESS INTELLIGENCE (BI) Y ANALÍTICA DE CARTERA
 
-Para cumplir con el requerimiento de visualización y análisis de datos en **Power BI**, nuestro proyecto integra los datos estructurados en un reporte ejecutivo dividido en **Dos Hojas (Páginas) Especializadas**, las cuales se alimentan directamente de las tablas del Core Bancario (`powerbi_creditos.csv`, `powerbi_morosidad.csv`, `powerbi_empresas.csv`).
+Para cumplir con el requerimiento de visualización y análisis de datos en **Power BI**, nuestro proyecto integra los datos estructurados en un reporte ejecutivo dark-theme dividido en **Dos Hojas Especializadas con Distintos Enfoques**, alimentadas por los datasets del Core Bancario (`powerbi_resumen_cartera.csv` y `powerbi_detalle_mora.csv`).
 
 ### 📊 Estructura Oficial del Reporte Power BI en 2 Hojas
 
-#### 📑 Hoja 1: Colocaciones, Scoring y Motor de Riesgo (Bandeja Comercial)
-Esta primera hoja está diseñada para el Gerente Comercial y el Jefe de Créditos. Muestra cómo fluyen las solicitudes que ingresan desde el Homebanking hacia el Core Financiero:
-1. **Tarjetas de KPIs Principales (Parte Superior):**
-   * **Monto Total Colocado:** Sumatoria total de préstamos aprobados y desembolsados en cuentas de ahorro.
-   * **Score Promedio de Cartera:** Calificación FICO/Scoring promedio (ej. 745 puntos).
-   * **Tasa Promedio (TEA):** Promedio ponderado de interés aplicado al cliente según tarifario.
-2. **Gráfico de Anillo — Semaforización RDS (Capacidad de Pago):**
-   * Muestra la proporción de solicitudes clasificadas en 🟢 **Verde** (Aprobación Automática ≤ 30% RDS), 🟡 **Amarillo** (Revisión por Comité 31%–45% RDS) y 🔴 **Rojo** (Denegadas por sobreendeudamiento > 45%).
-3. **Gráfico de Columnas Agrupadas — Colocaciones por Tipo de Producto:**
-   * Comparativa de *Monto Solicitado* vs. *Monto Aprobado* desglosado por Crédito Efectivo Personal, Crédito PYME y Consumo Preferencial.
-4. **Tabla Resumen de Últimas Operaciones:**
-   * Lista detallada con ID de Crédito, Cuota Mensual calculada (Sistema Francés), Plazo y Estado actual.
+#### 📑 Hoja 1: Resumen Ejecutivo — Cartera Financiera (Enfoque Comercial y Colocaciones)
+Diseñada con un enfoque de crecimiento comercial y segmentación geográfica para la Gerencia General:
+1. **Filtros Superiores (Slicers):** Filtros dinámicos por `Año/Mes`, `Oficina` (Of. Principal, Ag. Lima 1, Ag. Sur 3, etc.) y `Zona` (Zona Lima, Norte, Sur, Oriente).
+2. **4 Tarjetas de KPIs Principales:**
+   * **Cartera Total:** Volumen financiero global colocado (ej. S/ 142.3M) con comparativa anual.
+   * **Cartera Vigente:** Saldo saludable pagado al día (ej. S/ 128.7M, representando el ~90.5%).
+   * **Ratio de Mora:** Porcentaje de morosidad promedio (ej. 8.2%).
+   * **Tasa Promedio:** TEA ponderada aplicada a la cartera (ej. 28.6%).
+3. **Gráfico de Área — Evolución de Cartera Total (Línea de Tiempo):**
+   * Muestra el crecimiento sostenido del volumen crediticio del banco desde 2015 hasta la fecha actual (Eje X = Fecha, Eje Y = Cartera Total).
+4. **Gráfico de Anillo — Cartera Vigente vs. Vencida:**
+   * Visualización clara del balance de riesgo: 🟢 Vigente (91%) vs. 🔴 Vencida (9%).
+5. **Gráficos de Barras Horizontales — Ranking y Zonas:**
+   * **Ranking de Oficinas:** Ordenado de mayor a menor colocación (Of. Principal liderando con S/ 22.1M, seguida de Ag. Lima 1 con S/ 18.2M).
+   * **Tasa Promedio por Zona:** Comparativa del rendimiento por región (Zona Lima 32.4%, Zona Norte 28.1%, Zona Oriente 24.6%, Zona Sur 21.2%).
 
-#### 📑 Hoja 2: Calidad de Cartera, Morosidad (Aging) y PYME (Bandeja de Recuperaciones)
-Esta segunda hoja está dirigida al Comité de Riesgos y Cobranzas para monitorear la salud financiera del banco:
-1. **Tarjetas de KPIs de Morosidad:**
-   * **Saldo Deudor en Riesgo:** Capital total acumulado en retraso.
-   * **Índice de Morosidad (IM):** Porcentaje de cartera vencida sobre colocaciones totales.
-2. **Gráfico de Barras Horizontales — Aging de Deuda por Bandas:**
-   * Clasifica las deudas según sus días de vencimiento:
-     * **Preventiva (1–30 días):** Gestión con alertas automáticas SMS/Push al Homebanking.
-     * **Temprana (31–60 días):** Gestión por Call Center.
-     * **Tardía (61–120 días):** Aplicación de Tasa Moratoria Anual (TMA 5.0%).
-     * **Judicial (121–180 días) & Castigo (>180 días):** Bloqueo de productos y pase a legales/Infocorp.
-3. **Gráfico Circular — Concentración Comercial 360° (Empresas PYME):**
-   * Distribución del crédito corporativo según sector económico (Comercio Minorista, Textil de Gamarra, Transporte, Tecnología).
-4. **Gráfico de Líneas — Evolución de Proyectos de Cobranza:**
-   * Muestra el impacto y recuperación tras las gestiones realizadas por el personal bancario.
+#### 📑 Hoja 2: Análisis de Mora — Calidad de Cartera (Enfoque de Riesgos y Recuperaciones)
+Diseñada con un enfoque riguroso en control de riesgo crediticio para auditoría y cobranzas:
+1. **Filtros Superiores:** Slicers interactivos por `Año/Mes`, `Zona` y `Rango Mora`.
+2. **4 Tarjetas de Alerta de Morosidad:**
+   * **Mora Promedio:** Ratio de cartera vencida global (8.2%).
+   * **Cartera Vencida:** Monto total en riesgo de impago (S/ 13.6M).
+   * **Oficinas > 10% (Alerta Mora Alta):** Conteo de agencias en estado crítico que requieren intervención (3 agencias).
+   * **Oficinas < 5% (Mora Controlada):** Conteo de agencias con gestión de riesgo óptima (6 agencias).
+3. **Gráfico de Línea — Evolución Ratio Mora Mensual:**
+   * Trayectoria histórica del porcentaje de morosidad contrastado contra la línea de referencia máxima tolerada del 10%.
+4. **Gráfico de Barras Horizontales — Mora por Oficina (Semaforizada):**
+   * Destaca visualmente en 🔴 rojo a las agencias críticas (`AG. ORIENTE 2` con 11.8% y `AG. SUR 3` con 10.2%), en 🟡 amarillo a las regulares (`AG. NORTE 6` con 8.7%) y en 🟢 verde a las sobresalientes (`AG. LIMA 1` con 3.8%).
+5. **Tabla Matricial de Detalle por Oficina y Zona:**
+   * Desglose transaccional con formato condicional en la columna `Estado` (Alto / Medio / OK) exponiendo Cartera Total, Cartera Vencida y Ratio exacto para toma de decisiones de cobranza judicial o extrajudicial.
 
 ---
 
