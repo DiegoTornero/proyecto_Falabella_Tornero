@@ -1318,7 +1318,7 @@ function ModuloEmpresas({ token }) {
   useEffect(() => {
     const fetchEmpresas = async () => {
       try {
-        const res = await getAxios(token).get('/api/empresas/')
+        const res = await getAxios(token).get('/api/empresas')
         setEmpresas(res.data || [])
       } catch (err) { console.error(err) }
       setLoading(false)
