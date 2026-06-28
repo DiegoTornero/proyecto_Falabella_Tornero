@@ -89,21 +89,6 @@ function LoginScreen({ onLogin }) {
     setLoading(false)
   }
 
-  const handleQuickLogin = async (codigo) => {
-    setLoading(true)
-    setError('')
-    try {
-      const res = await axios.post(`${API}/auth/login`, {
-        codigo_empleado: codigo,
-        password: '123456'
-      })
-      onLogin(res.data)
-    } catch (err) {
-      setError('Sincronizando servidor cloud... por favor reintenta en un momento.')
-    }
-    setLoading(false)
-  }
-
   return (
     <div className="min-h-screen relative bg-[#00361f] flex items-center justify-center p-4 overflow-hidden font-sans">
       {/* Background blobs for animation */}
@@ -113,7 +98,7 @@ function LoginScreen({ onLogin }) {
 
       <div className="w-full max-w-md relative z-10 animate-fade-up">
         {/* Brand Logo */}
-        <div className="flex items-center gap-4 justify-center mb-6">
+        <div className="flex items-center gap-4 justify-center mb-8">
           <div className="w-14 h-14 bg-gradient-to-br from-[#d4af37] to-[#9cb000] rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(200,224,0,0.3)] border border-white/20">
             <Briefcase size={28} className="text-[#00361f]" />
           </div>
@@ -124,17 +109,17 @@ function LoginScreen({ onLogin }) {
         </div>
 
         {/* Login Card */}
-        <div className="bg-[#002917]/80 backdrop-blur-2xl border border-white/10 rounded-[32px] p-8 shadow-[0_20px_50px_rgba(200,224,0,0.15)] transition-all duration-500">
+        <div className="bg-[#002917]/85 backdrop-blur-2xl border border-white/15 rounded-[32px] p-8 shadow-[0_20px_50px_rgba(200,224,0,0.15)] transition-all duration-500">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#d4af37] animate-pulse"></span>
-              <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-widest">Acceso Seguro Interno</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="text-emerald-400 text-[10px] font-black uppercase tracking-widest">Seguridad Bancaria Estricta</span>
             </div>
-            <span className="text-[10px] bg-white/10 text-slate-300 font-bold px-2.5 py-1 rounded-full border border-white/5">v2.0 Cloud</span>
+            <Shield size={16} className="text-[#d4af37]" />
           </div>
 
-          <h2 className="text-2xl font-display font-black text-white mb-1">Iniciar Sesión</h2>
-          <p className="text-slate-400 text-xs mb-6 font-medium">Selecciona un rol de demostración o ingresa tus credenciales.</p>
+          <h2 className="text-2xl font-display font-black text-white mb-1">Control de Acceso</h2>
+          <p className="text-slate-400 text-xs mb-6 font-medium">Ingresa tus credenciales autorizadas y contraseña cifrada.</p>
 
           {error && (
             <div className="bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-2xl px-4 py-3 text-xs mb-6 flex items-center gap-2 backdrop-blur-md font-bold">
@@ -142,14 +127,14 @@ function LoginScreen({ onLogin }) {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {/* Input Código */}
             <div>
               <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider ml-1">Código de Empleado</label>
               <div className="relative mt-1.5">
                 <input
                   type="text"
-                  placeholder="Ej. ASE-0001"
+                  placeholder="Ej. ASE-0001, RIE-0001"
                   required
                   value={form.codigo_empleado}
                   onChange={e => setForm({ ...form, codigo_empleado: e.target.value })}
@@ -192,30 +177,10 @@ function LoginScreen({ onLogin }) {
             </button>
           </form>
 
-          {/* Quick Login Section */}
-          <div className="mt-6 pt-6 border-t border-white/10">
-            <p className="text-[10px] font-black text-[#d4af37] uppercase tracking-widest text-center mb-3 flex items-center justify-center gap-1.5">
-              <span>⚡</span> Acceso Rápido de Demostración (1 Clic)
+          <div className="mt-6 pt-5 border-t border-white/10 text-center">
+            <p className="text-[11px] text-slate-400 font-medium">
+              Acceso restringido exclusivamente a personal autorizado de <strong className="text-white">Banco Falabella</strong>. Todo ingreso es auditado.
             </p>
-            <div className="grid grid-cols-2 gap-2">
-              {[
-                { codigo: 'ASE-0001', label: '🧑‍💼 Asesor Créditos', desc: 'Evaluación inicial' },
-                { codigo: 'RIE-0001', label: '⚖️ Jefe Riesgos', desc: 'Aprobación RDS' },
-                { codigo: 'COM-0001', label: '🏛️ Comité Crédito', desc: 'Montos mayores' },
-                { codigo: 'GER-0001', label: '💼 Gerencia', desc: 'Supervisión total' }
-              ].map(w => (
-                <button
-                  key={w.codigo}
-                  type="button"
-                  onClick={() => handleQuickLogin(w.codigo)}
-                  disabled={loading}
-                  className="bg-white/5 hover:bg-[#d4af37] border border-white/10 hover:border-transparent text-white hover:text-[#00361f] p-2.5 rounded-xl transition-all flex flex-col items-start text-left group shadow-sm hover:scale-[1.02]"
-                >
-                  <span className="text-xs font-black leading-tight group-hover:text-[#00361f]">{w.label}</span>
-                  <span className="text-[9px] text-slate-400 group-hover:text-[#00361f]/80 font-medium mt-0.5">{w.desc} ({w.codigo})</span>
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       </div>
@@ -1368,9 +1333,8 @@ function ModuloEmpresas({ token }) {
   const verEmpresa = async (empresa) => {
     setSelected(empresa)
     try {
-      const res = await getAxios(token).get('/scoring/bandeja')
-      const creds = (res.data || []).filter(c => c.empresa_id === empresa.id || c.tipo_producto === 'empresarial_micro')
-      setCreditos(creds)
+      const res = await getAxios(token).get(`/api/empresas/${empresa.id}/creditos`)
+      setCreditos(res.data || [])
     } catch (err) { setCreditos([]) }
   }
 
