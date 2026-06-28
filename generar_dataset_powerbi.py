@@ -52,51 +52,7 @@ try:
         if not c.monto_aprobado or c.monto_aprobado == 0:
             c.monto_aprobado = c.monto_solicitado or 0.0
     db.commit()
-    print(f"   -> Total de créditos en base de datos: {len(creditos_reales)}")
-
-    # Si hay menos de 600 créditos, completamos volumen auténtico para que las gráficas no tengan huecos
-    if len(creditos_reales) < 600:
-        print("   -> Inyectando colocaciones complementarias para un flujo continuo de 3 años (2024-2026)...")
-        import random
-        usr = db.query(Usuario).first()
-        usr_id = usr.id if usr else None
-
-        for ofi_nombre, zona in oficinas_map.items():
-            emp = db.query(Empresa).filter(Empresa.direccion == ofi_nombre).first()
-            if not emp:
-                emp = Empresa(ruc=f"2010000{random.randint(1000,9999)}", razon_social=f"Corporación {ofi_nombre} S.A.", sector=zona, facturacion_anual=3000000.0, direccion=ofi_nombre)
-                db.add(emp)
-                db.commit()
-                db.refresh(emp)
-
-            for anio in [2024, 2025, 2026]:
-                for m in range(1, 13):
-                    if anio == 2026 and m > 6: break
-                    for _ in range(3): # 3 créditos por mes por oficina
-                        monto = round(random.uniform(20000, 150000), 2)
-                        tasa = round(random.uniform(18.0, 32.0), 2)
-                        prod = random.choice(productos_oficiales)
-                        
-                        dias_m = 0
-                        banda = None
-                        estado_cred = "desembolsado"
-                        if "SUR 3" in ofi_nombre or "ORIENTE 2" in ofi_nombre or (m % 4 == 0):
-                            dias_m = random.choice([15, 45, 75, 130, 200])
-                            estado_cred = "moroso"
-                            banda = "preventiva" if dias_m <= 30 else ("temprana" if dias_m <= 60 else ("tardia" if dias_m <= 120 else ("judicial" if dias_m <= 180 else "castigo")))
-
-                        cred = Credito(
-                            empresa_id=emp.id, usuario_id=usr_id,
-                            monto_solicitado=monto, monto_aprobado=monto,
-                            plazo_meses=24, tasa_interes=tasa, estado=estado_cred,
-                            tipo_producto=prod, dias_mora=dias_m, banda_mora=banda,
-                            proposito=f"Colocación en {ofi_nombre}"
-                        )
-                        cred.created_at = datetime(anio, m, random.randint(1, 28))
-                        db.add(cred)
-        db.commit()
-        creditos_reales = db.query(Credito).all()
-        print(f"   -> Base de datos actualizada. Nuevo total: {len(creditos_reales)} créditos.")
+    print(f"   -> Total de créditos auténticos en base de datos: {len(creditos_reales)}")
 
     # Normalizador de producto
     def norm_prod(p):

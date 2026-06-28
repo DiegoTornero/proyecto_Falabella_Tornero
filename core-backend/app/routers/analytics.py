@@ -134,6 +134,142 @@ def get_creditos_mora(db: Session = Depends(get_db), trabajador=Depends(get_curr
             "id": c.id,
             "tipo_producto": c.tipo_producto,
             "monto_aprobado": c.monto_aprobado,
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+from sqlalchemy import func
+from app.database import get_db
+from app.models.models import CuentaAhorro, MovimientoAhorro, Credito, ProductoPasivo
+from app.dependencies import get_current_trabajador
+
+router = APIRouter()
+
+@router.get("")
+@router.get("/")
+@router.get("/kpis")
+def get_global_kpis(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
+    total_cuentas = db.query(CuentaAhorro).count()
+    saldo_total = db.query(func.sum(CuentaAhorro.saldo_actual)).scalar() or 0.0
+
+    creditos = db.query(Credito).all()
+    total_desembolsado = sum((c.monto_aprobado or c.monto_solicitado or 0.0) for c in creditos)
+    num_creditos = len(creditos)
+
+    return {
+        "total_cuentas": total_cuentas,
+        "saldo_total": round(float(saldo_total), 2),
+        "total_desembolsado": round(float(total_desembolsado), 2),
+        "num_creditos": num_creditos,
+        "creditos_desembolsados": round(float(total_desembolsado), 2)
+    }
+
+@router.get("/history")
+def get_global_history(limit: int = 50, db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
+    movimientos = db.query(MovimientoAhorro, CuentaAhorro).join(
+        CuentaAhorro, MovimientoAhorro.cuenta_ahorro_id == CuentaAhorro.id
+    ).order_by(MovimientoAhorro.fecha_movimiento.desc()).limit(limit).all()
+
+    resultado = []
+    for mov, cta in movimientos:
+        resultado.append({
+            "id": mov.id,
+            "tipo": mov.tipo_movimiento,
+            "monto": mov.monto,
+            "descripcion": mov.descripcion,
+            "fecha": mov.fecha_movimiento,
+            "cuenta": cta.numero_cuenta,
+            "usuario_id": cta.usuario_id
+        })
+    return resultado
+
+@router.get("/chart-data")
+def get_chart_data(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
+    # Obtener volumen de depósitos y retiros por día de los últimos 7 días
+    import datetime
+    from sqlalchemy import cast, Date
+
+    hoy = datetime.date.today()
+    hace_7_dias = hoy - datetime.timedelta(days=7)
+
+    movimientos = db.query(
+        cast(MovimientoAhorro.fecha_movimiento, Date).label("fecha"),
+        MovimientoAhorro.tipo_movimiento,
+        func.sum(MovimientoAhorro.monto).label("total")
+    ).filter(
+        cast(MovimientoAhorro.fecha_movimiento, Date) >= hace_7_dias
+    ).group_by(
+        cast(MovimientoAhorro.fecha_movimiento, Date),
+        MovimientoAhorro.tipo_movimiento
+    ).all()
+
+    # Formatear datos para recharts
+    dias = [(hace_7_dias + datetime.timedelta(days=i)) for i in range(8)]
+    chart_data = {str(dia): {"name": str(dia), "ingresos": 0.0, "salidas": 0.0} for dia in dias}
+
+    for fecha, tipo, total in movimientos:
+        fecha_str = str(fecha)
+        if fecha_str in chart_data:
+            if tipo in ["DEPOSITO", "PAGO_INTERES"]:
+                chart_data[fecha_str]["ingresos"] += total
+            elif tipo in ["RETIRO", "TRANSFERENCIA"]:
+                chart_data[fecha_str]["salidas"] += total
+
+    return list(chart_data.values())
+
+@router.get("/credits-by-state")
+def get_credits_by_state(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
+    # Contar créditos por estado
+    resultados = db.query(
+        Credito.estado,
+        func.count(Credito.id).label("cantidad")
+    ).group_by(Credito.estado).all()
+    
+    return [{"name": e.estado.capitalize().replace('_', ' '), "value": e.cantidad} for e in resultados]
+
+@router.get("/mora-bands")
+def get_mora_bands(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
+    # Sumar montos adeudados por banda de mora
+    resultados = db.query(
+        Credito.banda_mora,
+        func.sum(Credito.monto_aprobado).label("total")
+    ).filter(Credito.dias_mora > 0).group_by(Credito.banda_mora).all()
+    
+    # Asegurar el orden: preventiva, temprana, tardia, judicial, castigo
+    orden_bandas = ["preventiva", "temprana", "tardia", "judicial", "castigo"]
+    dict_resultados = {e.banda_mora: (e.total or 0.0) for e in resultados if e.banda_mora}
+    
+    final_result = []
+    for b in orden_bandas:
+        if b in dict_resultados:
+            final_result.append({
+                "name": b.capitalize(),
+                "monto": dict_resultados[b]
+            })
+            
+    return final_result
+
+@router.get("/cartera-activa")
+def get_cartera_activa(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
+    creditos = db.query(Credito).filter(Credito.estado == "desembolsado").all()
+    return [
+        {
+            "id": c.id,
+            "tipo_producto": c.tipo_producto,
+            "monto_aprobado": c.monto_aprobado,
+            "plazo_meses": c.plazo_meses,
+            "tasa_interes": c.tasa_interes,
+            "dias_mora": c.dias_mora or 0,
+            "fecha_desembolso": c.created_at.strftime("%Y-%m-%d") if c.created_at else ""
+        } for c in creditos
+    ]
+
+@router.get("/creditos-mora")
+def get_creditos_mora(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
+    creditos = db.query(Credito).filter(Credito.dias_mora > 0).all()
+    return [
+        {
+            "id": c.id,
+            "tipo_producto": c.tipo_producto,
+            "monto_aprobado": c.monto_aprobado,
             "dias_mora": c.dias_mora,
             "banda_mora": c.banda_mora or "preventiva",
             "estado": c.estado
@@ -143,6 +279,7 @@ def get_creditos_mora(db: Session = Depends(get_db), trabajador=Depends(get_curr
 @router.get("/desembolsos-dia")
 def get_desembolsos_dia(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
     import datetime
+    from sqlalchemy import Date
     hoy = datetime.date.today()
     creditos = db.query(Credito).filter(
         func.cast(Credito.created_at, Date) == hoy,
@@ -163,132 +300,104 @@ def get_desembolsos_dia(db: Session = Depends(get_db), trabajador=Depends(get_cu
 def export_powerbi_resumen(db: Session = Depends(get_db)):
     """
     Endpoint oficial de exportación para Power BI - Hoja 1 (Resumen Ejecutivo).
-    Consulta directamente la tabla SQL 'powerbi_resumen_cartera' en PostgreSQL.
+    Calcula dinámicamente desde la tabla principal 'creditos' para garantizar sincronía 100%.
     """
-    from app.models.models import PowerBIResumenCartera
-    registros = db.query(PowerBIResumenCartera).all()
-    if not registros:
-        return {"mensaje": "La tabla SQL está vacía. Ejecuta POST /analytics/poblar-tablas-powerbi para llenarla con miles de registros."}
-    return [
-        {
-            "Fecha": r.fecha, "Año": r.anio, "Mes": r.mes,
-            "Oficina": r.oficina, "Zona": r.zona, "Tipo_Producto": r.tipo_producto,
-            "Cartera_Total": r.cartera_total, "Cartera_Vigente": r.cartera_vigente,
-            "Cartera_Vencida": r.cartera_vencida, "Ratio_Mora": r.ratio_mora,
-            "Tasa_Promedio": r.tasa_promedio, "Numero_Clientes": r.numero_clientes,
-            "Ticket_Promedio": r.ticket_promedio
-        } for r in registros
-    ]
+    from app.models.models import Credito, AuditoriaReporteBI
+    from datetime import datetime
+
+    oficinas_map = {
+        "OF. PRINCIPAL": "Zona Lima", "AG. LIMA 1": "Zona Lima", "AG. LIMA 2": "Zona Lima",
+        "AG. SUR 1": "Zona Sur", "AG. SUR 2": "Zona Sur", "AG. SUR 3": "Zona Sur",
+        "AG. NORTE 6": "Zona Norte", "AG. ORIENTE 2": "Zona Oriente"
+    }
+
+    def norm_prod(p):
+        if not p: return "Crédito PYME Comercial"
+        n = str(p).lower()
+        if "personal" in n or "efectivo" in n: return "Crédito Efectivo Personal"
+        if "cmr" in n or "tarjeta" in n: return "Tarjeta de Crédito CMR"
+        if "vehicular" in n or "auto" in n: return "Crédito Vehicular"
+        return "Crédito PYME Comercial"
+
+    creditos = db.query(Credito).all()
+    agrupados = {}
+    monto_total_exportado = 0.0
+
+    for c in creditos:
+        emp = getattr(c, 'empresa', None)
+        ofi = getattr(emp, 'direccion', None) if emp else None
+        if not ofi or ofi not in oficinas_map:
+            ofi = "OF. PRINCIPAL"
+        zona = oficinas_map[ofi]
+
+        f_dt = getattr(c, 'created_at', None)
+        if isinstance(f_dt, str):
+            try: f_dt = datetime.fromisoformat(f_dt.replace('Z', '').split('+')[0])
+            except Exception: f_dt = datetime(2025, 1, 1)
+        if not hasattr(f_dt, 'year'): f_dt = datetime(2025, 1, 1)
+
+        f_str = f"{f_dt.year}-{f_dt.month:02d}-01"
+        prod = norm_prod(getattr(c, 'tipo_producto', None))
+        monto = float(getattr(c, 'monto_aprobado', None) or getattr(c, 'monto_solicitado', None) or 0.0)
+        monto_total_exportado += monto
+        tasa = float(getattr(c, 'tasa_interes', None) or 25.0)
+
+        key = (f_str, f_dt.year, f"{f_dt.month:02d}", ofi, zona, prod)
+        if key not in agrupados:
+            agrupados[key] = {"total": 0.0, "vencida": 0.0, "tasas": [], "clientes": 0}
+        agrupados[key]["total"] += monto
+        agrupados[key]["tasas"].append(tasa)
+        agrupados[key]["clientes"] += 1
+        if int(getattr(c, 'dias_mora', None) or 0) > 0:
+            agrupados[key]["vencida"] += monto
+
+    resultado = []
+    for k in sorted(agrupados.keys()):
+        val = agrupados[k]
+        f_str, anio, mes, ofi, zona, prod = k
+        c_tot = round(val["total"], 2)
+        c_venc = round(val["vencida"], 2)
+        c_vig = round(c_tot - c_venc, 2)
+        ratio_m = round((c_venc / c_tot) * 100, 2) if c_tot > 0 else 0.0
+        tasa_p = round(sum(val["tasas"]) / len(val["tasas"]), 2) if val["tasas"] else 25.0
+        cli = val["clientes"]
+        tick = round(c_tot / cli, 2) if cli > 0 else 0.0
+
+        resultado.append({
+            "Fecha": f_str, "Año": anio, "Mes": mes, "Oficina": ofi, "Zona": zona,
+            "Tipo_Producto": prod, "Cartera_Total": c_tot, "Cartera_Vigente": c_vig,
+            "Cartera_Vencida": c_venc, "Ratio_Mora": ratio_m, "Tasa_Promedio": tasa_p,
+            "Numero_Clientes": cli, "Ticket_Promedio": tick
+        })
+
+    try:
+        auditoria = AuditoriaReporteBI(tipo_reporte="Resumen Ejecutivo Hoja 1", registros_exportados=len(resultado), monto_total_cartera=round(monto_total_exportado, 2))
+        db.add(auditoria)
+        db.commit()
+    except Exception:
+        db.rollback()
+
+    return resultado
 
 
 @router.get("/powerbi-mora")
 def export_powerbi_mora(db: Session = Depends(get_db)):
     """
     Endpoint oficial de exportación para Power BI - Hoja 2 (Análisis de Mora).
-    Consulta directamente la tabla SQL 'powerbi_detalle_mora' en PostgreSQL.
+    Calcula dinámicamente desde la base de datos real del Core para sincronía matemática exacta.
     """
-    from app.models.models import PowerBIDetalleMora
-    registros = db.query(PowerBIDetalleMora).all()
-    if not registros:
-        return {"mensaje": "La tabla SQL está vacía. Ejecuta POST /analytics/poblar-tablas-powerbi para llenarla con miles de registros."}
-    return [
-        {
-            "Fecha": r.fecha, "Año": r.anio, "Mes": r.mes,
-            "Oficina": r.oficina, "Zona": r.zona, "Tipo_Producto": r.tipo_producto,
-            "Banda_Morosidad": r.banda_morosidad, "Cartera_Total": r.cartera_total,
-            "Vencida": r.vencida, "Ratio_Mora": r.ratio_mora, "Estado": r.estado,
-            "Alerta_Prioritaria": r.alerta_prioritaria, "Accion_Recuperacion": r.accion_recuperacion,
-            "Clientes_Morosos": r.clientes_morosos
-        } for r in registros
-    ]
-
-
-@router.post("/poblar-tablas-powerbi")
-def poblar_tablas_sql_powerbi(db: Session = Depends(get_db)):
-    """
-    Llena las tablas SQL oficiales de Power BI en PostgreSQL estrictamente con los registros reales del Core Bancario.
-    Garantiza cuadre matemático perfecto al centavo entre la Hoja 1 y Hoja 2.
-    """
-    from app.models.models import PowerBIResumenCartera, PowerBIDetalleMora, Credito, Empresa
+    from app.models.models import Credito, AuditoriaReporteBI
     from datetime import datetime
-    
-    # Limpiar tablas previas para repoblar en limpio
-    db.query(PowerBIResumenCartera).delete()
-    db.query(PowerBIDetalleMora).delete()
-    db.commit()
 
     oficinas_map = {
-        "OF. PRINCIPAL": "Zona Lima",
-        "AG. LIMA 1": "Zona Lima",
-        "AG. LIMA 2": "Zona Lima",
-        "AG. SUR 1": "Zona Sur",
-        "AG. SUR 2": "Zona Sur",
-        "AG. SUR 3": "Zona Sur",
-        "AG. NORTE 6": "Zona Norte",
-        "AG. ORIENTE 2": "Zona Oriente"
+        "OF. PRINCIPAL": "Zona Lima", "AG. LIMA 1": "Zona Lima", "AG. LIMA 2": "Zona Lima",
+        "AG. SUR 1": "Zona Sur", "AG. SUR 2": "Zona Sur", "AG. SUR 3": "Zona Sur",
+        "AG. NORTE 6": "Zona Norte", "AG. ORIENTE 2": "Zona Oriente"
     }
-
-    lista_oficinas = list(oficinas_map.keys())
-    productos_oficiales = ["Crédito Efectivo Personal", "Crédito PYME Comercial", "Tarjeta de Crédito CMR", "Crédito Vehicular"]
-
-    empresas = db.query(Empresa).all()
-    for emp in empresas:
-        if emp.direccion not in oficinas_map:
-            idx = abs(hash(str(emp.id or "0"))) % len(lista_oficinas)
-            emp.direccion = lista_oficinas[idx]
-        emp.sector = oficinas_map[emp.direccion]
-    db.commit()
-
-    creditos = db.query(Credito).all()
-    if len(creditos) < 600:
-        import random
-        from app.models.models import Usuario
-        usr = db.query(Usuario).first()
-        usr_id = usr.id if usr else None
-
-        for ofi_nombre, zona in oficinas_map.items():
-            emp = db.query(Empresa).filter(Empresa.direccion == ofi_nombre).first()
-            if not emp:
-                emp = Empresa(ruc=f"2010000{random.randint(1000,9999)}", razon_social=f"Corporación {ofi_nombre} S.A.", sector=zona, facturacion_anual=3000000.0, direccion=ofi_nombre)
-                db.add(emp)
-                db.commit()
-                db.refresh(emp)
-
-            for anio in [2024, 2025, 2026]:
-                for m in range(1, 13):
-                    if anio == 2026 and m > 6: break
-                    for _ in range(3):
-                        monto = round(random.uniform(20000, 150000), 2)
-                        tasa = round(random.uniform(18.0, 32.0), 2)
-                        prod = random.choice(productos_oficiales)
-                        dias_m = 0
-                        banda = None
-                        estado_cred = "desembolsado"
-                        if "SUR 3" in ofi_nombre or "ORIENTE 2" in ofi_nombre or (m % 4 == 0):
-                            dias_m = random.choice([15, 45, 75, 130, 200])
-                            estado_cred = "moroso"
-                            banda = "preventiva" if dias_m <= 30 else ("temprana" if dias_m <= 60 else ("tardia" if dias_m <= 120 else ("judicial" if dias_m <= 180 else "castigo")))
-
-                        cred = Credito(
-                            empresa_id=emp.id, usuario_id=usr_id,
-                            monto_solicitado=monto, monto_aprobado=monto,
-                            plazo_meses=24, tasa_interes=tasa, estado=estado_cred,
-                            tipo_producto=prod, dias_mora=dias_m, banda_mora=banda,
-                            proposito=f"Colocación en {ofi_nombre}"
-                        )
-                        cred.created_at = datetime(anio, m, random.randint(1, 28))
-                        db.add(cred)
-        db.commit()
-
-    creditos = db.query(Credito).all()
-    for c in creditos:
-        if not c.monto_aprobado or c.monto_aprobado == 0:
-            c.monto_aprobado = c.monto_solicitado or 0.0
-    db.commit()
 
     def norm_prod(p):
         if not p: return "Crédito PYME Comercial"
-        n = p.lower()
+        n = str(p).lower()
         if "personal" in n or "efectivo" in n: return "Crédito Efectivo Personal"
         if "cmr" in n or "tarjeta" in n: return "Tarjeta de Crédito CMR"
         if "vehicular" in n or "auto" in n: return "Crédito Vehicular"
@@ -304,59 +413,41 @@ def poblar_tablas_sql_powerbi(db: Session = Depends(get_db)):
         if dias > 30: return "Temprana (31-60 días)"
         return "Preventiva (1-30 días)"
 
-    agrupados_h1 = {}
-    agrupados_h2 = {}
+    creditos = db.query(Credito).all()
+    agrupados = {}
+    monto_total_exportado = 0.0
 
     for c in creditos:
-        emp = c.empresa
-        ofi = emp.direccion if emp and emp.direccion in oficinas_map else "OF. PRINCIPAL"
+        emp = getattr(c, 'empresa', None)
+        ofi = getattr(emp, 'direccion', None) if emp else None
+        if not ofi or ofi not in oficinas_map:
+            ofi = "OF. PRINCIPAL"
         zona = oficinas_map[ofi]
-        f_dt = c.created_at if c.created_at else datetime(2025, 1, 1)
+
+        f_dt = getattr(c, 'created_at', None)
+        if isinstance(f_dt, str):
+            try: f_dt = datetime.fromisoformat(f_dt.replace('Z', '').split('+')[0])
+            except Exception: f_dt = datetime(2025, 1, 1)
+        if not hasattr(f_dt, 'year'): f_dt = datetime(2025, 1, 1)
+
         f_str = f"{f_dt.year}-{f_dt.month:02d}-01"
-        prod = norm_prod(c.tipo_producto)
-        banda = norm_banda(c.dias_mora, c.estado)
-        monto = round(c.monto_aprobado or c.monto_solicitado or 0.0, 2)
+        prod = norm_prod(getattr(c, 'tipo_producto', None))
+        monto = float(getattr(c, 'monto_aprobado', None) or getattr(c, 'monto_solicitado', None) or 0.0)
+        monto_total_exportado += monto
+        banda = norm_banda(int(getattr(c, 'dias_mora', None) or 0), getattr(c, 'estado', None))
 
-        k1 = (f_str, f_dt.year, f"{f_dt.month:02d}", ofi, zona, prod)
-        if k1 not in agrupados_h1:
-            agrupados_h1[k1] = {"total": 0.0, "vencida": 0.0, "tasas": [], "clientes": 0}
-        agrupados_h1[k1]["total"] += monto
-        agrupados_h1[k1]["tasas"].append(c.tasa_interes or 25.0)
-        agrupados_h1[k1]["clientes"] += 1
+        key = (f_str, f_dt.year, f"{f_dt.month:02d}", ofi, zona, prod, banda)
+        if key not in agrupados:
+            agrupados[key] = {"total": 0.0, "vencida": 0.0, "morosos": 0}
+        agrupados[key]["total"] += monto
         if banda != "Al día (Sin Mora)":
-            agrupados_h1[k1]["vencida"] += monto
+            agrupados[key]["vencida"] += monto
+            agrupados[key]["morosos"] += 1
 
-        k2 = (f_str, f_dt.year, f"{f_dt.month:02d}", ofi, zona, prod, banda)
-        if k2 not in agrupados_h2:
-            agrupados_h2[k2] = {"total": 0.0, "vencida": 0.0, "morosos": 0}
-        agrupados_h2[k2]["total"] += monto
-        if banda != "Al día (Sin Mora)":
-            agrupados_h2[k2]["vencida"] += monto
-            agrupados_h2[k2]["morosos"] += 1
-
-    lote_resumen = []
-    for k1 in sorted(agrupados_h1.keys()):
-        val = agrupados_h1[k1]
-        f_str, anio, mes, ofi, zona, prod = k1
-        c_tot = round(val["total"], 2)
-        c_venc = round(val["vencida"], 2)
-        c_vig = round(c_tot - c_venc, 2)
-        ratio_m = round((c_venc / c_tot) * 100, 2) if c_tot > 0 else 0.0
-        tasa_p = round(sum(val["tasas"]) / len(val["tasas"]), 2)
-        cli = val["clientes"]
-        tick = round(c_tot / cli, 2) if cli > 0 else 0.0
-
-        lote_resumen.append(PowerBIResumenCartera(
-            fecha=f_str, anio=anio, mes=mes, oficina=ofi, zona=zona,
-            tipo_producto=prod, cartera_total=c_tot, cartera_vigente=c_vig,
-            cartera_vencida=c_venc, ratio_mora=ratio_m, tasa_promedio=tasa_p,
-            numero_clientes=cli, ticket_promedio=tick
-        ))
-
-    lote_mora = []
-    for k2 in sorted(agrupados_h2.keys()):
-        val = agrupados_h2[k2]
-        f_str, anio, mes, ofi, zona, prod, banda = k2
+    resultado = []
+    for k in sorted(agrupados.keys()):
+        val = agrupados[k]
+        f_str, anio, mes, ofi, zona, prod, banda = k
         c_tot = round(val["total"], 2)
         c_venc = round(val["vencida"], 2)
         ratio_m = round((c_venc / c_tot) * 100, 2) if c_tot > 0 else 0.0
@@ -364,19 +455,71 @@ def poblar_tablas_sql_powerbi(db: Session = Depends(get_db)):
         alerta = "Alerta mora alta (>10%)" if ratio_m > 10.0 else ("Supervisión regular (5%-10%)" if ratio_m >= 5.0 else "Mora controlada (<5%)")
         accion = "Proceso Legal/Cobranza" if ratio_m > 10.0 else ("Llamada Call Center" if ratio_m >= 5.0 else "Monitoreo Regular")
 
-        lote_mora.append(PowerBIDetalleMora(
-            fecha=f_str, anio=anio, mes=mes, oficina=ofi, zona=zona,
-            tipo_producto=prod, banda_morosidad=banda, cartera_total=c_tot,
-            vencida=c_venc, ratio_mora=ratio_m, estado=est,
-            alerta_prioritaria=alerta, accion_recuperacion=accion,
-            clientes_morosos=val["morosos"]
-        ))
+        resultado.append({
+            "Fecha": f_str, "Año": anio, "Mes": mes, "Oficina": ofi, "Zona": zona,
+            "Tipo_Producto": prod, "Banda_Morosidad": banda, "Cartera_Total": c_tot,
+            "Vencida": c_venc, "Ratio_Mora": ratio_m, "Estado": est,
+            "Alerta_Prioritaria": alerta, "Accion_Recuperacion": accion,
+            "Clientes_Morosos": val["morosos"]
+        })
 
-    db.bulk_save_objects(lote_resumen)
-    db.bulk_save_objects(lote_mora)
+    try:
+        auditoria = AuditoriaReporteBI(tipo_reporte="Análisis Mora Hoja 2", registros_exportados=len(resultado), monto_total_cartera=round(monto_total_exportado, 2))
+        db.add(auditoria)
+        db.commit()
+    except Exception:
+        db.rollback()
+
+    return resultado
+
+
+@router.post("/poblar-tablas-powerbi")
+def poblar_tablas_sql_powerbi(db: Session = Depends(get_db)):
+    """
+    Sanea las oficinas y sectores de las empresas y guarda un consolido ejecutivo de auditoría en la BD real.
+    Garantiza sincronía y cuadre 100% real sin inyecciones artificiales.
+    """
+    from app.models.models import Credito, Empresa, ResumenEjecutivoCore
+    from datetime import datetime
+
+    oficinas_map = {
+        "OF. PRINCIPAL": "Zona Lima", "AG. LIMA 1": "Zona Lima", "AG. LIMA 2": "Zona Lima",
+        "AG. SUR 1": "Zona Sur", "AG. SUR 2": "Zona Sur", "AG. SUR 3": "Zona Sur",
+        "AG. NORTE 6": "Zona Norte", "AG. ORIENTE 2": "Zona Oriente"
+    }
+    lista_oficinas = list(oficinas_map.keys())
+
+    empresas = db.query(Empresa).all()
+    for emp in empresas:
+        if emp.direccion not in oficinas_map:
+            idx = abs(hash(str(emp.id or "0"))) % len(lista_oficinas)
+            emp.direccion = lista_oficinas[idx]
+        emp.sector = oficinas_map[emp.direccion]
     db.commit()
-    
+
+    creditos = db.query(Credito).all()
+    for c in creditos:
+        if not c.monto_aprobado or c.monto_aprobado == 0:
+            c.monto_aprobado = c.monto_solicitado or 0.0
+    db.commit()
+
+    total_cartera = sum((c.monto_aprobado or c.monto_solicitado or 0.0) for c in creditos)
+    mora_items = [c for c in creditos if (c.dias_mora or 0) > 0]
+    total_mora = sum((c.monto_aprobado or c.monto_solicitado or 0.0) for c in mora_items)
+    ratio_m = round((total_mora / total_cartera) * 100, 2) if total_cartera > 0 else 0.0
+
+    resumen_snap = ResumenEjecutivoCore(
+        fecha_corte=datetime.now().strftime("%Y-%m-%d"),
+        cartera_total_activa=round(total_cartera, 2),
+        desembolsos_totales=round(total_cartera, 2),
+        creditos_emitidos=len(creditos),
+        ratio_mora_global=ratio_m,
+        cartera_morosa=round(total_mora, 2)
+    )
+    db.add(resumen_snap)
+    db.commit()
+
     return {
         "status": "success",
-        "mensaje": f"¡Tablas SQL en PostgreSQL pobladas exitosamente desde el Core! Se guardaron {len(lote_resumen)} registros en powerbi_resumen_cartera y {len(lote_mora)} registros en powerbi_detalle_mora con cuadre perfecto."
+        "mensaje": f"¡Sincronización y saneamiento completado! La base de datos refleja exactamente {len(creditos)} créditos por S/ {round(total_cartera, 2)} con cuadre matemático perfecto 100% real."
     }

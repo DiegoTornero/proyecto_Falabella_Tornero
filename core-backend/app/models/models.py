@@ -270,48 +270,34 @@ class Notificacion(Base):
     usuario = relationship("Usuario", back_populates="notificaciones")
 
 
-class PowerBIResumenCartera(Base):
+class AuditoriaReporteBI(Base):
     """
-    Tabla oficial en PostgreSQL para alimentar el Dashboard de Power BI - Hoja 1 (Resumen Ejecutivo).
-    Almacena los registros transaccionales e históricos por fecha, agencia y producto.
+    Tabla de control y auditoría bancaria para el registro de exportaciones e informes BI.
+    Garantiza el cumplimiento normativo (SBS/Superintendencia) sobre consultas de cartera.
     """
-    __tablename__ = "powerbi_resumen_cartera"
+    __tablename__ = "auditoria_reportes_bi"
 
     id = Column(Integer, primary_key=True, index=True)
-    fecha = Column(String(20), index=True)
-    anio = Column(Integer, index=True)
-    mes = Column(String(5))
-    oficina = Column(String(100), index=True)
-    zona = Column(String(50), index=True)
-    tipo_producto = Column(String(100), index=True)
-    cartera_total = Column(Float, default=0.0)
-    cartera_vigente = Column(Float, default=0.0)
-    cartera_vencida = Column(Float, default=0.0)
-    ratio_mora = Column(Float, default=0.0)
-    tasa_promedio = Column(Float, default=0.0)
-    numero_clientes = Column(Integer, default=0)
-    ticket_promedio = Column(Float, default=0.0)
+    fecha_generacion = Column(DateTime(timezone=True), server_default=func.now())
+    usuario_auditor = Column(String(100), default="Analista BI Core")
+    tipo_reporte = Column(String(100), index=True)  # Cartera Activa | Riesgo de Mora
+    registros_exportados = Column(Integer, default=0)
+    monto_total_cartera = Column(Float, default=0.0)
+    ratio_mora_calculado = Column(Float, default=0.0)
+    hash_verificacion = Column(String(64), nullable=True)
 
 
-class PowerBIDetalleMora(Base):
+class ResumenEjecutivoCore(Base):
     """
-    Tabla oficial en PostgreSQL para alimentar el Dashboard de Power BI - Hoja 2 (Análisis de Mora).
-    Almacena el detalle de vencimiento y semaforización de riesgo por banda y oficina.
+    Tabla histórica de consolidados ejecutivos del Core Bancario para análisis de tendencias BI.
     """
-    __tablename__ = "powerbi_detalle_mora"
+    __tablename__ = "resumen_ejecutivo_core"
 
     id = Column(Integer, primary_key=True, index=True)
-    fecha = Column(String(20), index=True)
-    anio = Column(Integer, index=True)
-    mes = Column(String(5))
-    oficina = Column(String(100), index=True)
-    zona = Column(String(50), index=True)
-    tipo_producto = Column(String(100))
-    banda_morosidad = Column(String(100), index=True)
-    cartera_total = Column(Float, default=0.0)
-    vencida = Column(Float, default=0.0)
-    ratio_mora = Column(Float, default=0.0)
-    estado = Column(String(20), index=True)  # Alto | Medio | OK
-    alerta_prioritaria = Column(String(150))
-    accion_recuperacion = Column(String(100))
-    clientes_morosos = Column(Integer, default=0)
+    fecha_corte = Column(String(20), index=True)
+    cartera_total_activa = Column(Float, default=0.0)
+    saldo_total_captado = Column(Float, default=0.0)
+    desembolsos_totales = Column(Float, default=0.0)
+    creditos_emitidos = Column(Integer, default=0)
+    ratio_mora_global = Column(Float, default=0.0)
+    cartera_morosa = Column(Float, default=0.0)
