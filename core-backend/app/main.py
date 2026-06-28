@@ -17,15 +17,16 @@ app = FastAPI(
 )
 
 # ─── Defensa 5: CORS estricto ───
-FRONTEND_URLS = os.getenv("FRONTEND_URLS", "http://localhost:5173,http://localhost:5174,http://127.0.0.1:5173,http://127.0.0.1:5174,http://localhost:8000")
+FRONTEND_URLS = os.getenv("FRONTEND_URLS", "http://localhost:5173,http://localhost:5174,http://127.0.0.1:5173,http://127.0.0.1:5174,http://localhost:8000,https://proyecto-falabella-tornero-ja2i.vercel.app")
 ORIGINES_PERMITIDOS = [url.strip() for url in FRONTEND_URLS.split(",")]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ORIGINES_PERMITIDOS,
+    allow_origin_regex=r"https://.*\.vercel\.app|https://.*\.onrender\.com",
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["Authorization", "Content-Type", "Accept"],
+    allow_headers=["*"],
 )
 
 # ─── Defensa 5: Headers de seguridad HTTP ───

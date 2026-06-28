@@ -7,7 +7,7 @@ import {
 } from 'lucide-react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, Legend } from 'recharts'
 
-const API = import.meta.env.VITE_API_URL || "http://localhost:8001"
+const API = import.meta.env.VITE_API_URL || "https://core-backend-g43c.onrender.com"
 
 // ─── Helpers ────────────────────────────────────────────────
 function getAxios(token) {

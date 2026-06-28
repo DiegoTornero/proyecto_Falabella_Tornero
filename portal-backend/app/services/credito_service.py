@@ -45,7 +45,7 @@ class CreditoService:
                 "monto_solicitado": data["monto_solicitado"],
                 "plazo_meses": data["plazo_meses"]
             }
-            CORE_API_URL = os.getenv("CORE_API_URL", "http://127.0.0.1:8001")
+            CORE_API_URL = os.getenv("CORE_API_URL", "https://core-backend-g43c.onrender.com")
             res = requests.post(f"{CORE_API_URL}/scoring/evaluar", json=core_payload, timeout=5)
             if res.status_code == 200:
                 core_data = res.json()
