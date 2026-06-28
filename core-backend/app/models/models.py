@@ -111,13 +111,13 @@ class Credito(Base):
     __tablename__ = "creditos"
 
     id = Column(String, primary_key=True, default=gen_uuid)
-    usuario_id = Column(String, ForeignKey("usuarios.id"), nullable=True)
-    empresa_id = Column(String, ForeignKey("empresas.id"), nullable=True)
+    usuario_id = Column(String, ForeignKey("usuarios.id", ondelete="CASCADE"), index=True, nullable=True)
+    empresa_id = Column(String, ForeignKey("empresas.id", ondelete="CASCADE"), index=True, nullable=True)
     monto_solicitado = Column(Float, nullable=False)
     monto_aprobado = Column(Float, nullable=True)
     plazo_meses = Column(Integer, nullable=False)
     tasa_interes = Column(Float, default=18.0)
-    estado = Column(String(30), default="enviado")
+    estado = Column(String(30), default="enviado", index=True)
     proposito = Column(Text, nullable=True)
     tipo_producto = Column(String(30), default="personal")
     ingreso_cliente = Column(Float, default=3500.0)
@@ -136,7 +136,7 @@ class Credito(Base):
 
     usuario = relationship("Usuario", back_populates="creditos", foreign_keys=[usuario_id])
     empresa = relationship("Empresa", back_populates="creditos", foreign_keys=[empresa_id])
-    cronograma = relationship("CronogramaPago", back_populates="credito")
+    cronograma = relationship("CronogramaPago", back_populates="credito", cascade="all, delete-orphan")
     producto_activo = relationship("ProductoActivo")
 
 
@@ -144,11 +144,11 @@ class CronogramaPago(Base):
     __tablename__ = "cronograma_pagos"
 
     id = Column(String, primary_key=True, default=gen_uuid)
-    credito_id = Column(String, ForeignKey("creditos.id"), nullable=False)
+    credito_id = Column(String, ForeignKey("creditos.id", ondelete="CASCADE"), index=True, nullable=False)
     numero_cuota = Column(Integer, nullable=False)
     fecha_vencimiento = Column(Date, nullable=False)
     monto_cuota = Column(Float, nullable=False)
-    estado = Column(String(20), default="pendiente")
+    estado = Column(String(20), default="pendiente", index=True)
     seguro_desgravamen = Column(Float, default=0.0)
     mora_acumulada = Column(Float, default=0.0)
 
@@ -172,7 +172,7 @@ class HistorialCredito(Base):
     __tablename__ = "historial_creditos"
 
     id = Column(String, primary_key=True, default=gen_uuid)
-    credito_id = Column(String, ForeignKey("creditos.id"), nullable=False)
+    credito_id = Column(String, ForeignKey("creditos.id", ondelete="CASCADE"), index=True, nullable=False)
     trabajador_id = Column(String, ForeignKey("trabajadores.id"), nullable=False)
     accion = Column(String(50), nullable=False)
     comentario = Column(Text, nullable=True)
@@ -186,7 +186,7 @@ class GestionMora(Base):
     __tablename__ = "gestiones_mora"
 
     id = Column(String, primary_key=True, default=gen_uuid)
-    credito_id = Column(String, ForeignKey("creditos.id"), nullable=False)
+    credito_id = Column(String, ForeignKey("creditos.id", ondelete="CASCADE"), index=True, nullable=False)
     trabajador_id = Column(String, ForeignKey("trabajadores.id"), nullable=False)
     tipo_gestion = Column(String(50), nullable=False)  # llamada, visita, carta, email, sms
     resultado = Column(String(100), nullable=True)
