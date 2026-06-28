@@ -35,6 +35,10 @@ class AuthRepository:
         return db.query(Usuario).filter(Usuario.email == email).first()
 
     def create_usuario(self, db: Session, data: dict) -> Usuario:
+        import uuid
+        from app.models.models import CuentaAhorro, ProductoPasivo
+
+        # ── 1. CREAR USUARIO ──────────────────────────────────────────
         usuario = Usuario(
             nombre=data["nombre"],
             apellido=data["apellido"],
@@ -50,32 +54,25 @@ class AuthRepository:
             ),
         )
         db.add(usuario)
+        db.flush()  # Obtiene el ID sin cerrar la transacción
+
+        # ── 2. CREAR CUENTA DE AHORROS AUTOMÁTICAMENTE ───────────────
+        # Usar siempre el producto pasivo ID=1 (Cuenta de Ahorro Simple)
+        # Si no existe, crearlo al vuelo
+        producto = db.query(ProductoPasivo).filter(ProductoPasivo.id == 1).first()
+        if not producto:
+            producto = db.query(ProductoPasivo).first()
+
+        nueva_cuenta = CuentaAhorro(
+            numero_cuenta="BF" + uuid.uuid4().hex[:10].upper(),
+            usuario_id=usuario.id,
+            producto_pasivo_id=producto.id,
+            saldo_actual=0.0,
+            estado="ACTIVA"
+        )
+        db.add(nueva_cuenta)
+
+        # ── 3. COMMIT ÚNICO de todo junto ─────────────────────────────
         db.commit()
         db.refresh(usuario)
-
-        # Guardar datos clave antes de operaciones secundarias
-        usuario_id = usuario.id
-        usuario_dni = usuario.dni
-
-        # ── AUTO-CREACIÓN DE CUENTA DE AHORROS AL REGISTRARSE ──
-        try:
-            import uuid
-            from app.models.models import CuentaAhorro, ProductoPasivo
-            producto = db.query(ProductoPasivo).first()
-            prod_id = producto.id if producto else 1
-
-            nueva_cuenta = CuentaAhorro(
-                numero_cuenta="BF" + uuid.uuid4().hex[:10].upper(),
-                usuario_id=usuario_id,
-                producto_pasivo_id=prod_id,
-                saldo_actual=0.0,
-                estado="ACTIVA"
-            )
-            db.add(nueva_cuenta)
-            db.commit()
-        except Exception as e:
-            db.rollback()
-            print(f"Error al auto-crear cuenta de ahorros: {e}")
-
-        # Recuperar usuario fresco de la BD tras cualquier rollback
-        return db.query(Usuario).filter(Usuario.id == usuario_id).first()
+        return usuario
