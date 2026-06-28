@@ -53,17 +53,20 @@ class AuthRepository:
         db.commit()
         db.refresh(usuario)
 
+        # Guardar datos clave antes de operaciones secundarias
+        usuario_id = usuario.id
+        usuario_dni = usuario.dni
+
         # ── AUTO-CREACIÓN DE CUENTA DE AHORROS AL REGISTRARSE ──
         try:
             import uuid
             from app.models.models import CuentaAhorro, ProductoPasivo
-            # Verificar si existe el producto de ahorros base (ID=1)
             producto = db.query(ProductoPasivo).first()
             prod_id = producto.id if producto else 1
-            
+
             nueva_cuenta = CuentaAhorro(
                 numero_cuenta="BF" + uuid.uuid4().hex[:10].upper(),
-                usuario_id=usuario.id,
+                usuario_id=usuario_id,
                 producto_pasivo_id=prod_id,
                 saldo_actual=0.0,
                 estado="ACTIVA"
@@ -71,6 +74,8 @@ class AuthRepository:
             db.add(nueva_cuenta)
             db.commit()
         except Exception as e:
-            print(f"Error al auto-crear cuenta de ahorros para el usuario: {e}")
+            db.rollback()
+            print(f"Error al auto-crear cuenta de ahorros: {e}")
 
-        return usuario
+        # Recuperar usuario fresco de la BD tras cualquier rollback
+        return db.query(Usuario).filter(Usuario.id == usuario_id).first()
