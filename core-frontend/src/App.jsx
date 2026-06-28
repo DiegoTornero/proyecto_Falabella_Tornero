@@ -1677,34 +1677,65 @@ function ModuloOperaciones({ token }) {
 }
 
 // ─── APP PRINCIPAL ───────────────────────────────────────────
+function getInitialModulo() {
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '')
+  if (path === 'creditos' || path === 'bandeja' || path === '') return 'bandeja'
+  if (['clientes', 'empresas', 'operaciones', 'mora', 'analitica', 'productos'].includes(path)) return path
+  return 'bandeja'
+}
+
 function App() {
   const [session, setSession] = useState(() => {
     const saved = localStorage.getItem('core_session')
     return saved ? JSON.parse(saved) : null
   })
-  const [modulo, setModulo] = useState('bandeja')
+  const [modulo, setModulo] = useState(getInitialModulo)
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setModulo(getInitialModulo())
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
+  useEffect(() => {
+    if (session && (window.location.pathname === '/' || window.location.pathname === '')) {
+      window.history.replaceState({}, '', '/creditos')
+    }
+  }, [session])
 
   const handleLogin = (data) => {
     localStorage.setItem('core_session', JSON.stringify(data))
     setSession(data)
+    if (window.location.pathname === '/' || window.location.pathname === '') {
+      window.history.pushState({}, '', '/creditos')
+      setModulo('bandeja')
+    }
   }
 
   const handleLogout = () => {
     localStorage.removeItem('core_session')
     setSession(null)
+    window.history.pushState({}, '', '/')
   }
 
   if (!session) return <LoginScreen onLogin={handleLogin} />
 
   const navItems = [
-    { id: 'bandeja',     label: 'Bandeja Créditos',      icon: <FileText size={16} /> },
-    { id: 'clientes',    label: 'Gestión 360°',           icon: <Users size={16} /> },
-    { id: 'empresas',    label: 'Empresas Micro',         icon: <Briefcase size={16} /> },
-    { id: 'operaciones', label: 'Captaciones & Operaciones', icon: <Award size={16} /> },
-    { id: 'mora',        label: 'Recuperaciones / Mora',  icon: <TrendingDown size={16} /> },
-    { id: 'analitica',   label: 'Analítica y Auditoría',  icon: <Activity size={16} /> },
-    { id: 'productos',   label: 'Tarifario y Productos',  icon: <Settings size={16} /> },
+    { id: 'bandeja',     label: 'Bandeja Créditos',      route: 'creditos',    icon: <FileText size={16} /> },
+    { id: 'clientes',    label: 'Gestión 360°',           route: 'clientes',    icon: <Users size={16} /> },
+    { id: 'empresas',    label: 'Empresas Micro',         route: 'empresas',    icon: <Briefcase size={16} /> },
+    { id: 'operaciones', label: 'Captaciones & Operaciones', route: 'operaciones', icon: <Award size={16} /> },
+    { id: 'mora',        label: 'Recuperaciones / Mora',  route: 'mora',        icon: <TrendingDown size={16} /> },
+    { id: 'analitica',   label: 'Analítica y Auditoría',  route: 'analitica',   icon: <Activity size={16} /> },
+    { id: 'productos',   label: 'Tarifario y Productos',  route: 'productos',   icon: <Settings size={16} /> },
   ]
+
+  const handleNavClick = (item) => {
+    setModulo(item.id)
+    window.history.pushState({}, '', `/${item.route}`)
+  }
 
   const rolColors = {
     asesor:        'border-blue-200 text-blue-400 bg-blue-500/10',
@@ -1721,7 +1752,7 @@ function App() {
         <div className="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between gap-4">
           
           {/* Logo & Brand */}
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 shrink-0 cursor-pointer" onClick={() => handleNavClick(navItems[0])}>
             <div className="w-10 h-10 bg-gradient-to-br from-[#d4af37] to-[#9cb000] rounded-xl flex items-center justify-center shadow-lg border border-white/10">
               <Briefcase size={20} className="text-[#00361f]" />
             </div>
@@ -1736,7 +1767,7 @@ function App() {
             {navItems.map(item => {
               const isActive = modulo === item.id;
               return (
-                <button key={item.id} onClick={() => setModulo(item.id)}
+                <button key={item.id} onClick={() => handleNavClick(item)}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap transition-all ${
                     isActive
                       ? 'bg-[#d4af37] text-[#00361f] shadow-lg shadow-[#d4af37]/20 scale-105'
