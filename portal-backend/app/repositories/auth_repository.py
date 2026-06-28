@@ -37,73 +37,96 @@ class AuthRepository:
     def create_usuario(self, db: Session, data: dict) -> Usuario:
         import uuid
         import random
-        from app.models.models import CuentaAhorro, ProductoPasivo, Tarjeta, PuntoCMR, Notificacion
+        from app.models.models import CuentaAhorro, ProductoPasivo, Tarjeta, PuntoCMR, Notificacion, ContactoTransferencia
 
-        # ── 1. CREAR USUARIO ──────────────────────────────────────────
-        usuario = Usuario(
-            nombre=data["nombre"],
-            apellido=data["apellido"],
-            dni=data["dni"],
-            email=data["email"],
-            password_hash=self.hash_password(data["password"]),
-            telefono=data.get("telefono"),
-            direccion=data.get("direccion"),
-            ingreso_mensual=float(data.get("ingreso_mensual") or 3500.0),
-            fecha_nacimiento=(
-                datetime.strptime(data["fecha_nacimiento"], "%Y-%m-%d").date()
-                if data.get("fecha_nacimiento") else None
-            ),
-        )
-        db.add(usuario)
-        db.flush()  # Obtiene el ID sin cerrar la transacción
+        try:
+            # ── 1. CREAR USUARIO ──────────────────────────────────────────
+            usuario = Usuario(
+                nombre=data["nombre"],
+                apellido=data["apellido"],
+                dni=data["dni"],
+                email=data["email"],
+                password_hash=self.hash_password(data["password"]),
+                telefono=data.get("telefono"),
+                direccion=data.get("direccion"),
+                ingreso_mensual=float(data.get("ingreso_mensual") or 3500.0),
+                fecha_nacimiento=(
+                    datetime.strptime(data["fecha_nacimiento"], "%Y-%m-%d").date()
+                    if data.get("fecha_nacimiento") else None
+                ),
+            )
+            db.add(usuario)
+            db.flush()  # Obtiene el ID sin cerrar la transacción
 
-        # ── 2. CREAR CUENTA DE AHORROS AUTOMÁTICAMENTE ───────────────
-        producto = db.query(ProductoPasivo).filter(ProductoPasivo.id == 1).first()
-        if not producto:
-            producto = db.query(ProductoPasivo).first()
+            # ── 2. CREAR CUENTA DE AHORROS AUTOMÁTICAMENTE ───────────────
+            producto = db.query(ProductoPasivo).filter(ProductoPasivo.id == 1).first()
+            if not producto:
+                producto = db.query(ProductoPasivo).first()
+            if not producto:
+                producto = ProductoPasivo(
+                    codigo="AHORRO-01",
+                    nombre="Cuenta Ahorro Digital",
+                    trea_minima=0.5,
+                    trea_maxima=2.0,
+                    costo_mantenimiento=0.0
+                )
+                db.add(producto)
+                db.flush()
 
-        nueva_cuenta = CuentaAhorro(
-            numero_cuenta="BF" + uuid.uuid4().hex[:10].upper(),
-            usuario_id=usuario.id,
-            producto_pasivo_id=producto.id,
-            saldo_actual=0.0,
-            estado="ACTIVA"
-        )
-        db.add(nueva_cuenta)
+            nueva_cuenta = CuentaAhorro(
+                numero_cuenta="BF" + uuid.uuid4().hex[:10].upper(),
+                usuario_id=usuario.id,
+                producto_pasivo_id=producto.id,
+                saldo_actual=0.0,
+                estado="ACTIVA"
+            )
+            db.add(nueva_cuenta)
 
-        # ── 3. CREAR TARJETA CMR Y PUNTOS AUTOMÁTICAMENTE ─────────────
-        num_tarjeta = f"4508 •••• •••• {random.randint(1000, 9999)}"
-        nueva_tarjeta = Tarjeta(
-            numero_enmascarado=num_tarjeta,
-            cvv=str(random.randint(100, 999)),
-            fecha_expiracion="12/30",
-            limite_credito=2000.0,
-            saldo_disponible=2000.0,
-            tipo="DEBITO_CMR",
-            estado="ACTIVA",
-            usuario_id=usuario.id
-        )
-        db.add(nueva_tarjeta)
+            # ── 3. CREAR TARJETA CMR, PUNTOS Y CONTACTOS AUTOMÁTICAMENTE ──
+            num_tarjeta = f"4508 •••• •••• {random.randint(1000, 9999)}"
+            nueva_tarjeta = Tarjeta(
+                numero_enmascarado=num_tarjeta,
+                cvv=str(random.randint(100, 999)),
+                fecha_expiracion="12/30",
+                limite_credito=2000.0,
+                saldo_disponible=2000.0,
+                tipo="DEBITO_CMR",
+                estado="ACTIVA",
+                usuario_id=usuario.id
+            )
+            db.add(nueva_tarjeta)
 
-        puntos = PuntoCMR(
-            puntos_disponibles=500,
-            puntos_acumulados_totales=500,
-            puntos_canjeados=0,
-            nivel="Verde",
-            usuario_id=usuario.id
-        )
-        db.add(puntos)
+            puntos = PuntoCMR(
+                puntos_disponibles=500,
+                puntos_acumulados_totales=500,
+                puntos_canjeados=0,
+                nivel="Verde",
+                usuario_id=usuario.id
+            )
+            db.add(puntos)
 
-        notif = Notificacion(
-            titulo="👋 ¡Bienvenido a Banco Falabella!",
-            mensaje="Tu cuenta de ahorros y tu Tarjeta Virtual Débito CMR están listas. Te hemos regalado 500 Puntos CMR de bienvenida.",
-            tipo="INFO",
-            leida=False,
-            usuario_id=usuario.id
-        )
-        db.add(notif)
+            contacto = ContactoTransferencia(
+                alias="Saga Falabella (Pago)",
+                nombre_titular="Saga Falabella S.A.",
+                banco_destino="Banco Falabella",
+                numero_cuenta="193-0000000001",
+                usuario_id=usuario.id
+            )
+            db.add(contacto)
 
-        # ── 4. COMMIT ÚNICO de todo junto ─────────────────────────────
-        db.commit()
-        db.refresh(usuario)
-        return usuario
+            notif = Notificacion(
+                titulo="👋 ¡Bienvenido a Banco Falabella!",
+                mensaje="Tu cuenta de ahorros y tu Tarjeta Virtual Débito CMR están listas. Te hemos regalado 500 Puntos CMR de bienvenida.",
+                tipo="EXITOSO",
+                leida=False,
+                usuario_id=usuario.id
+            )
+            db.add(notif)
+
+            # ── 4. COMMIT ÚNICO de todo junto ─────────────────────────────
+            db.commit()
+            db.refresh(usuario)
+            return usuario
+        except Exception as e:
+            db.rollback()
+            raise e
