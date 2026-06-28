@@ -1,342 +1,531 @@
 Fecha,Año,Mes,Oficina,Zona,Tipo_Producto,Banda_Morosidad,Cartera_Total,Vencida,Ratio_Mora,Estado,Alerta_Prioritaria,Accion_Recuperacion,Clientes_Morosos
-2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),89992.77,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),281450.37,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),122194.29,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),343037.51,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,160386.46,160386.46,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,personal,DEFICIENTE,83830.16,83830.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,vehicular,PERDIDA,130808.38,130808.38,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),160777.75,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,vehicular,NORMAL,99248.54,99248.54,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),96034.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),210825.82,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),366020.64,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,64816.53,64816.53,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,178017.35,178017.35,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),363669.31,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,personal,DUDOSO,33078.42,33078.42,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),313371.78,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),167522.14,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),122605.94,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),55285.01,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),152135.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,vehicular,DEFICIENTE,63943.04,63943.04,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,74260.49,74260.49,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),277207.2,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,personal,DEFICIENTE,73832.37,73832.37,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,vehicular,DUDOSO,67411.81,67411.81,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,89378.7,89378.7,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),180210.03,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),207362.63,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,64198.2,64198.2,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,123660.64,123660.64,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,3
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,vehicular,PERDIDA,97962.88,97962.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,vehicular,PERDIDA,110644.98,110644.98,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),94982.19,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),410603.64,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,empresarial,DUDOSO,15569.88,15569.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),316106.07,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,89509.44,89509.44,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,88412.1,88412.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,32930.5,32930.5,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),94109.9,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,personal,DEFICIENTE,5827.71,5827.71,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,34251.05,34251.05,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),133806.26,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),41321.32,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),52599.25,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,vehicular,DUDOSO,71672.97,71672.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,empresarial,DEFICIENTE,37400.48,37400.48,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,vehicular,PERDIDA,72661.33,72661.33,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,empresarial,DUDOSO,14842.94,14842.94,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),106200.3,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,empresarial,DUDOSO,73834.78,73834.78,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),113536.2,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),126733.86,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),71018.09,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,195083.31,195083.31,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,3
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),11676.66,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),382466.88,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),170223.76,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,empresarial,DUDOSO,40890.26,40890.26,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),116196.66,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),200498.56,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,vehicular,PERDIDA,96703.59,96703.59,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,93209.89,93209.89,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,empresarial,DUDOSO,42249.25,42249.25,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,personal,DUDOSO,168999.7,168999.7,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,66819.05,66819.05,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,vehicular,DEFICIENTE,31007.18,31007.18,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,empresarial,DEFICIENTE,60678.17,60678.17,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,1865.88,1865.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,vehicular,DUDOSO,183912.65,183912.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,personal,DEFICIENTE,23705.52,23705.52,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,personal,DEFICIENTE,39276.21,39276.21,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,empresarial,Al día (Sin Mora),23495.69,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,vehicular,DUDOSO,52439.29,52439.29,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),131141.38,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,personal,DUDOSO,102796.79,102796.79,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,personal,DEFICIENTE,43424.6,43424.6,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,personal,NORMAL,73856.8,73856.8,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),28048.27,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,vehicular,PERDIDA,117886.84,117886.84,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,40750.3,40750.3,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,vehicular,DUDOSO,40529.57,40529.57,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,vehicular,PERDIDA,8134.15,8134.15,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,13728.21,13728.21,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,personal,DUDOSO,65106.11,65106.11,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,personal,PERDIDA,8511.28,8511.28,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,personal,Al día (Sin Mora),68165.1,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,personal,DUDOSO,79266.87,79266.87,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,44304.97,44304.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,vehicular,DEFICIENTE,38104.71,38104.71,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,empresarial,PERDIDA,14183.89,14183.89,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,personal,DUDOSO,71182.65,71182.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,vehicular,Al día (Sin Mora),60693.68,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,"Av. Ejército 321, Arequipa",agro,empresarial_micro,Al día (Sin Mora),501001.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,"Av. Argentina 1200, Callao",comercio,empresarial_micro,Al día (Sin Mora),1000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,"Jr. Ica 456, Cercado de Lima",servicios,empresarial_micro,Al día (Sin Mora),8999.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,"Av. Argentina 1200, Callao",comercio,empresarial_micro,Al día (Sin Mora),4000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,"Av. Ejército 321, Arequipa",agro,empresarial_micro,Al día (Sin Mora),1000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,"Jr. Ica 456, Cercado de Lima",servicios,empresarial_micro,Al día (Sin Mora),3000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,"Calle Las Flores 789, San Juan",manufactura,empresarial_micro,Al día (Sin Mora),5000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-01-01,2024,01,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),150679.59,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-02-01,2024,02,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),128587.97,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-03-01,2024,03,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,tardia,153767.16,153767.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-04-01,2024,04,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),125087.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-05-01,2024,05,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),74731.89,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-06-01,2024,06,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,judicial,210392.97,210392.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-07-01,2024,07,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),87723.33,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-08-01,2024,08,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),190917.95,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-09-01,2024,09,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,castigo,229814.21,229814.21,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-10-01,2024,10,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),77514.27,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-11-01,2024,11,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),61506.94,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-12-01,2024,12,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,castigo,173436.16,173436.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-01-01,2025,01,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),112717.54,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-02-01,2025,02,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),187557.69,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-03-01,2025,03,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,preventiva,49368.16,49368.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-04-01,2025,04,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),59072.19,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-05-01,2025,05,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),161840.67,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,preventiva,124978.81,124978.81,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),187023.96,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),52227.38,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,preventiva,93718.86,93718.86,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),43367.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),72898.56,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,judicial,120368.2,120368.2,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),106441.15,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),46876.42,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,judicial,117333.98,117333.98,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),208387.61,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),33704.37,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,castigo,31745.58,31745.58,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-01-01,2024,01,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),57233.05,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2024-01-01,2024,01,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),188586.83,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-02-01,2024,02,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),126211.25,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-03-01,2024,03,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,tardia,239955.14,239955.14,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-04-01,2024,04,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),190588.39,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-05-01,2024,05,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),145137.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-06-01,2024,06,AG. LIMA 1,Zona Lima,Crédito Vehicular,judicial,185108.96,185108.96,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-07-01,2024,07,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),59810.17,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-08-01,2024,08,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),149603.78,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-09-01,2024,09,AG. LIMA 1,Zona Lima,Crédito Vehicular,judicial,242763.65,242763.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-10-01,2024,10,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),30546.34,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-11-01,2024,11,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),115525.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-12-01,2024,12,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,judicial,127671.44,127671.44,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-01-01,2025,01,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),183314.55,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-02-01,2025,02,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),176127.45,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-03-01,2025,03,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,temprana,113713.5,113713.5,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-04-01,2025,04,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),247326.17,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-05-01,2025,05,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),207750.17,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-06-01,2025,06,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,temprana,230885.06,230885.06,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),110334.47,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-08-01,2025,08,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),215925.74,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-09-01,2025,09,AG. LIMA 1,Zona Lima,Crédito Vehicular,preventiva,157001.45,157001.45,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),40697.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-11-01,2025,11,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),36417.32,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-12-01,2025,12,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,judicial,199972.92,199972.92,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),167375.26,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),225254.02,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,judicial,173323.43,173323.43,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),58361.29,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-05-01,2026,05,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),35034.06,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,judicial,57166.38,57166.38,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-01-01,2024,01,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),231785.52,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2024-01-01,2024,01,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),154812.85,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-02-01,2024,02,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),222403.4,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-03-01,2024,03,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,temprana,216821.59,216821.59,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-04-01,2024,04,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),225882.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-05-01,2024,05,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),200016.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-06-01,2024,06,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,preventiva,185400.06,185400.06,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-07-01,2024,07,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),191972.99,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-08-01,2024,08,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),146914.61,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-09-01,2024,09,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,preventiva,171333.51,171333.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-10-01,2024,10,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),101268.9,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-11-01,2024,11,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),175729.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-12-01,2024,12,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,preventiva,217672.63,217672.63,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-01-01,2025,01,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),39606.63,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-02-01,2025,02,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),203869.02,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-03-01,2025,03,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,castigo,149685.33,149685.33,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-04-01,2025,04,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),175192.59,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-05-01,2025,05,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),80283.11,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-06-01,2025,06,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,preventiva,200326.78,200326.78,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),51171.23,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-08-01,2025,08,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),243410.09,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-09-01,2025,09,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,temprana,215741.8,215741.8,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),77113.64,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-11-01,2025,11,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),238784.92,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-12-01,2025,12,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,castigo,136048.47,136048.47,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),74609.26,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),201671.49,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,castigo,166923.1,166923.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),32921.08,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-05-01,2026,05,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),196590.07,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,judicial,153631.31,153631.31,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-01-01,2024,01,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),118005.97,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-02-01,2024,02,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),115379.24,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-03-01,2024,03,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,tardia,87892.44,87892.44,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-04-01,2024,04,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),87384.69,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-05-01,2024,05,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),90509.12,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-06-01,2024,06,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,castigo,91652.57,91652.57,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-07-01,2024,07,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),155794.44,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-08-01,2024,08,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),243959.99,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-09-01,2024,09,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,tardia,64991.96,64991.96,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-10-01,2024,10,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),223869.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-11-01,2024,11,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),88447.54,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-12-01,2024,12,AG. SUR 1,Zona Sur,Crédito PYME Comercial,tardia,126538.5,126538.5,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-01-01,2025,01,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),163492.74,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-02-01,2025,02,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),245125.12,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-03-01,2025,03,AG. SUR 1,Zona Sur,Crédito Vehicular,preventiva,154802.18,154802.18,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-04-01,2025,04,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),234460.74,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-05-01,2025,05,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),57690.55,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-06-01,2025,06,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,tardia,246394.26,246394.26,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),243800.49,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-08-01,2025,08,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),148187.29,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-09-01,2025,09,AG. SUR 1,Zona Sur,Crédito Vehicular,judicial,72912.51,72912.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),131801.09,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-11-01,2025,11,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),85827.9,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-12-01,2025,12,AG. SUR 1,Zona Sur,Crédito PYME Comercial,tardia,170533.9,170533.9,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),40572.61,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),40131.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,AG. SUR 1,Zona Sur,Crédito Vehicular,tardia,129510.27,129510.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),74149.55,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-05-01,2026,05,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),73925.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,preventiva,86220.86,86220.86,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-01-01,2024,01,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),122580.88,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-02-01,2024,02,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),62967.86,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-03-01,2024,03,AG. SUR 2,Zona Sur,Crédito Vehicular,judicial,152584.27,152584.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-04-01,2024,04,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),35680.3,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-05-01,2024,05,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),184792.93,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-06-01,2024,06,AG. SUR 2,Zona Sur,Crédito PYME Comercial,castigo,146644.97,146644.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-07-01,2024,07,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),129073.22,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-08-01,2024,08,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),42834.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-09-01,2024,09,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,judicial,64894.53,64894.53,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-10-01,2024,10,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),199735.07,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-11-01,2024,11,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),151318.44,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-12-01,2024,12,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,preventiva,196794.15,196794.15,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-01-01,2025,01,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),165394.3,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-02-01,2025,02,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),199942.72,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-03-01,2025,03,AG. SUR 2,Zona Sur,Crédito PYME Comercial,preventiva,45892.14,45892.14,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-04-01,2025,04,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),81685.68,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-05-01,2025,05,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),146961.65,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-06-01,2025,06,AG. SUR 2,Zona Sur,Crédito PYME Comercial,preventiva,94893.9,94893.9,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),196229.36,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-08-01,2025,08,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),244936.84,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-09-01,2025,09,AG. SUR 2,Zona Sur,Crédito Vehicular,castigo,219498.23,219498.23,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),101340.95,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-11-01,2025,11,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),157666.64,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-12-01,2025,12,AG. SUR 2,Zona Sur,Crédito PYME Comercial,preventiva,173292.41,173292.41,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),32660.33,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),81174.9,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,tardia,109484.8,109484.8,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),230320.54,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-05-01,2026,05,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),244754.22,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,AG. SUR 2,Zona Sur,Crédito Vehicular,preventiva,217834.51,217834.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-01-01,2024,01,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,judicial,146838.31,146838.31,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-02-01,2024,02,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,preventiva,127625.58,127625.58,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-03-01,2024,03,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,temprana,73925.1,73925.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-04-01,2024,04,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,castigo,77424.66,77424.66,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-05-01,2024,05,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,preventiva,178557.42,178557.42,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-06-01,2024,06,AG. SUR 3,Zona Sur,Crédito PYME Comercial,judicial,165513.12,165513.12,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-07-01,2024,07,AG. SUR 3,Zona Sur,Crédito PYME Comercial,preventiva,68736.13,68736.13,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-08-01,2024,08,AG. SUR 3,Zona Sur,Crédito Vehicular,judicial,163481.97,163481.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-09-01,2024,09,AG. SUR 3,Zona Sur,Crédito PYME Comercial,castigo,105419.45,105419.45,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-10-01,2024,10,AG. SUR 3,Zona Sur,Crédito Vehicular,judicial,86624.0,86624.0,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-11-01,2024,11,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,temprana,119695.01,119695.01,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-12-01,2024,12,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,preventiva,218643.38,218643.38,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-01-01,2025,01,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,temprana,66970.43,66970.43,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-02-01,2025,02,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,preventiva,45638.5,45638.5,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-03-01,2025,03,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,preventiva,148194.87,148194.87,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-04-01,2025,04,AG. SUR 3,Zona Sur,Crédito Vehicular,judicial,87449.99,87449.99,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-05-01,2025,05,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,tardia,179641.24,179641.24,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-06-01,2025,06,AG. SUR 3,Zona Sur,Crédito Vehicular,preventiva,135234.08,135234.08,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,AG. SUR 3,Zona Sur,Crédito PYME Comercial,temprana,110195.68,110195.68,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-08-01,2025,08,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,tardia,249505.76,249505.76,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-09-01,2025,09,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,tardia,43134.18,43134.18,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,tardia,111824.48,111824.48,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-11-01,2025,11,AG. SUR 3,Zona Sur,Crédito PYME Comercial,castigo,179650.19,179650.19,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-12-01,2025,12,AG. SUR 3,Zona Sur,Crédito Vehicular,castigo,51300.25,51300.25,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,preventiva,193268.35,193268.35,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-02-01,2026,02,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,temprana,224817.61,224817.61,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-03-01,2026,03,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,tardia,110599.58,110599.58,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,AG. SUR 3,Zona Sur,Crédito Vehicular,preventiva,152610.65,152610.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-05-01,2026,05,AG. SUR 3,Zona Sur,Crédito Vehicular,tardia,212632.43,212632.43,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-06-01,2026,06,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,castigo,115847.13,115847.13,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-01-01,2024,01,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),227388.63,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2024-01-01,2024,01,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),68624.93,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-01-01,2024,01,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Castigo (>180 días),146184.24,146184.24,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-01-01,2024,01,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Castigo (>180 días),120646.82,120646.82,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-01-01,2024,01,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),203539.29,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-01-01,2024,01,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),118005.97,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-01-01,2024,01,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),187383.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-01-01,2024,01,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Judicial (121-180 días),146838.31,146838.31,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-01-01,2024,01,AG. SUR 3,Zona Sur,Crédito Vehicular,Castigo (>180 días),173056.42,173056.42,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-01-01,2024,01,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),150679.59,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-01-01,2024,01,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),115576.68,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-02-01,2024,02,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),246939.11,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-02-01,2024,02,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),126211.25,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-02-01,2024,02,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),222403.4,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-02-01,2024,02,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),110972.71,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-02-01,2024,02,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),102262.39,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2024-02-01,2024,02,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),46269.55,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-03-01,2024,03,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,tardia,206497.52,206497.52,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-02-01,2024,02,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Judicial (121-180 días),110416.02,110416.02,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2024-02-01,2024,02,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),180672.71,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-02-01,2024,02,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),62967.86,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-02-01,2024,02,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),167475.65,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-02-01,2024,02,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Preventiva (1-30 días),127625.58,127625.58,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-02-01,2024,02,AG. SUR 3,Zona Sur,Crédito Vehicular,Tardía (61-120 días),66338.84,66338.84,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-02-01,2024,02,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),141024.12,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-02-01,2024,02,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),128587.97,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-03-01,2024,03,AG. LIMA 1,Zona Lima,Crédito Vehicular,Preventiva (1-30 días),148935.4,148935.4,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Tardía (61-120 días),239955.14,239955.14,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Preventiva (1-30 días),80215.28,80215.28,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Temprana (31-60 días),216821.59,216821.59,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Tardía (61-120 días),447185.46,447185.46,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2024-03-01,2024,03,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Judicial (121-180 días),154654.7,154654.7,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Tardía (61-120 días),153157.41,153157.41,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. SUR 1,Zona Sur,Crédito Vehicular,Castigo (>180 días),212856.49,212856.49,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Tardía (61-120 días),87892.44,87892.44,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. SUR 2,Zona Sur,Crédito Vehicular,Judicial (121-180 días),152584.27,152584.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Castigo (>180 días),160845.6,160845.6,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Castigo (>180 días),61909.5,61909.5,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Temprana (31-60 días),73925.1,73925.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Castigo (>180 días),97297.49,97297.49,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-03-01,2024,03,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Tardía (61-120 días),153767.16,153767.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-04-01,2024,04,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),190588.39,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-04-01,2024,04,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),181327.5,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-04-01,2024,04,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),402765.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2024-04-01,2024,04,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),226113.47,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-04-01,2024,04,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),212183.97,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-04-01,2024,04,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Preventiva (1-30 días),93266.35,93266.35,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-04-01,2024,04,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Temprana (31-60 días),202656.13,202656.13,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-04-01,2024,04,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),75593.2,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-04-01,2024,04,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),87384.69,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-04-01,2024,04,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),58054.3,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-04-01,2024,04,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),35680.3,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-04-01,2024,04,AG. SUR 3,Zona Sur,Crédito Vehicular,Temprana (31-60 días),244599.91,244599.91,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-04-01,2024,04,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Castigo (>180 días),77424.66,77424.66,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-04-01,2024,04,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),125087.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-04-01,2024,04,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),76300.8,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),171689.57,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),145137.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),35694.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),200016.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2024-05-01,2024,05,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),37519.66,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-06-01,2024,06,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,preventiva,177549.51,177549.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-07-01,2024,07,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),56612.64,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. NORTE 6,Zona Norte,Crédito Vehicular,Al día (Sin Mora),190699.4,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Judicial (121-180 días),106840.88,106840.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-05-01,2024,05,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Tardía (61-120 días),220076.3,220076.3,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-05-01,2024,05,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),238796.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),90509.12,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),184792.93,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),191470.43,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-05-01,2024,05,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Preventiva (1-30 días),178557.42,178557.42,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-05-01,2024,05,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Castigo (>180 días),97689.12,97689.12,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-05-01,2024,05,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),302884.29,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-06-01,2024,06,AG. LIMA 1,Zona Lima,Crédito Vehicular,Judicial (121-180 días),185108.96,185108.96,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. LIMA 1,Zona Lima,Crédito Vehicular,Tardía (61-120 días),248211.1,248211.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Judicial (121-180 días),62458.8,62458.8,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),185400.06,185400.06,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Preventiva (1-30 días),177549.51,177549.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. NORTE 6,Zona Norte,Crédito Vehicular,Judicial (121-180 días),199141.71,199141.71,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Castigo (>180 días),123886.73,123886.73,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Judicial (121-180 días),78472.98,78472.98,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Temprana (31-60 días),35042.4,35042.4,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Castigo (>180 días),91652.57,91652.57,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Castigo (>180 días),131576.79,131576.79,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Castigo (>180 días),146644.97,146644.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Judicial (121-180 días),177562.81,177562.81,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Judicial (121-180 días),165513.12,165513.12,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Judicial (121-180 días),210392.97,210392.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-06-01,2024,06,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Tardía (61-120 días),134698.36,134698.36,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-07-01,2024,07,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),59810.17,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-07-01,2024,07,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),93541.25,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-07-01,2024,07,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),191972.99,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-07-01,2024,07,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),59019.93,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-07-01,2024,07,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),261092.37,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-07-01,2024,07,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Tardía (61-120 días),107743.48,107743.48,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-07-01,2024,07,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Castigo (>180 días),188904.66,188904.66,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-07-01,2024,07,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),259006.34,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-07-01,2024,07,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),40390.89,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-07-01,2024,07,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),129073.22,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-07-01,2024,07,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Preventiva (1-30 días),68736.13,68736.13,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-07-01,2024,07,AG. SUR 3,Zona Sur,Crédito Vehicular,Preventiva (1-30 días),161393.77,161393.77,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-07-01,2024,07,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),87723.33,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-07-01,2024,07,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),123003.18,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-08-01,2024,08,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),218787.49,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-08-01,2024,08,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),146914.61,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-08-01,2024,08,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),156434.51,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2024-08-01,2024,08,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),239083.39,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-09-01,2024,09,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,preventiva,106303.25,106303.25,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-08-01,2024,08,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),116944.36,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-08-01,2024,08,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Judicial (121-180 días),198605.36,198605.36,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-08-01,2024,08,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Preventiva (1-30 días),132440.1,132440.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-08-01,2024,08,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),245698.12,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-08-01,2024,08,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),243959.99,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-08-01,2024,08,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),100354.21,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-08-01,2024,08,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),42834.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-08-01,2024,08,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Tardía (61-120 días),155378.53,155378.53,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-08-01,2024,08,AG. SUR 3,Zona Sur,Crédito Vehicular,Judicial (121-180 días),163481.97,163481.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-08-01,2024,08,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),223724.97,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-08-01,2024,08,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),190917.95,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-09-01,2024,09,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Temprana (31-60 días),37400.36,37400.36,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. LIMA 1,Zona Lima,Crédito Vehicular,Judicial (121-180 días),242763.65,242763.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Castigo (>180 días),131397.58,131397.58,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Preventiva (1-30 días),171333.51,171333.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Castigo (>180 días),192146.09,192146.09,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Preventiva (1-30 días),106303.25,106303.25,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Temprana (31-60 días),89386.62,89386.62,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Judicial (121-180 días),216849.14,216849.14,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Tardía (61-120 días),64991.96,64991.96,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. SUR 1,Zona Sur,Crédito Vehicular,Tardía (61-120 días),71167.1,71167.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Judicial (121-180 días),64894.53,64894.53,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Preventiva (1-30 días),97629.35,97629.35,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Castigo (>180 días),105419.45,105419.45,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Preventiva (1-30 días),159066.27,159066.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),85594.65,85594.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-09-01,2024,09,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Castigo (>180 días),229814.21,229814.21,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-10-01,2024,10,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),30546.34,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-10-01,2024,10,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),93322.85,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-10-01,2024,10,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),311294.51,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2024-10-01,2024,10,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),223559.69,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-10-01,2024,10,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),239554.36,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-10-01,2024,10,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Temprana (31-60 días),172392.31,172392.31,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-10-01,2024,10,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Judicial (121-180 días),65963.56,65963.56,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-10-01,2024,10,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),223869.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-10-01,2024,10,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),138652.25,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-10-01,2024,10,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),199735.07,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-10-01,2024,10,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),136255.19,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-10-01,2024,10,AG. SUR 3,Zona Sur,Crédito Vehicular,Judicial (121-180 días),86624.0,86624.0,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-10-01,2024,10,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Tardía (61-120 días),46735.51,46735.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-10-01,2024,10,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),77514.27,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-10-01,2024,10,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),142061.12,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-11-01,2024,11,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),166960.71,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-11-01,2024,11,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),52760.09,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-11-01,2024,11,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),175729.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2024-11-01,2024,11,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),73372.17,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2024-12-01,2024,12,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,judicial,195404.72,195404.72,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-11-01,2024,11,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),204524.27,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-11-01,2024,11,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Temprana (31-60 días),127037.36,127037.36,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-11-01,2024,11,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Castigo (>180 días),54973.43,54973.43,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-11-01,2024,11,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),88447.54,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-11-01,2024,11,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),223403.92,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-11-01,2024,11,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),176093.82,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-11-01,2024,11,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),151318.44,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-11-01,2024,11,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Judicial (121-180 días),66481.61,66481.61,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-11-01,2024,11,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Temprana (31-60 días),119695.01,119695.01,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-11-01,2024,11,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),61506.94,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-11-01,2024,11,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),136086.6,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2024-12-01,2024,12,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Judicial (121-180 días),127671.44,127671.44,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Temprana (31-60 días),225232.51,225232.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),288771.69,288771.69,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2024-12-01,2024,12,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Judicial (121-180 días),81255.42,81255.42,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Judicial (121-180 días),195404.72,195404.72,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Castigo (>180 días),48384.27,48384.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Judicial (121-180 días),62464.76,62464.76,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Tardía (61-120 días),126538.5,126538.5,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. SUR 1,Zona Sur,Crédito Vehicular,Judicial (121-180 días),182531.06,182531.06,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. SUR 2,Zona Sur,Crédito Vehicular,Preventiva (1-30 días),143556.97,143556.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Preventiva (1-30 días),196794.15,196794.15,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Preventiva (1-30 días),218643.38,218643.38,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Temprana (31-60 días),142368.82,142368.82,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Castigo (>180 días),173436.16,173436.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2024-12-01,2024,12,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),67554.39,67554.39,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-01-01,2025,01,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),408465.32,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-01-01,2025,01,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),162236.07,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-01-01,2025,01,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),39606.63,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-01-01,2025,01,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),204570.94,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2025-01-01,2025,01,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),42304.49,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-01-01,2025,01,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Tardía (61-120 días),180958.17,180958.17,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-01-01,2025,01,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Judicial (121-180 días),85575.49,85575.49,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-01-01,2025,01,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),163492.74,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-01-01,2025,01,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),81909.08,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-01-01,2025,01,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),276223.66,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-01-01,2025,01,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Temprana (31-60 días),66970.43,66970.43,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-01-01,2025,01,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Temprana (31-60 días),161839.33,161839.33,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-01-01,2025,01,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),48223.53,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-01-01,2025,01,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),112717.54,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-02-01,2025,02,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),317563.54,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-02-01,2025,02,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),150255.43,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-02-01,2025,02,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),203869.02,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2025-02-01,2025,02,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),31554.02,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-03-01,2025,03,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,temprana,179647.3,179647.3,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-02-01,2025,02,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),57819.29,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-02-01,2025,02,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Preventiva (1-30 días),189075.67,189075.67,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-02-01,2025,02,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Preventiva (1-30 días),134129.08,134129.08,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-02-01,2025,02,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),198084.8,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-02-01,2025,02,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),245125.12,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-02-01,2025,02,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),133925.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-02-01,2025,02,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),199942.72,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-02-01,2025,02,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Preventiva (1-30 días),45638.5,45638.5,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-02-01,2025,02,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Castigo (>180 días),244887.7,244887.7,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-02-01,2025,02,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),187557.69,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-02-01,2025,02,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),230551.15,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-03-01,2025,03,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Temprana (31-60 días),236070.13,236070.13,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Temprana (31-60 días),113713.5,113713.5,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Judicial (121-180 días),240784.36,240784.36,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Castigo (>180 días),149685.33,149685.33,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Temprana (31-60 días),179647.3,179647.3,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. NORTE 6,Zona Norte,Crédito Vehicular,Tardía (61-120 días),43302.68,43302.68,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Judicial (121-180 días),201344.9,201344.9,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Preventiva (1-30 días),215483.9,215483.9,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Preventiva (1-30 días),147727.48,147727.48,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. SUR 1,Zona Sur,Crédito Vehicular,Preventiva (1-30 días),154802.18,154802.18,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Preventiva (1-30 días),45892.14,45892.14,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Temprana (31-60 días),207835.0,207835.0,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Castigo (>180 días),147377.75,147377.75,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Preventiva (1-30 días),148194.87,148194.87,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Preventiva (1-30 días),49368.16,49368.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-03-01,2025,03,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Tardía (61-120 días),36049.52,36049.52,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-04-01,2025,04,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),242885.53,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),247326.17,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),175192.59,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),130238.83,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2025-04-01,2025,04,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),126030.19,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),228949.3,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Preventiva (1-30 días),286727.37,286727.37,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-04-01,2025,04,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),246404.35,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),234460.74,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),233297.93,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),81685.68,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Castigo (>180 días),246141.09,246141.09,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-04-01,2025,04,AG. SUR 3,Zona Sur,Crédito Vehicular,Judicial (121-180 días),87449.99,87449.99,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-04-01,2025,04,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),59072.19,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-04-01,2025,04,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),189327.45,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-05-01,2025,05,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),348984.98,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-05-01,2025,05,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),80283.11,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-05-01,2025,05,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),79490.33,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2025-05-01,2025,05,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),179202.64,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-06-01,2025,06,AG. NORTE 6,Zona Norte,Crédito Vehicular,temprana,100139.44,100139.44,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-05-01,2025,05,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),167367.09,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-05-01,2025,05,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Castigo (>180 días),153579.94,153579.94,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-05-01,2025,05,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Preventiva (1-30 días),206082.92,206082.92,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-05-01,2025,05,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),246308.17,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-05-01,2025,05,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),60786.17,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-05-01,2025,05,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),146961.65,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-05-01,2025,05,AG. SUR 3,Zona Sur,Crédito Vehicular,Castigo (>180 días),246447.55,246447.55,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-05-01,2025,05,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Tardía (61-120 días),179641.24,179641.24,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-05-01,2025,05,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),161840.67,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-05-01,2025,05,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),194491.95,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-06-01,2025,06,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Castigo (>180 días),38134.76,38134.76,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Temprana (31-60 días),230885.06,230885.06,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),200326.78,200326.78,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. LIMA 2,Zona Lima,Crédito Vehicular,Tardía (61-120 días),104895.29,104895.29,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. NORTE 6,Zona Norte,Crédito Vehicular,Temprana (31-60 días),349818.45,349818.45,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-06-01,2025,06,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Tardía (61-120 días),152214.93,152214.93,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Castigo (>180 días),135557.68,135557.68,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Tardía (61-120 días),246394.26,246394.26,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Tardía (61-120 días),118129.17,118129.17,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Preventiva (1-30 días),94893.9,94893.9,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Tardía (61-120 días),61720.65,61720.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Castigo (>180 días),109822.77,109822.77,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,AG. SUR 3,Zona Sur,Crédito Vehicular,Preventiva (1-30 días),135234.08,135234.08,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),343037.51,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),170603.26,170603.26,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Temprana (31-60 días),33078.42,33078.42,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Preventiva (1-30 días),124978.81,124978.81,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Temprana (31-60 días),42249.25,42249.25,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),96034.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-06-01,2025,06,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Tardía (61-120 días),96703.59,96703.59,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-07-01,2025,07,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),325791.7,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),51171.23,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),100522.13,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2025-07-01,2025,07,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),118784.94,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),117254.78,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Tardía (61-120 días),357105.23,357105.23,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-07-01,2025,07,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),222963.5,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),243800.49,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),196229.36,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),50271.22,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Temprana (31-60 días),110195.68,110195.68,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-07-01,2025,07,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Preventiva (1-30 días),47964.6,47964.6,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),418232.96,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),8511.28,8511.28,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),106200.3,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Preventiva (1-30 días),37400.48,37400.48,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),40750.3,40750.3,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Temprana (31-60 días),15569.88,15569.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),126733.86,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Preventiva (1-30 días),63943.04,63943.04,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Tardía (61-120 días),110644.98,110644.98,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-07-01,2025,07,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Temprana (31-60 días),40529.57,40529.57,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-08-01,2025,08,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),191641.09,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),215925.74,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),243410.09,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),205853.35,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2025-08-01,2025,08,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),64211.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-09-01,2025,09,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,judicial,44394.79,44394.79,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),117852.55,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-11-01,2025,11,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),245766.51,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2025-12-01,2025,12,AG. NORTE 6,Zona Norte,Crédito Vehicular,castigo,56781.27,56781.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-08-01,2025,08,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),179024.7,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Temprana (31-60 días),204458.19,204458.19,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-08-01,2025,08,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Tardía (61-120 días),194753.79,194753.79,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-08-01,2025,08,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),62226.27,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),148187.29,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),131004.44,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),244936.84,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Preventiva (1-30 días),96337.27,96337.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-08-01,2025,08,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Tardía (61-120 días),249505.76,249505.76,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),363669.31,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),83830.16,83830.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),66819.05,66819.05,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),277207.2,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),178017.35,178017.35,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Temprana (31-60 días),14842.94,14842.94,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),372177.27,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Preventiva (1-30 días),38104.71,38104.71,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Tardía (61-120 días),97962.88,97962.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-08-01,2025,08,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),52227.38,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-09-01,2025,09,AG. LIMA 1,Zona Lima,Crédito Vehicular,Preventiva (1-30 días),157001.45,157001.45,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. LIMA 1,Zona Lima,Crédito Vehicular,Temprana (31-60 días),161232.84,161232.84,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Temprana (31-60 días),215741.8,215741.8,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Castigo (>180 días),120111.65,120111.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Judicial (121-180 días),44394.79,44394.79,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Temprana (31-60 días),175623.38,175623.38,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Temprana (31-60 días),70490.67,70490.67,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Castigo (>180 días),94371.03,94371.03,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Preventiva (1-30 días),192667.68,192667.68,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. SUR 1,Zona Sur,Crédito Vehicular,Judicial (121-180 días),72912.51,72912.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. SUR 2,Zona Sur,Crédito Vehicular,Castigo (>180 días),219498.23,219498.23,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. SUR 2,Zona Sur,Crédito Vehicular,Judicial (121-180 días),96111.35,96111.35,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Preventiva (1-30 días),137994.44,137994.44,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Tardía (61-120 días),43134.18,43134.18,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),94109.9,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),5827.71,5827.71,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),89509.44,89509.44,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Temprana (31-60 días),168999.7,168999.7,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),152135.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),34251.05,34251.05,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),60693.68,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Preventiva (1-30 días),31007.18,31007.18,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Castigo (>180 días),247088.92,247088.92,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-09-01,2025,09,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Preventiva (1-30 días),93718.86,93718.86,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-10-01,2025,10,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),37520.42,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),40697.04,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),73480.52,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),77113.64,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),325358.4,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Tardía (61-120 días),185807.42,185807.42,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-10-01,2025,10,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Judicial (121-180 días),89776.22,89776.22,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-10-01,2025,10,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),270046.67,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),177707.33,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,AG. SUR 3,Zona Sur,Crédito Vehicular,Temprana (31-60 días),134713.22,134713.22,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-10-01,2025,10,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Tardía (61-120 días),111824.48,111824.48,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),281450.37,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),88412.1,88412.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),122605.94,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Preventiva (1-30 días),60678.17,60678.17,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),93209.89,93209.89,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),313371.78,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Tardía (61-120 días),117886.84,117886.84,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-10-01,2025,10,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),116888.15,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),123236.32,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),238784.92,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),145456.4,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),424493.21,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Temprana (31-60 días),94056.17,94056.17,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-11-01,2025,11,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Preventiva (1-30 días),199102.34,199102.34,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-11-01,2025,11,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),85827.9,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),218504.95,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),157666.64,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),238831.57,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Tardía (61-120 días),116930.73,116930.73,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-11-01,2025,11,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Castigo (>180 días),179650.19,179650.19,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),395908.4,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Temprana (31-60 días),65106.11,65106.11,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),410603.64,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),64816.53,64816.53,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-11-01,2025,11,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),204039.94,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-12-01,2025,12,AG. LIMA 1,Zona Lima,Crédito Vehicular,Temprana (31-60 días),43559.26,43559.26,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Judicial (121-180 días),199972.92,199972.92,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. LIMA 2,Zona Lima,Crédito Vehicular,Judicial (121-180 días),158365.46,158365.46,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Castigo (>180 días),136048.47,136048.47,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. NORTE 6,Zona Norte,Crédito Vehicular,Castigo (>180 días),56781.27,56781.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. NORTE 6,Zona Norte,Crédito Vehicular,Judicial (121-180 días),121648.23,121648.23,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Castigo (>180 días),161250.19,161250.19,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Judicial (121-180 días),93275.63,93275.63,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Tardía (61-120 días),170533.9,170533.9,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. SUR 1,Zona Sur,Crédito Vehicular,Temprana (31-60 días),82729.1,82729.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Preventiva (1-30 días),173292.41,173292.41,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. SUR 2,Zona Sur,Crédito Vehicular,Judicial (121-180 días),122714.23,122714.23,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. SUR 3,Zona Sur,Crédito Vehicular,Castigo (>180 días),51300.25,51300.25,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,AG. SUR 3,Zona Sur,Crédito Vehicular,Judicial (121-180 días),226903.56,226903.56,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),113536.2,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),23705.52,23705.52,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Temprana (31-60 días),71182.65,71182.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),11676.66,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Judicial (121-180 días),210143.02,210143.02,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),14183.89,14183.89,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Temprana (31-60 días),40890.26,40890.26,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),167522.14,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Tardía (61-120 días),130808.38,130808.38,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2025-12-01,2025,12,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Temprana (31-60 días),67411.81,67411.81,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-01-01,2026,01,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),72118.3,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),167375.26,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),126801.84,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),74609.26,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),52887.53,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-01-01,2026,01,AG. NORTE 6,Zona Norte,Crédito Vehicular,Al día (Sin Mora),231682.84,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Temprana (31-60 días),133073.66,133073.66,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-01-01,2026,01,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Tardía (61-120 días),248124.89,248124.89,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-01-01,2026,01,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),40572.61,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),81149.15,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),32660.33,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,AG. SUR 2,Zona Sur,Crédito Vehicular,Al día (Sin Mora),34255.12,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Preventiva (1-30 días),193268.35,193268.35,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-01-01,2026,01,AG. SUR 3,Zona Sur,Crédito PYME Comercial,Temprana (31-60 días),172702.22,172702.22,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),200498.56,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),74260.49,74260.49,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),215055.11,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),44304.97,44304.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),240247.41,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-01-01,2026,01,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Temprana (31-60 días),183912.65,183912.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2026-02-01,2026,02,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),351377.7,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),207161.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),201671.49,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),245314.21,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-03-01,2026,03,AG. NORTE 6,Zona Norte,Crédito Vehicular,temprana,40186.88,40186.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),176090.93,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),116213.31,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Temprana (31-60 días),145954.65,145954.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-02-01,2026,02,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Judicial (121-180 días),38428.04,38428.04,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-02-01,2026,02,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),40131.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),176161.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),195297.46,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Castigo (>180 días),245209.89,245209.89,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-02-01,2026,02,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Temprana (31-60 días),224817.61,224817.61,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-02-01,2026,02,"Av. Argentina 1200, Callao",comercio,Crédito PYME Comercial,Al día (Sin Mora),4000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,"Av. Ejército 321, Arequipa",agro,Crédito PYME Comercial,Al día (Sin Mora),1000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,"Jr. Ica 456, Cercado de Lima",servicios,Crédito PYME Comercial,Al día (Sin Mora),3000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),182078.44,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),39276.21,39276.21,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),64198.2,64198.2,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),412897.06,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),1865.88,1865.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),71018.09,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Temprana (31-60 días),52439.29,52439.29,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Judicial (121-180 días),173323.43,173323.43,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. LIMA 1,Zona Lima,Crédito Vehicular,Temprana (31-60 días),37535.86,37535.86,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Castigo (>180 días),166923.1,166923.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Judicial (121-180 días),202446.89,202446.89,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. NORTE 6,Zona Norte,Crédito Vehicular,Temprana (31-60 días),40186.88,40186.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Preventiva (1-30 días),84995.02,84995.02,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Tardía (61-120 días),61393.22,61393.22,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Preventiva (1-30 días),127361.59,127361.59,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. SUR 1,Zona Sur,Crédito Vehicular,Tardía (61-120 días),129510.27,129510.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Judicial (121-180 días),180127.63,180127.63,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Tardía (61-120 días),109484.8,109484.8,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Tardía (61-120 días),33097.98,33097.98,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Castigo (>180 días),133892.85,133892.85,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Tardía (61-120 días),110599.58,110599.58,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),170223.76,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Judicial (121-180 días),117333.98,117333.98,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),43424.6,43424.6,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),13728.21,13728.21,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Temprana (31-60 días),102796.79,102796.79,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),55285.01,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),160386.46,160386.46,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Temprana (31-60 días),73834.78,73834.78,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),41321.32,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Tardía (61-120 días),72661.33,72661.33,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2026-03-01,2026,03,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Preventiva (1-30 días),55585.63,55585.63,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-04-01,2026,04,AG. LIMA 1,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),58361.29,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),136249.46,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),161680.57,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),32921.08,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),329271.15,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Castigo (>180 días),72187.93,72187.93,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-04-01,2026,04,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Tardía (61-120 días),75294.73,75294.73,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-04-01,2026,04,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),208796.91,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),324960.89,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,AG. SUR 3,Zona Sur,Crédito Vehicular,Preventiva (1-30 días),194991.54,194991.54,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),163613.63,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),195083.31,195083.31,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,3
+2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),23495.69,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Tardía (61-120 días),123660.64,123660.64,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,3
+2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),28048.27,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Tardía (61-120 días),8134.15,8134.15,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Temprana (31-60 días),71672.97,71672.97,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-04-01,2026,04,OF. PRINCIPAL,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),208387.61,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,AG. LIMA 1,Zona Lima,Crédito Vehicular,Al día (Sin Mora),35034.06,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),89671.15,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),196590.07,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Al día (Sin Mora),119911.27,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-05-01,2026,05,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),46845.34,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,tardia,178213.24,178213.24,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-01-01,2024,01,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,castigo,146184.24,146184.24,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-02-01,2024,02,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,judicial,42115.57,42115.57,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-03-01,2024,03,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,tardia,153157.41,153157.41,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-04-01,2024,04,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,temprana,202656.13,202656.13,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-05-01,2024,05,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,judicial,106840.88,106840.88,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-06-01,2024,06,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,castigo,123886.73,123886.73,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-07-01,2024,07,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,tardia,107743.48,107743.48,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-08-01,2024,08,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,preventiva,132440.1,132440.1,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-09-01,2024,09,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,judicial,216849.14,216849.14,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-10-01,2024,10,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,judicial,65963.56,65963.56,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-11-01,2024,11,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,castigo,54973.43,54973.43,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2024-12-01,2024,12,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,castigo,48384.27,48384.27,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-01-01,2025,01,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,judicial,85575.49,85575.49,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-02-01,2025,02,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,preventiva,134129.08,134129.08,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-03-01,2025,03,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,preventiva,215483.9,215483.9,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-04-01,2025,04,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,preventiva,181585.91,181585.91,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-05-01,2025,05,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,castigo,153579.94,153579.94,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-06-01,2025,06,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,castigo,135557.68,135557.68,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-07-01,2025,07,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,tardia,160879.35,160879.35,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-08-01,2025,08,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,temprana,204458.19,204458.19,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-09-01,2025,09,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,castigo,94371.03,94371.03,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-10-01,2025,10,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,tardia,185807.42,185807.42,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-11-01,2025,11,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,preventiva,199102.34,199102.34,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2025-12-01,2025,12,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,castigo,161250.19,161250.19,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-01-01,2026,01,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,tardia,248124.89,248124.89,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-02-01,2026,02,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,judicial,38428.04,38428.04,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-03-01,2026,03,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,preventiva,127361.59,127361.59,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-04-01,2026,04,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,castigo,72187.93,72187.93,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-05-01,2026,05,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,castigo,180441.81,180441.81,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-06-01,2026,06,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,preventiva,139768.99,139768.99,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-05-01,2026,05,AG. NORTE 6,Zona Norte,Crédito Vehicular,Al día (Sin Mora),160048.59,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Temprana (31-60 días),53301.63,53301.63,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-05-01,2026,05,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Castigo (>180 días),180441.81,180441.81,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-05-01,2026,05,AG. SUR 1,Zona Sur,Crédito Vehicular,Al día (Sin Mora),136562.33,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),85662.58,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,AG. SUR 2,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),244754.22,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,AG. SUR 3,Zona Sur,Crédito Efectivo Personal,Preventiva (1-30 días),228210.54,228210.54,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-05-01,2026,05,AG. SUR 3,Zona Sur,Crédito Vehicular,Tardía (61-120 días),212632.43,212632.43,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),416171.25,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),32930.5,32930.5,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Temprana (31-60 días),79266.87,79266.87,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),210825.82,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-05-01,2026,05,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),540764.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-06-01,2026,06,AG. LIMA 1,Zona Lima,Crédito PYME Comercial,Judicial (121-180 días),57166.38,57166.38,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Temprana (31-60 días),159097.16,159097.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Judicial (121-180 días),153631.31,153631.31,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Preventiva (1-30 días),46396.92,46396.92,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Tardía (61-120 días),178213.24,178213.24,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. NORTE 6,Zona Norte,Crédito Vehicular,Tardía (61-120 días),115475.77,115475.77,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Judicial (121-180 días),100486.74,100486.74,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Preventiva (1-30 días),139768.99,139768.99,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. SUR 1,Zona Sur,Crédito Vehicular,Temprana (31-60 días),56408.14,56408.14,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Preventiva (1-30 días),86220.86,86220.86,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Preventiva (1-30 días),110347.93,110347.93,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. SUR 2,Zona Sur,Crédito Vehicular,Preventiva (1-30 días),217834.51,217834.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Castigo (>180 días),115847.13,115847.13,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Judicial (121-180 días),74885.91,74885.91,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,"Av. Argentina 1200, Callao",comercio,Crédito PYME Comercial,Al día (Sin Mora),1000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-06-01,2026,06,"Av. Ejército 321, Arequipa",agro,Crédito PYME Comercial,Al día (Sin Mora),501001.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-06-01,2026,06,"Calle Las Flores 789, San Juan",manufactura,Crédito PYME Comercial,Al día (Sin Mora),5000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-06-01,2026,06,"Jr. Ica 456, Cercado de Lima",servicios,Crédito PYME Comercial,Al día (Sin Mora),8999.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),89992.77,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),247259.3,247259.3,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
+2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),160777.75,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Al día (Sin Mora),52599.25,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,Crédito Vehicular,Castigo (>180 días),31745.58,31745.58,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
