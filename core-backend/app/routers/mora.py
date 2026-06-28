@@ -13,6 +13,8 @@ router = APIRouter()
 # ─────────────────────────────────────────────────────────────
 # R1 — Bandeja de mora con KPIs por banda
 # ─────────────────────────────────────────────────────────────
+@router.get("")
+@router.get("/")
 @router.get("/bandeja")
 def get_bandeja_mora(
     db: Session = Depends(get_db),

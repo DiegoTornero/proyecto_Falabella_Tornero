@@ -6,6 +6,16 @@ from app.dependencies import get_current_trabajador
 
 router = APIRouter()
 
+@router.get("")
+@router.get("/")
+def get_operaciones_summary(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
+    return {
+        "plazos_fijos": db.query(DepositoPlazo).count(),
+        "puntos_cmr": db.query(PuntoCMR).count(),
+        "contactos": db.query(ContactoTransferencia).count(),
+        "notificaciones": db.query(Notificacion).count()
+    }
+
 @router.get("/plazos-fijos")
 def get_all_plazos_fijos(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
     """Retorna todos los depósitos a plazo fijo y captaciones registradas en el banco."""

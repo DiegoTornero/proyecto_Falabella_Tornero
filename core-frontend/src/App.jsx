@@ -89,6 +89,21 @@ function LoginScreen({ onLogin }) {
     setLoading(false)
   }
 
+  const handleQuickLogin = async (codigo) => {
+    setLoading(true)
+    setError('')
+    try {
+      const res = await axios.post(`${API}/auth/login`, {
+        codigo_empleado: codigo,
+        password: '123456'
+      })
+      onLogin(res.data)
+    } catch (err) {
+      setError('Sincronizando servidor cloud... por favor reintenta en un momento.')
+    }
+    setLoading(false)
+  }
+
   return (
     <div className="min-h-screen relative bg-[#00361f] flex items-center justify-center p-4 overflow-hidden font-sans">
       {/* Background blobs for animation */}
@@ -98,7 +113,7 @@ function LoginScreen({ onLogin }) {
 
       <div className="w-full max-w-md relative z-10 animate-fade-up">
         {/* Brand Logo */}
-        <div className="flex items-center gap-4 justify-center mb-8">
+        <div className="flex items-center gap-4 justify-center mb-6">
           <div className="w-14 h-14 bg-gradient-to-br from-[#d4af37] to-[#9cb000] rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgba(200,224,0,0.3)] border border-white/20">
             <Briefcase size={28} className="text-[#00361f]" />
           </div>
@@ -109,33 +124,36 @@ function LoginScreen({ onLogin }) {
         </div>
 
         {/* Login Card */}
-        <div className="bg-[#002917]/75 backdrop-blur-2xl border border-white/10 rounded-[32px] p-8 shadow-[0_20px_50px_rgba(200,224,0,0.1)] hover:border-[#d4af37]/30 hover:shadow-[0_20px_50px_rgba(200,224,0,0.18)] transition-all duration-500">
-          <div className="flex items-center gap-2 mb-6">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#d4af37] animate-pulse"></span>
-            <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-widest">Acceso Seguro Interno</span>
+        <div className="bg-[#002917]/80 backdrop-blur-2xl border border-white/10 rounded-[32px] p-8 shadow-[0_20px_50px_rgba(200,224,0,0.15)] transition-all duration-500">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#d4af37] animate-pulse"></span>
+              <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-widest">Acceso Seguro Interno</span>
+            </div>
+            <span className="text-[10px] bg-white/10 text-slate-300 font-bold px-2.5 py-1 rounded-full border border-white/5">v2.0 Cloud</span>
           </div>
 
-          <h2 className="text-2xl font-display font-black text-white mb-2">Iniciar Sesión</h2>
-          <p className="text-slate-400 text-sm mb-8 font-medium">Ingresa tus credenciales autorizadas del core bancario.</p>
+          <h2 className="text-2xl font-display font-black text-white mb-1">Iniciar Sesión</h2>
+          <p className="text-slate-400 text-xs mb-6 font-medium">Selecciona un rol de demostración o ingresa tus credenciales.</p>
 
           {error && (
-            <div className="bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-2xl px-4 py-3 text-sm mb-6 flex items-center gap-2 backdrop-blur-md">
-              <AlertTriangle size={16} /> {error}
+            <div className="bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-2xl px-4 py-3 text-xs mb-6 flex items-center gap-2 backdrop-blur-md font-bold">
+              <AlertTriangle size={16} className="shrink-0" /> {error}
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             {/* Input Código */}
             <div>
-              <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Código de Empleado</label>
-              <div className="relative mt-2">
+              <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider ml-1">Código de Empleado</label>
+              <div className="relative mt-1.5">
                 <input
                   type="text"
-                  placeholder="Ej. RIE-0003"
+                  placeholder="Ej. ASE-0001"
                   required
                   value={form.codigo_empleado}
                   onChange={e => setForm({ ...form, codigo_empleado: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white placeholder:text-slate-500 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all shadow-inner"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder:text-slate-500 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all shadow-inner"
                 />
                 <Users size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
               </div>
@@ -143,15 +161,15 @@ function LoginScreen({ onLogin }) {
 
             {/* Input Password */}
             <div>
-              <label className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-1">Contraseña de Acceso</label>
-              <div className="relative mt-2">
+              <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider ml-1">Contraseña de Acceso</label>
+              <div className="relative mt-1.5">
                 <input
                   type="password"
                   placeholder="••••••••"
                   required
                   value={form.password}
                   onChange={e => setForm({ ...form, password: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white placeholder:text-slate-500 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all shadow-inner"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder:text-slate-500 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:border-transparent transition-all shadow-inner"
                 />
                 <Shield size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
               </div>
@@ -161,7 +179,7 @@ function LoginScreen({ onLogin }) {
             <button
               type="submit"
               disabled={loading}
-              className="bg-[#d4af37] hover:bg-[#b5cc00] text-[#00361f] font-display font-black tracking-wider py-4 rounded-2xl transition-all disabled:opacity-60 mt-4 shadow-[0_8px_20px_rgba(200,224,0,0.35)] hover:-translate-y-0.5 active:translate-y-0 flex justify-center items-center gap-2 group"
+              className="bg-[#d4af37] hover:bg-[#b5cc00] text-[#00361f] font-display font-black tracking-wider py-4 rounded-2xl transition-all disabled:opacity-60 mt-2 shadow-[0_8px_20px_rgba(200,224,0,0.35)] hover:-translate-y-0.5 active:translate-y-0 flex justify-center items-center gap-2 group text-sm"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-[#00361f] border-t-transparent rounded-full animate-spin"></div>
@@ -173,6 +191,32 @@ function LoginScreen({ onLogin }) {
               )}
             </button>
           </form>
+
+          {/* Quick Login Section */}
+          <div className="mt-6 pt-6 border-t border-white/10">
+            <p className="text-[10px] font-black text-[#d4af37] uppercase tracking-widest text-center mb-3 flex items-center justify-center gap-1.5">
+              <span>⚡</span> Acceso Rápido de Demostración (1 Clic)
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { codigo: 'ASE-0001', label: '🧑‍💼 Asesor Créditos', desc: 'Evaluación inicial' },
+                { codigo: 'RIE-0001', label: '⚖️ Jefe Riesgos', desc: 'Aprobación RDS' },
+                { codigo: 'COM-0001', label: '🏛️ Comité Crédito', desc: 'Montos mayores' },
+                { codigo: 'GER-0001', label: '💼 Gerencia', desc: 'Supervisión total' }
+              ].map(w => (
+                <button
+                  key={w.codigo}
+                  type="button"
+                  onClick={() => handleQuickLogin(w.codigo)}
+                  disabled={loading}
+                  className="bg-white/5 hover:bg-[#d4af37] border border-white/10 hover:border-transparent text-white hover:text-[#00361f] p-2.5 rounded-xl transition-all flex flex-col items-start text-left group shadow-sm hover:scale-[1.02]"
+                >
+                  <span className="text-xs font-black leading-tight group-hover:text-[#00361f]">{w.label}</span>
+                  <span className="text-[9px] text-slate-400 group-hover:text-[#00361f]/80 font-medium mt-0.5">{w.desc} ({w.codigo})</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -994,18 +1038,13 @@ function ModuloClientes({ token }) {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(async () => {
-      if (query.length < 3) {
-        setResultados([])
-        return
-      }
       setLoading(true)
       try {
         const res = await getAxios(token).get(`/api/clientes/buscar?q=${query}`)
-        setResultados(res.data)
-        setCliente360(null)
+        setResultados(res.data || [])
       } catch (err) { console.error(err) }
       setLoading(false)
-    }, 500)
+    }, 300)
 
     return () => clearTimeout(delayDebounceFn)
   }, [query, token])

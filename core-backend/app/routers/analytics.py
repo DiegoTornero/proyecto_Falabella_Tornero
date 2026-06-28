@@ -7,6 +7,8 @@ from app.dependencies import get_current_trabajador
 
 router = APIRouter()
 
+@router.get("")
+@router.get("/")
 @router.get("/kpis")
 def get_global_kpis(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
     # Total de cuentas de ahorro

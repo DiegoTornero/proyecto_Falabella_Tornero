@@ -6,18 +6,20 @@ from app.dependencies import get_current_trabajador
 
 router = APIRouter()
 
+@router.get("")
+@router.get("/")
 @router.get("/buscar")
-def buscar_cliente(q: str, db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
-    """Busca clientes por DNI o Nombre"""
-    if not q or len(q) < 3:
-        return []
-        
-    termino = f"%{q}%"
-    clientes = db.query(Usuario).filter(
-        (Usuario.dni.ilike(termino)) | 
-        (Usuario.nombre.ilike(termino)) | 
-        (Usuario.apellido.ilike(termino))
-    ).limit(10).all()
+def buscar_cliente(q: str = "", db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
+    """Busca clientes por DNI o Nombre. Si no hay término, retorna los 10 últimos clientes."""
+    if not q or len(q.strip()) < 1:
+        clientes = db.query(Usuario).order_by(Usuario.created_at.desc()).limit(10).all()
+    else:
+        termino = f"%{q.strip()}%"
+        clientes = db.query(Usuario).filter(
+            (Usuario.dni.ilike(termino)) | 
+            (Usuario.nombre.ilike(termino)) | 
+            (Usuario.apellido.ilike(termino))
+        ).limit(10).all()
     
     return [
         {
