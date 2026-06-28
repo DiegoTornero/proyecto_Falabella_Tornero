@@ -12,6 +12,21 @@ import app.models.models  # noqa: F401
 # Crear todas las tablas en PostgreSQL si no existen
 Base.metadata.create_all(bind=engine)
 
+# Sincronizar secuencias PostgreSQL (evita duplicate key errors)
+try:
+    from sqlalchemy import text
+    with engine.connect() as _conn:
+        for _seq_sql in [
+            "SELECT setval('cuentas_ahorro_id_seq', COALESCE((SELECT MAX(id)+1 FROM cuentas_ahorro), 1), false)",
+            "SELECT setval('movimientos_ahorro_id_seq', COALESCE((SELECT MAX(id)+1 FROM movimientos_ahorro), 1), false)",
+            "SELECT setval('productos_pasivos_id_seq', COALESCE((SELECT MAX(id)+1 FROM productos_pasivos), 1), false)",
+            "SELECT setval('productos_activos_id_seq', COALESCE((SELECT MAX(id)+1 FROM productos_activos), 1), false)",
+        ]:
+            _conn.execute(text(_seq_sql))
+        _conn.commit()
+except Exception as _e:
+    print(f'[startup] sequence sync skipped: {_e}')
+
 app = FastAPI(
     title="Homebanking API — Banco Falabella",
     description="Portal de clientes del sistema bancario Banco Falabella",
