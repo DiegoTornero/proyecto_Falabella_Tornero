@@ -427,17 +427,17 @@ Fecha,Año,Mes,Oficina,Zona,Tipo_Producto,Banda_Morosidad,Cartera_Total,Vencida,
 2026-02-01,2026,02,AG. LIMA 2,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),207161.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,AG. LIMA 2,Zona Lima,Crédito Vehicular,Al día (Sin Mora),201671.49,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,AG. NORTE 6,Zona Norte,Crédito Efectivo Personal,Al día (Sin Mora),245314.21,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),1000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,AG. NORTE 6,Zona Norte,Tarjeta de Crédito CMR,Al día (Sin Mora),116213.31,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,AG. ORIENTE 2,Zona Oriente,Crédito PYME Comercial,Temprana (31-60 días),145954.65,145954.65,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-02-01,2026,02,AG. ORIENTE 2,Zona Oriente,Crédito Vehicular,Judicial (121-180 días),38428.04,38428.04,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-02-01,2026,02,AG. SUR 1,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),40131.81,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),3000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Al día (Sin Mora),176161.87,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Al día (Sin Mora),195297.46,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
+2026-02-01,2026,02,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),4000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Castigo (>180 días),245209.89,245209.89,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-02-01,2026,02,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Temprana (31-60 días),224817.61,224817.61,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-02-01,2026,02,"Av. Argentina 1200, Callao",comercio,Crédito PYME Comercial,Al día (Sin Mora),4000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,"Av. Ejército 321, Arequipa",agro,Crédito PYME Comercial,Al día (Sin Mora),1000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-02-01,2026,02,"Jr. Ica 456, Cercado de Lima",servicios,Crédito PYME Comercial,Al día (Sin Mora),3000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),182078.44,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),39276.21,39276.21,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-02-01,2026,02,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Tardía (61-120 días),64198.2,64198.2,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
@@ -510,20 +510,19 @@ Fecha,Año,Mes,Oficina,Zona,Tipo_Producto,Banda_Morosidad,Cartera_Total,Vencida,
 2026-06-01,2026,06,AG. LIMA 1,Zona Lima,Tarjeta de Crédito CMR,Temprana (31-60 días),159097.16,159097.16,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-06-01,2026,06,AG. LIMA 2,Zona Lima,Crédito Efectivo Personal,Judicial (121-180 días),153631.31,153631.31,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-06-01,2026,06,AG. LIMA 2,Zona Lima,Tarjeta de Crédito CMR,Preventiva (1-30 días),46396.92,46396.92,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Al día (Sin Mora),501001.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-06-01,2026,06,AG. NORTE 6,Zona Norte,Crédito PYME Comercial,Tardía (61-120 días),178213.24,178213.24,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-06-01,2026,06,AG. NORTE 6,Zona Norte,Crédito Vehicular,Tardía (61-120 días),115475.77,115475.77,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-06-01,2026,06,AG. ORIENTE 2,Zona Oriente,Crédito Efectivo Personal,Judicial (121-180 días),100486.74,100486.74,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-06-01,2026,06,AG. ORIENTE 2,Zona Oriente,Tarjeta de Crédito CMR,Preventiva (1-30 días),139768.99,139768.99,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. SUR 1,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),8999.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-06-01,2026,06,AG. SUR 1,Zona Sur,Crédito Vehicular,Temprana (31-60 días),56408.14,56408.14,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-06-01,2026,06,AG. SUR 1,Zona Sur,Tarjeta de Crédito CMR,Preventiva (1-30 días),86220.86,86220.86,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-06-01,2026,06,AG. SUR 2,Zona Sur,Crédito Efectivo Personal,Preventiva (1-30 días),110347.93,110347.93,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
+2026-06-01,2026,06,AG. SUR 2,Zona Sur,Crédito PYME Comercial,Al día (Sin Mora),6000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-06-01,2026,06,AG. SUR 2,Zona Sur,Crédito Vehicular,Preventiva (1-30 días),217834.51,217834.51,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-06-01,2026,06,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Castigo (>180 días),115847.13,115847.13,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
 2026-06-01,2026,06,AG. SUR 3,Zona Sur,Tarjeta de Crédito CMR,Judicial (121-180 días),74885.91,74885.91,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,1
-2026-06-01,2026,06,"Av. Argentina 1200, Callao",comercio,Crédito PYME Comercial,Al día (Sin Mora),1000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,"Av. Ejército 321, Arequipa",agro,Crédito PYME Comercial,Al día (Sin Mora),501001.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,"Calle Las Flores 789, San Juan",manufactura,Crédito PYME Comercial,Al día (Sin Mora),5000.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
-2026-06-01,2026,06,"Jr. Ica 456, Cercado de Lima",servicios,Crédito PYME Comercial,Al día (Sin Mora),8999.0,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Al día (Sin Mora),89992.77,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
 2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,Crédito Efectivo Personal,Preventiva (1-30 días),247259.3,247259.3,100.0,Alto,Alerta mora alta (>10%),Proceso Legal/Cobranza,2
 2026-06-01,2026,06,OF. PRINCIPAL,Zona Lima,Crédito PYME Comercial,Al día (Sin Mora),160777.75,0.0,0.0,OK,Mora controlada (<5%),Monitoreo Regular,0
