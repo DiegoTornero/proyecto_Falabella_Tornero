@@ -11,19 +11,19 @@ router = APIRouter()
 @router.get("/")
 @router.get("/kpis")
 def get_global_kpis(db: Session = Depends(get_db), trabajador=Depends(get_current_trabajador)):
-    # Total de cuentas de ahorro
     total_cuentas = db.query(CuentaAhorro).count()
-    
-    # Saldo total en el banco
     saldo_total = db.query(func.sum(CuentaAhorro.saldo_actual)).scalar() or 0.0
 
-    # Total de créditos desembolsados
-    creditos_desembolsados = db.query(func.sum(Credito.monto_solicitado)).filter(Credito.estado == "desembolsado").scalar() or 0.0
+    creditos = db.query(Credito).all()
+    total_desembolsado = sum((c.monto_aprobado or c.monto_solicitado or 0.0) for c in creditos)
+    num_creditos = len(creditos)
 
     return {
         "total_cuentas": total_cuentas,
-        "saldo_total": saldo_total,
-        "creditos_desembolsados": creditos_desembolsados
+        "saldo_total": round(float(saldo_total), 2),
+        "total_desembolsado": round(float(total_desembolsado), 2),
+        "num_creditos": num_creditos,
+        "creditos_desembolsados": round(float(total_desembolsado), 2)
     }
 
 @router.get("/history")
@@ -228,7 +228,63 @@ def poblar_tablas_sql_powerbi(db: Session = Depends(get_db)):
         "AG. ORIENTE 2": "Zona Oriente"
     }
 
+    lista_oficinas = list(oficinas_map.keys())
+    productos_oficiales = ["Crédito Efectivo Personal", "Crédito PYME Comercial", "Tarjeta de Crédito CMR", "Crédito Vehicular"]
+
+    empresas = db.query(Empresa).all()
+    for emp in empresas:
+        if emp.direccion not in oficinas_map:
+            idx = abs(hash(str(emp.id or "0"))) % len(lista_oficinas)
+            emp.direccion = lista_oficinas[idx]
+        emp.sector = oficinas_map[emp.direccion]
+    db.commit()
+
     creditos = db.query(Credito).all()
+    if len(creditos) < 600:
+        import random
+        from app.models.models import Usuario
+        usr = db.query(Usuario).first()
+        usr_id = usr.id if usr else None
+
+        for ofi_nombre, zona in oficinas_map.items():
+            emp = db.query(Empresa).filter(Empresa.direccion == ofi_nombre).first()
+            if not emp:
+                emp = Empresa(ruc=f"2010000{random.randint(1000,9999)}", razon_social=f"Corporación {ofi_nombre} S.A.", sector=zona, facturacion_anual=3000000.0, direccion=ofi_nombre)
+                db.add(emp)
+                db.commit()
+                db.refresh(emp)
+
+            for anio in [2024, 2025, 2026]:
+                for m in range(1, 13):
+                    if anio == 2026 and m > 6: break
+                    for _ in range(3):
+                        monto = round(random.uniform(20000, 150000), 2)
+                        tasa = round(random.uniform(18.0, 32.0), 2)
+                        prod = random.choice(productos_oficiales)
+                        dias_m = 0
+                        banda = None
+                        estado_cred = "desembolsado"
+                        if "SUR 3" in ofi_nombre or "ORIENTE 2" in ofi_nombre or (m % 4 == 0):
+                            dias_m = random.choice([15, 45, 75, 130, 200])
+                            estado_cred = "moroso"
+                            banda = "preventiva" if dias_m <= 30 else ("temprana" if dias_m <= 60 else ("tardia" if dias_m <= 120 else ("judicial" if dias_m <= 180 else "castigo")))
+
+                        cred = Credito(
+                            empresa_id=emp.id, usuario_id=usr_id,
+                            monto_solicitado=monto, monto_aprobado=monto,
+                            plazo_meses=24, tasa_interes=tasa, estado=estado_cred,
+                            tipo_producto=prod, dias_mora=dias_m, banda_mora=banda,
+                            proposito=f"Colocación en {ofi_nombre}"
+                        )
+                        cred.created_at = datetime(anio, m, random.randint(1, 28))
+                        db.add(cred)
+        db.commit()
+
+    creditos = db.query(Credito).all()
+    for c in creditos:
+        if not c.monto_aprobado or c.monto_aprobado == 0:
+            c.monto_aprobado = c.monto_solicitado or 0.0
+    db.commit()
 
     def norm_prod(p):
         if not p: return "Crédito PYME Comercial"

@@ -24,19 +24,11 @@ def get_bandeja_mora(
     R1: Consulta la cartera morosa clasificada por bandas.
     Incluye KPIs: ratio de mora, monto por banda, conteo.
     """
-    creditos_mora = (
-        db.query(Credito)
-        .join(Usuario)
-        .filter(Credito.dias_mora > 0)
-        .all()
-    )
+    todos_creditos = db.query(Credito).all()
+    creditos_mora = [c for c in todos_creditos if (c.dias_mora or 0) > 0]
 
-    total_cartera = db.query(func.sum(Credito.monto_aprobado)).filter(
-        Credito.monto_aprobado != None,
-        Credito.estado.in_(["desembolsado", "en_revision", "aprobado"])
-    ).scalar() or 0.0
-
-    total_mora = sum((c.monto_aprobado or c.monto_solicitado) for c in creditos_mora)
+    total_cartera = sum((c.monto_aprobado or c.monto_solicitado or 0.0) for c in todos_creditos)
+    total_mora = sum((c.monto_aprobado or c.monto_solicitado or 0.0) for c in creditos_mora)
     ratio_mora = round((total_mora / total_cartera * 100), 2) if total_cartera > 0 else 0.0
 
     bandas_resultado = {}
