@@ -49,23 +49,23 @@
     <div class="kpi-grid">
         <div class="kpi-card">
             <div class="kpi-title">Cartera Total Activa</div>
-            <div class="kpi-value">S/ 76,230,821.04</div>
+            <div class="kpi-value">S/ 10,748,326.58</div>
             <div class="kpi-sub">Volumen 100% Cuadrado</div>
         </div>
         <div class="kpi-card">
             <div class="kpi-title">Créditos Emitidos</div>
-            <div class="kpi-value">695</div>
+            <div class="kpi-value">219</div>
             <div class="kpi-sub">Clientes en Base de Datos</div>
         </div>
         <div class="kpi-card">
             <div class="kpi-title">Ticket Promedio</div>
-            <div class="kpi-value">S/ 109,684.63</div>
+            <div class="kpi-value">S/ 49,079.12</div>
             <div class="kpi-sub">Por operación crediticia</div>
         </div>
         <div class="kpi-card alert">
             <div class="kpi-title">Ratio Mora Global</div>
-            <div class="kpi-value">47.81%</div>
-            <div class="kpi-sub">S/ 36,447,621.02 en riesgo</div>
+            <div class="kpi-value">34.78%</div>
+            <div class="kpi-sub">S/ 3,737,894.48 en riesgo</div>
         </div>
     </div>
 
@@ -99,20 +99,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Crédito PYME Comercial</td>
-                        <td>Al día (Sin Mora)</td>
-                        <td>S/ 0.00</td>
-                        <td>0.0%</td>
-                        <td><span class="status-badge status-ok">OK</span></td>
-                    </tr>
-                    <tr>
-                        <td>Crédito Vehicular</td>
-                        <td>Al día (Sin Mora)</td>
-                        <td>S/ 0.00</td>
-                        <td>0.0%</td>
-                        <td><span class="status-badge status-ok">OK</span></td>
-                    </tr>
-                    <tr>
                         <td>Crédito Efectivo Personal</td>
                         <td>Al día (Sin Mora)</td>
                         <td>S/ 0.00</td>
@@ -120,14 +106,28 @@
                         <td><span class="status-badge status-ok">OK</span></td>
                     </tr>
                     <tr>
-                        <td>Crédito Vehicular</td>
-                        <td>Al día (Sin Mora)</td>
-                        <td>S/ 0.00</td>
-                        <td>0.0%</td>
-                        <td><span class="status-badge status-ok">OK</span></td>
+                        <td>Crédito Efectivo Personal</td>
+                        <td>Tardía (61-120 días)</td>
+                        <td>S/ 89,378.70</td>
+                        <td>100.0%</td>
+                        <td><span class="status-badge status-alt">Alto</span></td>
+                    </tr>
+                    <tr>
+                        <td>Crédito Efectivo Personal</td>
+                        <td>Temprana (31-60 días)</td>
+                        <td>S/ 33,078.42</td>
+                        <td>100.0%</td>
+                        <td><span class="status-badge status-alt">Alto</span></td>
                     </tr>
                     <tr>
                         <td>Crédito PYME Comercial</td>
+                        <td>Temprana (31-60 días)</td>
+                        <td>S/ 42,249.25</td>
+                        <td>100.0%</td>
+                        <td><span class="status-badge status-alt">Alto</span></td>
+                    </tr>
+                    <tr>
+                        <td>Crédito Vehicular</td>
                         <td>Al día (Sin Mora)</td>
                         <td>S/ 0.00</td>
                         <td>0.0%</td>
@@ -145,10 +145,10 @@
         new Chart(document.getElementById('chartOficinas'), {
             type: 'bar',
             data: {
-                labels: ['AG. LIMA 1', 'AG. LIMA 2', 'AG. NORTE 6', 'AG. ORIENTE 2', 'AG. SUR 1', 'AG. SUR 2', 'AG. SUR 3', 'OF. PRINCIPAL'],
+                labels: ['OF. PRINCIPAL'],
                 datasets: [{
                     label: 'Cartera Total (S/)',
-                    data: [8443877.929999998, 8762645.26, 9209455.549999999, 8036398.419999999, 8291089.63, 7708192.430000002, 8318222.949999998, 17460938.869999997],
+                    data: [10748326.580000002],
                     backgroundColor: '#22c55e',
                     borderRadius: 6
                 }]
@@ -159,9 +159,9 @@
         new Chart(document.getElementById('chartProductos'), {
             type: 'doughnut',
             data: {
-                labels: ['Crédito PYME Comercial', 'Crédito Vehicular', 'Crédito Efectivo Personal', 'Tarjeta de Crédito CMR'],
+                labels: ['Crédito Efectivo Personal', 'Crédito PYME Comercial', 'Crédito Vehicular'],
                 datasets: [{
-                    data: [18654080.629999995, 21093322.03999998, 20029515.889999993, 16453902.480000006],
+                    data: [4077538.6899999995, 3641957.21, 3028830.68],
                     backgroundColor: ['#22c55e', '#3b82f6', '#f59e0b', '#8b5cf6'],
                     borderWidth: 0
                 }]
@@ -172,10 +172,10 @@
         new Chart(document.getElementById('chartBandas'), {
             type: 'bar',
             data: {
-                labels: ['Al día (Sin Mora)', 'Castigo (>180 días)', 'Judicial (121-180 días)', 'Preventiva (1-30 días)', 'Tardía (61-120 días)', 'Temprana (31-60 días)'],
+                labels: ['Al día (Sin Mora)', 'Tardía (61-120 días)', 'Temprana (31-60 días)', 'Preventiva (1-30 días)'],
                 datasets: [{
                     label: 'Monto Vencido (S/)',
-                    data: [0.0, 6450130.31, 6654179.719999999, 8172292.02, 8498019.59, 6672999.38],
+                    data: [0.0, 2113080.3899999997, 1123783.9400000002, 501030.14999999997],
                     backgroundColor: '#ef4444',
                     borderRadius: 6
                 }]
