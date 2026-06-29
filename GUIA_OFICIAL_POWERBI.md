@@ -21,17 +21,17 @@ Como ahora usas la tabla `creditos` original, las fórmulas DAX son ligeramente 
 
 ### 1. Cartera Total Desembolsada
 ```dax
-Cartera Total = SUM(creditos[monto_aprobado])
+Cartera Total = SUM('public creditos'[monto_aprobado])
 ```
 
 ### 2. Número Total de Créditos
 ```dax
-Total Creditos = COUNT(creditos[id])
+Total Creditos = COUNT('public creditos'[id])
 ```
 
 ### 3. Cartera Vencida (Dinero en Mora)
 ```dax
-Cartera Vencida = CALCULATE(SUM(creditos[monto_aprobado]), creditos[dias_mora] > 0)
+Cartera Vencida = CALCULATE(SUM('public creditos'[monto_aprobado]), 'public creditos'[dias_mora] > 0)
 ```
 
 ### 4. Ratio de Mora Global (%)
