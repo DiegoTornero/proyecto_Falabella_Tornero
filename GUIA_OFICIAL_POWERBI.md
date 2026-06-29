@@ -1,18 +1,24 @@
 # 📊 GUÍA OFICIAL DE CONSTRUCCIÓN EN POWER BI DESKTOP
 **Proyecto Core Bancario Falabella - Inteligencia de Negocios**
 
-Esta guía contiene los pasos exactos, fórmulas DAX y estructura visual para armar tu reporte de Power BI en 10 minutos con un cuadre matemático perfecto de **S/ 76,230,821.04**.
+Esta guía contiene los pasos exactos, fórmulas DAX y estructura visual para armar tu reporte de Power BI conectado en vivo a tu base de datos en la nube con un cuadre matemático perfecto de **S/ 10,748,326.58**.
 
 ---
 
-## 🚀 Paso 1: Cargar los Datos en Power BI Desktop
+## 🚀 Paso 1: Conectar Power BI en Vivo con la Base de Datos en la Nube
+
+Para conectar directamente con el Core Bancario en la nube (Render) sin necesitar archivos locales:
 
 1. Abre la aplicación **Power BI Desktop** en tu computadora.
-2. En la barra superior, haz clic en **Obtener datos** > **Texto/CSV**.
-3. Selecciona el archivo `powerbi_resumen_cartera.csv` (ubicado en la carpeta del proyecto) y haz clic en **Cargar**.
-4. Repite el paso para cargar el segundo archivo `powerbi_detalle_mora.csv`.
+2. En la barra superior, haz clic en **Obtener datos** > **Web**.
+3. Pega la URL oficial de la **Hoja 1 (Resumen Comercial)** y dale a **Aceptar**:
+   `https://core-backend-g43c.onrender.com/analytics/powerbi-resumen`
+   *(En la ventana del editor de Power Query que aparecerá, haz clic en el botón superior **"A la tabla"** y luego en el icono de expandir columnas 🔀 arriba a la derecha. Finalmente dale a **Cerrar y aplicar**).*
+4. Repite el paso (**Obtener datos > Web**) pegando la URL oficial de la **Hoja 2 (Análisis de Mora)**:
+   `https://core-backend-g43c.onrender.com/analytics/powerbi-mora`
+   *(Conviértelo "A la tabla", expande las columnas 🔀 y dale a **Cerrar y aplicar**).*
 
-*(Verás que ambas tablas aparecen en el panel de **Datos** a la derecha).*
+*(Ahora ambas tablas de tu nube aparecerán conectadas en vivo en el panel de **Datos** a la derecha).*
 
 ---
 
