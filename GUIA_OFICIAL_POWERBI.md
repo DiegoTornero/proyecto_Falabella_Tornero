@@ -1,95 +1,89 @@
-# 📊 GUÍA OFICIAL DE CONSTRUCCIÓN EN POWER BI DESKTOP
+# 📊 GUÍA OFICIAL POWER BI (CONEXIÓN DIRECTA A NEON POSTGRESQL)
 **Proyecto Core Bancario Falabella - Inteligencia de Negocios**
 
-Esta guía contiene los pasos exactos, fórmulas DAX y estructura visual para armar tu reporte de Power BI conectado en vivo a tu base de datos en la nube con un cuadre matemático perfecto de **S/ 10,748,326.58**.
+Dado que has cargado **todas las tablas originales de la base de datos**, ahora trabajaremos como verdaderos analistas de datos (Data Engineers). Power BI leerá la base de datos relacional pura.
 
 ---
 
-## 🚀 Paso 1: Conectar Power BI en Vivo con la Base de Datos en la Nube
+## 🔗 Paso 1: Configurar el Modelo de Datos (Relaciones)
 
-### 🐘 MÉTODO ÚNICO: Conexión Directa al Motor PostgreSQL (Neon Tech)
+En Power BI, ve a la vista de **Modelo** (el ícono de los cuadritos conectados a la izquierda). Asegúrate de que las tablas estén conectadas así (Power BI suele detectarlo automáticamente, pero verifícalo):
 
-Dado que usarás conexión directa a tu base de datos en Neon, sigue estos pasos exactos:
-
-1. En Power BI Desktop dale a **Obtener datos** > **MÁS...** > **Base de datos de PostgreSQL** y dale a **Conectar**.
-2. Completa los datos exactamente con esta información:
-   * **Servidor:** `ep-twilight-water-atm701rq.c-9.us-east-1.aws.neon.tech`
-   * **Base de datos:** `neondb`
-3. En la siguiente pantalla de autenticación, selecciona la pestaña **"Base de datos"** (no la de Windows) e ingresa:
-   * **Nombre de usuario:** `neondb_owner`
-   * **Contraseña:** `npg_v2MNrOmt8TBW`
-4. *(Si sale una advertencia de encriptación, dale a "Aceptar").*
-5. En el Navegador, selecciona las tablas **`creditos`** y **`empresas`**.
-6. Dale a **Cargar** (o Transformar datos si deseas agrupar algo primero).
+1. **`creditos` a `empresas`:** Arrastra el campo `empresa_id` de la tabla `creditos` hacia el campo `id` de la tabla `empresas`. *(Relación 1 a Varios)*.
+2. **`creditos` a `usuarios`:** Arrastra el campo `usuario_id` de la tabla `creditos` hacia el campo `id` de la tabla `usuarios`.
+3. *(Opcional)* **`creditos` a `cronograma_pagos`:** Arrastra el campo `id` de `creditos` hacia `credito_id` en `cronograma_pagos`.
 
 ---
 
-## 🧮 Paso 2: Crear Medidas DAX Oficiales
+## 🧮 Paso 2: Crear Medidas DAX Oficiales (Data Cruda)
 
-Para que los números en las tarjetas superiores cuadren con exactitud al centavo, haz clic derecho sobre la tabla `powerbi_resumen_cartera` > **Nueva medida** y pega una por una estas fórmulas:
+Como ahora usas la tabla `creditos` original, las fórmulas DAX son ligeramente diferentes. Ve a la vista de **Datos** o **Informe**, haz clic derecho sobre la tabla **`creditos`**, selecciona **Nueva Medida** y pega estas fórmulas una por una:
 
 ### 1. Cartera Total Desembolsada
 ```dax
-Cartera Total = SUM(powerbi_resumen_cartera[Cartera_Total])
+Cartera Total = SUM(creditos[monto_aprobado])
 ```
 
-### 2. Número Total de Clientes / Créditos
+### 2. Número Total de Créditos
 ```dax
-Total Clientes = SUM(powerbi_resumen_cartera[Numero_Clientes])
+Total Creditos = COUNT(creditos[id])
 ```
 
-### 3. Ratio de Mora Global (%)
+### 3. Cartera Vencida (Dinero en Mora)
 ```dax
-Ratio Mora Global = DIVIDE(SUM(powerbi_resumen_cartera[Cartera_Vencida]), [Cartera Total], 0)
+Cartera Vencida = CALCULATE(SUM(creditos[monto_aprobado]), creditos[dias_mora] > 0)
 ```
-*(Nota: Selecciona esta medida y cámbiale el formato a **Porcentaje `%`** en la barra superior).*
+
+### 4. Ratio de Mora Global (%)
+```dax
+Ratio Mora Global = DIVIDE([Cartera Vencida], [Cartera Total], 0)
+```
+*(Nota: Selecciona esta medida y cámbiale el formato a **Porcentaje `%`** en la cinta de opciones superior).*
 
 ---
 
-## 🏢 Paso 3: Diseño de la HOJA 1 (Comercial y Desembolsos)
+## 🏢 Paso 3: Diseño de la HOJA 1 (Resumen Comercial)
 
 Renombra la primera pestaña como **"Hoja 1 - Resumen Comercial"**.
 
-### A. Tarjetas KPI de Cabecera (Parte Superior)
-* **Tarjeta 1:** Arrastra la medida `[Cartera Total]` (Formato Moneda S/).
-* **Tarjeta 2:** Arrastra la medida `[Total Clientes]`.
-* **Tarjeta 3:** Arrastra el campo `Ticket_Promedio` (Configúralo como *Promedio*).
+### A. Tarjetas KPI
+* **Tarjeta 1:** Medida `[Cartera Total]` (Formato Moneda S/).
+* **Tarjeta 2:** Medida `[Total Creditos]`.
 
 ### B. Gráficos Visuales
 1. **Gráfico de Barras Agrupadas (Por Oficina/Sucursal):**
-   * **Eje Y:** `Oficina`
-   * **Eje X:** `Cartera_Total`
-   * *Muestra qué agencia coloca mayor volumen de dinero.*
+   * **Eje Y:** Arrastra el campo `direccion` de la tabla **`empresas`**.
+   * **Eje X:** Arrastra tu medida `[Cartera Total]`.
 
 2. **Gráfico Circular o Anillo (Por Tipo de Producto):**
-   * **Leyenda:** `Tipo_Producto` (Crédito Personal, PYME, Tarjeta CMR, Vehicular).
-   * **Valores:** `Cartera_Total`
+   * **Leyenda:** Campo `tipo_producto` de la tabla **`creditos`**.
+   * **Valores:** Tu medida `[Cartera Total]`.
 
 3. **Gráfico de Líneas (Evolución Mensual):**
-   * **Eje X:** `Fecha` o `Mes`
-   * **Eje Y:** `Cartera_Total`
+   * **Eje X:** Campo `created_at` de la tabla **`creditos`**.
+   * **Eje Y:** Tu medida `[Cartera Total]`.
 
 ---
 
 ## ⚠️ Paso 4: Diseño de la HOJA 2 (Riesgos y Morosidad)
 
-Crea una nueva pestaña abajo y renómbrala **"Hoja 2 - Detalle de Mora"**.
+Crea una nueva pestaña y renómbrala **"Hoja 2 - Detalle de Mora"**.
 
 ### A. Tarjetas KPI de Riesgo
-* **Tarjeta 1:** Arrastra la medida `[Ratio Mora Global]` (Debe mostrar el % de mora).
-* **Tarjeta 2:** Arrastra el campo `Vencida` de la tabla `powerbi_detalle_mora` (Suma de dinero en riesgo).
+* **Tarjeta 1:** Medida `[Ratio Mora Global]` (Debe mostrar el % de mora).
+* **Tarjeta 2:** Medida `[Cartera Vencida]`.
 
 ### B. Gráficos Visuales de Cobranza
 1. **Gráfico de Columnas (Mora por Banda de Retraso):**
-   * **Eje X:** `Banda_Morosidad` (Preventiva 1-30, Temprana 31-60, Tardía 61-120, Judicial, Castigo).
-   * **Eje Y:** `Vencida`
+   * **Eje X:** Campo `banda_mora` de la tabla **`creditos`**.
+   * **Eje Y:** Tu medida `[Cartera Vencida]`.
 
 2. **Matriz o Tabla de Gestión Operativa:**
-   * **Filas:** `Zona` > `Oficina` > `Tipo_Producto`
-   * **Columnas:** `Cartera_Total`, `Vencida`, `Ratio_Mora`, `Estado`, `Accion_Recuperacion`.
+   * **Filas:** Campo `sector` (Zona) de **`empresas`** > Campo `direccion` (Oficina) de **`empresas`** > Campo `tipo_producto` de **`creditos`**.
+   * **Columnas:** Medida `[Cartera Total]`, Medida `[Cartera Vencida]`, Medida `[Ratio Mora Global]`.
 
 ---
 
 ## 🎨 Paso 5: Estética Corporativa (Banco Falabella)
-* Utiliza una paleta corporativa: **Verde Falabella (#008A00)** para las colocaciones vigentes, **Gris Oscuro (#333333)** para fondos y **Rojo Carmín (#D32F2F)** para resaltar la cartera morosa.
-* Aplica **Formato Condicional** a la columna `Estado` de tu matriz (Verde si es "OK", Amarillo si es "Medio", Rojo si es "Alto").
+* Utiliza la paleta corporativa: **Verde Falabella (#008A00)** para las colocaciones vigentes, **Gris Oscuro (#333333)** para fondos y **Rojo Carmín (#D32F2F)** para la morosidad.
+* En tu Matriz, aplica **Formato Condicional** a la columna del `[Ratio Mora Global]`: Si es alto, que el fondo se pinte de rojo.
