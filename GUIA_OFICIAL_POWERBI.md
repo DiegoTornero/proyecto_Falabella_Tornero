@@ -7,18 +7,20 @@ Esta guía contiene los pasos exactos, fórmulas DAX y estructura visual para ar
 
 ## 🚀 Paso 1: Conectar Power BI en Vivo con la Base de Datos en la Nube
 
-Para conectar directamente con el Core Bancario en la nube (Render) sin necesitar archivos locales:
+### 🐘 MÉTODO ÚNICO: Conexión Directa al Motor PostgreSQL (Neon Tech)
 
-1. Abre la aplicación **Power BI Desktop** en tu computadora.
-2. En la barra superior, haz clic en **Obtener datos** > **Web**.
-3. Pega la URL oficial de la **Hoja 1 (Resumen Comercial)** y dale a **Aceptar**:
-   `https://core-backend-g43c.onrender.com/analytics/powerbi-resumen`
-   *(En la ventana del editor de Power Query que aparecerá, haz clic en el botón superior **"A la tabla"** y luego en el icono de expandir columnas 🔀 arriba a la derecha. Finalmente dale a **Cerrar y aplicar**).*
-4. Repite el paso (**Obtener datos > Web**) pegando la URL oficial de la **Hoja 2 (Análisis de Mora)**:
-   `https://core-backend-g43c.onrender.com/analytics/powerbi-mora`
-   *(Conviértelo "A la tabla", expande las columnas 🔀 y dale a **Cerrar y aplicar**).*
+Dado que usarás conexión directa a tu base de datos en Neon, sigue estos pasos exactos:
 
-*(Ahora ambas tablas de tu nube aparecerán conectadas en vivo en el panel de **Datos** a la derecha).*
+1. En Power BI Desktop dale a **Obtener datos** > **MÁS...** > **Base de datos de PostgreSQL** y dale a **Conectar**.
+2. Completa los datos exactamente con esta información:
+   * **Servidor:** `ep-twilight-water-atm701rq.c-9.us-east-1.aws.neon.tech`
+   * **Base de datos:** `neondb`
+3. En la siguiente pantalla de autenticación, selecciona la pestaña **"Base de datos"** (no la de Windows) e ingresa:
+   * **Nombre de usuario:** `neondb_owner`
+   * **Contraseña:** `npg_v2MNrOmt8TBW`
+4. *(Si sale una advertencia de encriptación, dale a "Aceptar").*
+5. En el Navegador, selecciona las tablas **`creditos`** y **`empresas`**.
+6. Dale a **Cargar** (o Transformar datos si deseas agrupar algo primero).
 
 ---
 
