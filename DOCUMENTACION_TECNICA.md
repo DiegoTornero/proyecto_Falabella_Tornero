@@ -1,4 +1,5 @@
 # 🏦 DOCUMENTACIÓN TÉCNICA OFICIAL — SISTEMA CORE BANCARIO & HOMEBANKING OMNICANAL
+**Autor del Proyecto:** Diego Tornero Bermudez  
 **Entidad Modelada:** Banco Falabella Perú S.A.  
 **Versión del Sistema:** 2.0.0  
 **Arquitectura:** Microservicios REST — Tres capas independientes  
@@ -10,8 +11,9 @@
 ## 📑 ÍNDICE
 
 1. [Visión General del Proyecto](#1-visión-general-del-proyecto)
-2. [Arquitectura del Sistema](#2-arquitectura-del-sistema)
-3. [Estructura de Carpetas](#3-estructura-de-carpetas)
+2. [Investigación de Campo y Validación Oficial](#2-investigación-de-campo-y-validación-oficial)
+3. [Arquitectura del Sistema](#3-arquitectura-del-sistema)
+4. [Estructura de Carpetas](#4-estructura-de-carpetas)
 4. [Base de Datos — Modelo Relacional](#4-base-de-datos--modelo-relacional)
 5. [Portal Homebanking (Cliente)](#5-portal-homebanking-cliente)
 6. [Core Bancario (Personal Interno)](#6-core-bancario-personal-interno)
@@ -50,7 +52,20 @@ El **Sistema Core Bancario & Homebanking de Banco Falabella** es una plataforma 
 
 ---
 
-## 2. ARQUITECTURA DEL SISTEMA
+## 2. INVESTIGACIÓN DE CAMPO Y VALIDACIÓN OFICIAL
+
+Como parte del desarrollo de este proyecto, se realizó una visita presencial a una agencia del **Banco Falabella Perú S.A.** para levantar requerimientos reales. En la ventanilla de atención al cliente, el personal bancario indicó que toda la información relacionada con tasas, tarifas y fórmulas matemáticas se encuentra estandarizada y regulada por la SBS. 
+
+Para asegurar la máxima fidelidad del software con la realidad, nos proporcionaron los siguientes enlaces oficiales, los cuales sirvieron como base para programar el **Motor de Scoring** y el cálculo del **Sistema Francés**:
+
+1. **Tarifario Oficial:** [https://www.bancofalabella.pe/tasas-tarifas](https://www.bancofalabella.pe/tasas-tarifas)
+2. **Fórmulas y Ejemplos (SBS):** [https://www.bancofalabella.pe/formulas-y-ejemplos](https://www.bancofalabella.pe/formulas-y-ejemplos)
+
+Todo el código de amortización (ver `core-backend/app/rules/scoring_rules.py`) ha sido calibrado utilizando los ejemplos de las fórmulas oficiales de este portal.
+
+---
+
+## 3. ARQUITECTURA DEL SISTEMA
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐

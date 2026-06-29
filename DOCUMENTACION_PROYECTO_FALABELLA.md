@@ -1,9 +1,14 @@
 # 🏦 DOCUMENTACIÓN OFICIAL INTEGRAL — SISTEMA CORE BANCARIO & HOMEBANKING OMNICANAL
+**Autor del Proyecto:** Diego Tornero Bermudez  
 **Entidad Bancaria Modelada:** Banco Falabella Perú S.A.  
 **Evaluación Académica:** Informe Final Completo — Requerimientos (Semana 9 a 13) y Reto de Ciberseguridad (Semana 14)  
 **Arquitectura del Sistema:** Microservicios REST (Core Financiero Backend + Portal Clientes Homebanking + Bases de Datos PostgreSQL Cloud)
 
 ---
+
+> **Nota de Investigación de Campo:** Durante el levantamiento de requerimientos en ventanilla del Banco Falabella, el personal de plataforma derivó nuestra investigación hacia los tarifarios y ejemplos matemáticos oficiales regulados por la SBS, los cuales fueron la base para programar este sistema:
+> 1. [https://www.bancofalabella.pe/tasas-tarifas](https://www.bancofalabella.pe/tasas-tarifas)
+> 2. [https://www.bancofalabella.pe/formulas-y-ejemplos](https://www.bancofalabella.pe/formulas-y-ejemplos)
 
 ## 📑 ÍNDICE GENERAL DE LA DOCUMENTACIÓN
 1. [Tarifario Oficial del Producto, Cálculo TEM/TEA y Evidencia en Código](#1-tarifario-oficial-del-producto-cálculo-temtea-y-evidencia-en-código)
