@@ -153,8 +153,8 @@ def solicitar_credito_empresarial(
             "plazo_meses": data.plazo_meses,
             "cobra_seguro_desgravamen": data.cobra_seguro_desgravamen,
         }
-        CORE_API_URL = os.getenv("CORE_API_URL", "http://127.0.0.1:8001")
-        res = requests.post(f"{CORE_API_URL}/scoring/evaluar-empresarial", json=core_payload, timeout=5)
+        CORE_API_URL = os.getenv("CORE_API_URL", "https://core-backend-g43c.onrender.com")
+        res = requests.post(f"{CORE_API_URL}/scoring/evaluar-empresarial", json=core_payload, timeout=35)
         if res.status_code == 200:
             core_data = res.json()
             credito.estado = core_data.get("estado", "enviado")
