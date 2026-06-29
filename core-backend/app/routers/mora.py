@@ -53,11 +53,21 @@ def get_bandeja_mora(
 
 
 def _format_credito_mora(c: Credito) -> dict:
+    # Soporte para créditos personales (usuario) y empresariales (empresa)
+    if c.usuario:
+        nombre = f"{c.usuario.nombre} {c.usuario.apellido}"
+        dni = c.usuario.dni
+    elif c.empresa:
+        nombre = c.empresa.razon_social or "Empresa S/N"
+        dni = f"RUC: {c.empresa.ruc}" if c.empresa.ruc else "—"
+    else:
+        nombre = "Cliente no identificado"
+        dni = "—"
     return {
         "id": c.id,
-        "usuario_nombre": f"{c.usuario.nombre} {c.usuario.apellido}",
-        "usuario_dni": c.usuario.dni,
-        "monto": round(float(c.monto_aprobado or c.monto_solicitado), 2),
+        "usuario_nombre": nombre,
+        "usuario_dni": dni,
+        "monto": round(float(c.monto_aprobado or c.monto_solicitado or 0.0), 2),
         "dias_mora": c.dias_mora,
         "banda_mora": c.banda_mora,
         "estado": c.estado,
