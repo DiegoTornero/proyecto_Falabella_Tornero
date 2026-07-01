@@ -17,6 +17,11 @@ def get_todos(db: Session = Depends(get_db), current_user = Depends(get_current_
 
 @router.get("/{usuario_id}")
 def get_creditos(usuario_id: str, db: Session = Depends(get_db), current_user = Depends(get_current_user)):
+    from fastapi import HTTPException
+    # 🔥 DEFENSA IDOR: Verificar que el ID solicitado coincida con el Token
+    if str(current_user.id) != usuario_id and current_user.dni != usuario_id:
+        raise HTTPException(status_code=403, detail="No tiene permisos para acceder a los recursos de este usuario")
+        
     return credito_service.get_creditos(db, usuario_id)
 
 
