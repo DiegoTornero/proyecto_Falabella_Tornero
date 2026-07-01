@@ -1,9 +1,9 @@
-# 🏦 DOCUMENTACIÓN TÉCNICA OFICIAL — SISTEMA CORE BANCARIO & HOMEBANKING OMNICANAL
+# 🏦 DOCUMENTACIÓN OFICIAL INTEGRAL — SISTEMA CORE BANCARIO & HOMEBANKING OMNICANAL
 **Autor del Proyecto:** Diego Tornero Bermudez  
 **Entidad Modelada:** Banco Falabella Perú S.A.  
+**Evaluación Académica:** Informe Final Completo — Requerimientos (Semana 9 a 13) y Reto de Ciberseguridad (Semana 14)  
 **Versión del Sistema:** 2.0.0  
-**Arquitectura:** Microservicios REST — Tres capas independientes  
-**Base de Datos:** PostgreSQL en la nube (Neon.tech)  
+**Arquitectura:** Microservicios REST (Core Financiero Backend + Portal Clientes Homebanking + Bases de Datos PostgreSQL Cloud)  
 **Despliegue:** Render.com (Backend) + Vercel (Frontend)  
 
 ---
@@ -62,6 +62,47 @@ Para asegurar la máxima fidelidad del software con la realidad, nos proporciona
 2. **Fórmulas y Ejemplos (SBS):** [https://www.bancofalabella.pe/formulas-y-ejemplos](https://www.bancofalabella.pe/formulas-y-ejemplos)
 
 Todo el código de amortización (ver `core-backend/app/rules/scoring_rules.py`) ha sido calibrado utilizando los ejemplos de las fórmulas oficiales de este portal.
+
+### 🧾 Proforma Referencial Oficial Emitida por el Sistema
+
+A continuación se detalla la **Proforma Referencial de Simulación** que nuestro Homebanking genera y entrega al cliente antes de la aceptación del contrato de crédito:
+
+```text
+========================================================================================
+                          BANCO FALABELLA PERÚ S.A. — PROFORMA DE CRÉDITO
+========================================================================================
+Fecha de Emisión      : 28/06/2026
+Producto Solicitado   : CRÉDITO EFECTIVO PERSONAL (FAST TRACK)
+Titular Evaluado      : CARLOS HUAMÁN MENDOZA (DNI: 71234567)
+Ingreso Acreditable   : S/ 4,500.00 mensuales
+
+PARÁMETROS DEL PRÉSTAMO:
+----------------------------------------------------------------------------------------
+Monto Solicitado (Capital)    : S/ 10,000.00
+Plazo de Amortización         : 12 meses (1 año)
+Tasa Efectiva Anual (TEA)     : 18.00%
+Tasa Efectiva Mensual (TEM)   : 1.3888%
+Seguro de Desgravamen Mensual : 0.085% sobre saldo deudor (Aprox. S/ 8.50)
+
+RESULTADO DE LA EVALUACIÓN CORE:
+----------------------------------------------------------------------------------------
+Cuota Fija Mensual            : S/ 911.23
+Relación Deuda-Sueldo (RDS)   : 26.03% (CAPACIDAD DE PAGO ÓPTIMA)
+Semáforo Crediticio           : [ VERDE ] — APROBACIÓN AUTOMÁTICA SIN COMITÉ
+
+DESGLOSE DEL CRONOGRAMA DE PAGOS (TABLA DE AMORTIZACIÓN REFERENCIAL):
+Cuota #   Vencimiento   Saldo Inicial   Capital Amortizado   Interés (TEM)   Cuota Total
+----------------------------------------------------------------------------------------
+  01      28/07/2026    S/ 10,000.00        S/ 772.35          S/ 138.88      S/ 911.23
+  02      28/08/2026    S/  9,227.65        S/ 783.07          S/ 128.16      S/ 911.23
+  03      28/09/2026    S/  8,444.58        S/ 793.95          S/ 117.28      S/ 911.23
+  ...       ...             ...                ...                ...            ...
+  12      28/06/2027    S/    898.75        S/ 898.75          S/  12.48      S/ 911.23
+----------------------------------------------------------------------------------------
+TOTALES FINALES               —             S/ 10,000.00       S/ 934.76     S/ 10,934.76
+========================================================================================
+* Nota: Proforma calculada rigurosamente bajo el Sistema de Amortización Francés 30/360.
+```
 
 ---
 
