@@ -823,7 +823,7 @@ VITE_API_URL=https://core-backend-g43c.onrender.com
 |---|---|---|
 | Portal Homebanking (Clientes) | https://proyecto-falabella-tornero-ja2i.vercel.app | ✅ Activo |
 | Core Bancario (Analistas) | https://proyecto-falabella-tornero-nqff.vercel.app | ✅ Activo |
-| Portal Backend API | https://[portal-backend].onrender.com | ✅ Activo |
+| Portal Backend API | https://portal-backend-k4ak.onrender.com | ✅ Activo |
 | Core Backend API | https://core-backend-g43c.onrender.com | ✅ Activo |
 | Repositorio GitHub | https://github.com/DiegoTornero/proyecto_Falabella_Tornero | ✅ Público |
 
